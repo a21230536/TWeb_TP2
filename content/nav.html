@@ -7,11 +7,19 @@
 </ul>
 
 <script type="text/javascript">
+	// evento do click do rato sobre item do menu
 	$('#main-menu li').click(function(){
-		$(this).addClass('selected')
-			.siblings().removeClass('selected');
-		
-		var section = $(this).find('a').attr('href').substring(1);
-		$("#content").load("/TWeb_TP2/content/section." + section + ".html");
+		$(this).addClass('selected').siblings().removeClass('selected');
 	});
+
+	// evento de mudança de hash 
+	// O que é a hash? em 'http://exemplo.pt/#home', a hash é '#home'.
+	window.onhashchange = function(){
+		$("a[href="+location.hash+"]").click();
+		var section = location.hash.substring(1);
+		$("#content").load("/TWeb_TP2/content/section." + section + ".html");
+	};
+	
+	// carregar a secção pedida se for diferente de #home (secção inicial)
+	if(location.hash != "#home") window.onhashchange();
 </script>
