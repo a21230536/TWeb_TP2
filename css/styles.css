@@ -26,6 +26,7 @@ li.selected{
 
 li.selected a{
 	/*color: white;*/
+	cursor: default;
 }
 
 a{
@@ -48,7 +49,7 @@ a{
 	width: 640px;
 	padding: 0px;
 	margin: 0px;
-	border: dashed rgba(128, 128, 128,.5) 1px;
+	border: none;/* dashed rgba(128, 128, 128,.5) 1px;*/
 }
 
 ul,
@@ -63,13 +64,14 @@ aside{
 
 section{
 	background-color:rgba(128,158,128,.25);
-	display: none;
 }
 
+/*
 section.selected{
 	display: block;
 	background-color:rgba(128,158,128,.5);
 }
+*/
 
 aside{
 	display: inline-block;
@@ -77,4 +79,3 @@ aside{
 	height: auto;
 	width: 160px;
 }
-

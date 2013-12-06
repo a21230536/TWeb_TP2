@@ -1,7 +1,17 @@
-<ul>
+<ul id="main-menu">
 	<li class="selected"><a href="#home">#home</a></li>
 	<li><a href="#embassy">#embassy</a></li>
 	<li><a href="#turism">#turism</a></li>
 	<li><a href="#info">#info</a></li>
 	<li><a href="#contacts">#contacts</a></li>
 </ul>
+
+<script type="text/javascript">
+	$('#main-menu li').click(function(){
+		$(this).addClass('selected')
+			.siblings().removeClass('selected');
+		
+		var section = $(this).find('a').attr('href').substring(1);
+		$("#content").load("/TWeb_TP2/content/section." + section + ".html");
+	});
+</script>
