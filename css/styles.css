@@ -19,7 +19,7 @@ ul, li{
 }
 
 li{
-	padding: 5px 10px;
+	padding: 5px 12px;
 	border-radius: 5px;
 	margin: 0 3px;
 	background-color:rgba(128,158,128,.25);
@@ -49,7 +49,7 @@ li.selected a{
 
 #content{
 	display: inline-block;
-	width: 640px;
+	width: 800px;
 	padding: 0px;
 	margin: 0px;
 	border: none;/* dashed rgba(128, 128, 128,.5) 1px;*/
@@ -61,7 +61,7 @@ footer,
 header,
 aside{
 	padding: 10px;
-	border: solid rgba(123,132,213,.25) 1px;
+	border: solid rgba(123,132,213,.1) 1px;
 	margin: 5px;
 }
 
@@ -69,16 +69,18 @@ section{
 	background-color:rgba(128,158,128,.25);
 }
 
-/*
-section.selected{
-	display: block;
-	background-color:rgba(128,158,128,.5);
-}
-*/
-
 aside{
 	display: inline-block;
 	vertical-align: top;
 	height: auto;
-	width: 160px;
+	max-width: 200px;
+	border: solid rgba(123,132,213,.1) 1px;
+	text-align: left;
+    display: none;
+}
+
+pre{
+	word-wrap: break-word;/*normal|break-word*/
+	text-wrap: unrestricted;/*normal|break-word*/
+	font-size: 90%;
 }

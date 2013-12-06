@@ -8,4 +8,4 @@ $("#footer").load("/TWeb_TP2/content/footer.html");
 
 $("#content").load("/TWeb_TP2/content/section.home.html");
 
-//$("aside").get(0).load("/TWeb_TP2/content/aside.html");
+$("aside").load("/TWeb_TP2/content/aside.html");
