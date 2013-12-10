@@ -6,6 +6,6 @@ $("#nav").load("/TWeb_TP2/content/nav.html");
 
 $("#footer").load("/TWeb_TP2/content/footer.html");
 
-$("#content").load("/TWeb_TP2/content/section.home.html");
+$("#section").load("/TWeb_TP2/content/section.home.html");
 
 $("aside").load("/TWeb_TP2/content/aside.html");

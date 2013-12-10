@@ -1,50 +1,36 @@
-<section class="selected">
-	<header>EMBAIXADA</header>
-	<article>
-		<h1>Residência da Embaixada de Portugal</h1>
-		<p>
-A residência da Embaixada de Portugal será construída no sector Embaixadas Sul, em Brasília, no lote que pertence a Portugal. O projecto conta com quatro elementos construídos em redor de um pátio interior. As áreas principais situam-se nas alas Norte e Sul. As alas Este e Oeste destinam-se a serviços técnicos e aos acessos.
-Todo o edifício se encontra elevado acima do nível do solo, apoiando-se em pilares afastados entre si 10 e 15 metros. 
-</p>
-<p>
-Estes vãos requerem a utilização de lajes pré-esforçadas. As áreas secundárias também se situam ao mesmo nível, e vencem, sem qualquer apoio intermédio, o vão de 45 metros que separa os corpos principais, apoiando-se nestes.
-		</p>
-		<figure>
-		  <img src="images/residencia.jpg" alt="Maquete da Residência da Embaixada">
-		  <figcaption>Residência da Embaixada de Portugal em Brasília</figcaption>
-		</figure>
-	</article>
-	<footer></footer>
-</section>
-
+<header>EMBAIXADA</header>
+<div class="body"><!-- para os artigos --></div>
+<footer>roda-pé</footer>
+<script type="text/javascript">
+    $('<article class="residencia selected">').load('content/article.residencia.html').appendTo("div.body");
+    $('<article class="consular">').load('content/article.rede_consular.html').appendTo("div.body");
+</script>
 <style type="text/css">
-article h1{
-	text-align: left;
-}
-
-article p {
-    font-weight: normal;
-/*    
-font-family: Arial, Helvetica, sans-serif;
-line-height: 1.2em;
-color: rgb(48, 30, 18);
-*/
-    font-size: .9em;
-    text-align: justify;
-}
-
-figure {
-  border: thin silver solid;
-  margin: 0.5em;
-  padding: 0.5em;
-  display: inline-block;
-}
-
-figcaption {
-  text-align: right;
-  font-style: italic;
-  font-size: smaller;
-  font-family: serif;
-  text-indent: 0;
-}
+    article{
+        display: none;
+    }
+    article.selected{
+        display: block;
+    }
+    article h1{
+        text-align: left;
+    }
+    article p {
+        font-weight: normal;
+        font-size: .9em;
+        text-align: justify;
+    }
+    figure {
+      border: thin silver solid;
+      margin: 0.5em;
+      padding: 0.5em;
+      display: inline-block;
+    }
+    figcaption {
+      text-align: right;
+      font-style: italic;
+      font-size: smaller;
+      font-family: serif;
+      text-indent: 0;
+    }
 </style>
