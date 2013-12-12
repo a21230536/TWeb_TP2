@@ -5,24 +5,12 @@
 	<li><a href="#info">Informação</a></li>
 	<li><a href="#contacts">Contactos</a></li>
 </ul>
-
 <script type="text/javascript">
-    //1. função que carrega uma secção
-    var loadSection = function(){
-        $("a[href=" + location.hash + "]").click();
-        $("#section").load("/TWeb_TP2/content/section." + location.hash.substring(1) + ".html");
-    };
+	$('#main-menu a').click(TP2.menuItem.click);
 
-	//3. evento do click do rato sobre um item do menu principal
-	$('#main-menu li').click(function(){
-		if($(this).hasClass('selected')) return;
-		$(this).addClass('selected').siblings().removeClass('selected');
-	});
-
-	//2. carrega a secção pedida (se for diferente da secção inicial #home)
-    if(location.hash != "#home") loadSection();
-
-    //4. evento global de mudança de hash
-    // o que é uma hash? em 'http://exemplo.pt/#home', a hash é '#home'
-    window.onhashchange = loadSection;
+    // carrega a secção pedida quando diferente de #home
+    if(location.hash != "#home"){
+        TP2.menuItem.toggle();
+        TP2.section();
+    }
 </script>

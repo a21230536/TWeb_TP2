@@ -1,25 +1,28 @@
 <!doctype html>
 <html lang="pt">
-<head>
-	<meta charset="utf-8">
-	<title>Embaixada de Portugal em Brasília</title>
-	<link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
-	<!--[if lt IE 9]>
-	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js">
-	</script>
-	<![endif]-->
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
-	<link rel="stylesheet" type="text/css" href="css/fonts/opensans.css">
-</head>
-<body>
-	<div id="body">
-		<header id="header"><!-- Cabeçalho --></header>
-		<nav id="nav"><!-- Menu Principal --></nav>
-		<section id="section" class="selected"><!-- Secção --></section>
-		<aside><!-- Barra Lateral --></aside>
-		<footer id="footer"><!-- Rodapé --></footer>
+    <head>
+        <meta charset="utf-8">
+        <title>Embaixada de Portugal em Brasília</title>
+        <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/fonts/opensans.css">
+    </head>
+    <body>
+        <div id="body">
+            <header id="header"><!-- Cabeçalho --></header>
+            <nav id="nav"><!-- Menu Principal --></nav>
+            <section id="section" class="selected"><!-- Seção --></section>
+            <aside><!-- Barra Lateral --></aside>
+            <footer id="footer"><!-- Rodapé --></footer>
+        </div>
         <script src="js/jquery/jquery-2.0.3.js"></script>
-		<script src="js/index.js"></script>
-	</div>
-</body>
+        <script src="js/index.js"></script>
+        <script type="text/javascript">
+            TP2.header("/TWeb_TP2/content/header.html");
+            TP2.footer("/TWeb_TP2/content/footer.html");
+            TP2.nav("/TWeb_TP2/content/nav.html");
+            TP2.aside("/TWeb_TP2/content/aside.html");
+            TP2.section("#home");
+        </script>
+    </body>
 </html>

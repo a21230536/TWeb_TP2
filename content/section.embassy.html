@@ -1,17 +1,8 @@
 <header>EMBAIXADA</header>
-<div class="body"><!-- para os artigos --></div>
+<div class="body"><!-- artigos --></div>
 <footer>roda-pé</footer>
-<script type="text/javascript">
-    $('<article class="residencia selected">').load('content/article.residencia.html').appendTo("div.body");
-    $('<article class="consular">').load('content/article.rede_consular.html').appendTo("div.body");
-</script>
+
 <style type="text/css">
-    article{
-        display: none;
-    }
-    article.selected{
-        display: block;
-    }
     article h1{
         text-align: left;
     }
@@ -34,3 +25,8 @@
       text-indent: 0;
     }
 </style>
+
+<script type="text/javascript">
+    TP2.article("residencia");
+    TP2.article("rede_consular", 1);
+</script>

@@ -1,30 +1,8 @@
 <header>DESTAQUE</header>
-<div class="body"><!-- para os artigos --></div>
+<div class="body"><!-- artigos --></div>
 <footer>roda-pé</footer>
-<script type="text/javascript">
-    $('<article class="featured selected">').load('content/article.00.html').appendTo("div.body");
-    $('<article class="featured selected">').load('content/article.01.html').appendTo("div.body");
-</script>
+
 <style type="text/css">
-    article{
-        display: none;
-        width: 34%;
-    }
-    article:first-child{
-        width: 100%;
-        clear: both;
-    }
-    article.selected{
-        display: block;
-    }
-    article h1{
-        text-align: left;
-    }
-    article p {
-        font-weight: normal;
-        font-size: .9em;
-        text-align: justify;
-    }
     figure {
         border: thin silver solid;
         margin: 0.5em;
@@ -39,3 +17,9 @@
         text-indent: 0;
     }
 </style>
+
+<script type="text/javascript">
+    TP2.article("00");
+    TP2.article("01");
+    TP2.article("fado");
+</script>

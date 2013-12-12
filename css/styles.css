@@ -1,11 +1,20 @@
+html {
+    overflow-y: scroll;
+}
 body{
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	background-color: rgb(241,247,244);
-	color: rgb(66,66,66);
+    /*background: -webkit-linear-gradient(rgb(201,207,204), rgb(241,247,244));  For Safari */
+    /*background: -o-linear-gradient(rgb(201,207,204), rgb(241,247,244)); For Opera 11.1 to 12.0 */
+    /*background: -moz-linear-gradient(rgb(201,207,204),rgb(241,247,244)); For Firefox 3.6 to 15 */
+    /*background: linear-gradient(rgb(241,247,244), rgb(191,197,194));  Standard syntax */
+    background: rgb(231,237,234);
+    color: rgb(66,66,66);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
+    width: 100%;
+    vertical-align: top;
 }
 a {
 	text-decoration: none;
@@ -54,10 +63,11 @@ li a:hover{
 	margin: 20px auto;
 	padding: 10px;
 	width: auto;
-    background: rgba(255,255,255,.9) url('../images/bk_escudo.png') no-repeat bottom right;
+    background: rgb(255,255,255) url('../images/bk_escudo.png') no-repeat bottom right;
 	border: solid rgba(128,128,128,.33) 1px;
 	box-shadow: 0 0 7px rgba(128, 128, 128, .30);
 	border-radius: 5px;
+    vertical-align: top;
 }
 #section{
 	display: inline-block;
@@ -89,8 +99,30 @@ pre{
 	font-size: 90%;
 }
 /* article */
-div.article.wrapper{
+article{
+    display: none;
+    width: 33.33%;
+    /*float: left;*/
+    background-color: rgba(255,255,255,.5);
+}
+article:first-child{
+    width: 100%;
+    clear: both;
+}
+article.selected{
+    display: inline-block;
+    vertical-align: top;
+}
+article h1{
     text-align: left;
+}
+article p {
+    font-weight: normal;
+    font-size: .9em;
+    text-align: justify;
+}
+div.article.wrapper{
+    /*text-align: left;*/
     padding: 0px;
     margin: 10px 15px;
     border: solid rgba(128,128,0,0.25) 1px;
