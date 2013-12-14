@@ -6,11 +6,6 @@
 	<li><a href="#contacts">Contactos</a></li>
 </ul>
 <script type="text/javascript">
-	$('#main-menu a').click(TP2.menuItem.click);
-
-    // carrega a secção pedida quando diferente de #home
-    if(location.hash != "#home"){
-        TP2.menuItem.toggle();
-        TP2.section();
-    }
+    // carrega conteúdo se a seção pedida for diferente de #home
+    if(location.hash != "#home") TP2.section(location.hash);
 </script>

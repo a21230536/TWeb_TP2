@@ -9,20 +9,27 @@
     </head>
     <body>
         <div id="body">
-            <header id="header"><!-- Cabeçalho --></header>
-            <nav id="nav"><!-- Menu Principal --></nav>
-            <section id="section" class="selected"><!-- Seção --></section>
+            <header><!-- Cabeçalho --></header>
+            <nav><!-- Menu Principal --></nav>
+            <section><!-- Seção --></section>
             <aside><!-- Barra Lateral --></aside>
-            <footer id="footer"><!-- Rodapé --></footer>
+            <footer><!-- Rodapé --></footer>
         </div>
         <script src="js/jquery/jquery-2.0.3.js"></script>
         <script src="js/index.js"></script>
         <script type="text/javascript">
-            TP2.header("/TWeb_TP2/content/header.html");
-            TP2.footer("/TWeb_TP2/content/footer.html");
-            TP2.nav("/TWeb_TP2/content/nav.html");
-            TP2.aside("/TWeb_TP2/content/aside.html");
-            TP2.section("#home");
+            TP2 = new Situs({
+                header: "content/header.html",
+                footer: "content/footer.html",
+                nav: "content/nav.html",
+                aside: "content/aside.html",
+                section: "#home"
+            });
+            //! development
+            if(0) TP2.css({
+                border: "solid rgba(255,0,0,.1) 2px",
+                margin: 1
+            });
         </script>
     </body>
 </html>
