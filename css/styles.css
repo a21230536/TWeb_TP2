@@ -8,7 +8,7 @@ body{
     /*background: -webkit-linear-gradient(rgb(201,207,204), rgb(241,247,244));  For Safari */
     /*background: -o-linear-gradient(rgb(201,207,204), rgb(241,247,244)); For Opera 11.1 to 12.0 */
     /*background: -moz-linear-gradient(rgb(201,207,204),rgb(241,247,244)); For Firefox 3.6 to 15 */
-    /*background: linear-gradient(rgb(241,247,244), rgb(191,197,194));  Standard syntax */
+    background: linear-gradient(rgb(241,247,244), rgb(191,197,194));/*  Standard syntax */
     background: rgb(231,237,234);
     color: rgb(66,66,66);
 	font-family: 'Open Sans', sans-serif;
@@ -20,6 +20,7 @@ a {
 	text-decoration: none;
 	font-family:'Open Sans', sans-serif;
 	font-weight: 600;
+
 }
 a:hover{
     text-decoration: underline;
@@ -39,13 +40,14 @@ li{
     /* -webkit-transition: background-color 1.5s; Safari */
 }
 li:hover{
-    background-color:rgba(128,158,128,.25);
+    background-color: rgba(128,158,128,.5);
 }
 li.selected{
-    background-color:rgba(128,158,128,.5);
+    background-color: rgba(8,38,8,.7);
+    color: rgba(255,255,255,.9);
 }
 li a{
-   color: inherit;
+    color: rgba(8,38,8,.7);
 }
 
 li.selected a{
@@ -64,41 +66,55 @@ li a:hover{
 	padding: 10px;
 	width: auto;
     background: rgb(255,255,255) url('../images/bk_escudo.png') no-repeat bottom right;
-	border: solid rgba(128,128,128,.33) 1px;
+    /*background-color: rgba(128,158,128,.25);*/
+    border: solid rgba(128,128,128,.33) 1px;
 	box-shadow: 0 0 7px rgba(128, 128, 128, .30);
 	border-radius: 5px;
     vertical-align: top;
 }
-#section{
+#body section{
 	display: inline-block;
-	width: 800px;
+    border-right: solid rgba(130,130,130,.25) 1px;
+	width: 652px;
 }
-ul,
-section, 
-footer, 
+section,
+footer,
 header,
-aside{
-	padding: 10px;
-	border: solid rgba(123,132,213,.1) 1px;
-	margin: 5px;
+aside,
+nav{
+    margin: 0px;
+    padding: 10px;
 }
-section{
-	background-color: rgba(128,158,128,.25);
+#body > footer{
+    border-top: solid rgba(130,130,130,.25) 1px;;
 }
+header{
+    border: none;
+}
+nav{
+    border: none;
+    border-top: solid rgba(130,130,130,.25) 1px;
+    border-bottom: solid rgba(130,130,130,.25) 1px;
+}
+
+nav ul{
+    width: 100%;
+}
+
 aside{
-	/*display: inline-block;*/
 	vertical-align: top;
 	height: auto;
-	max-width: 200px;
-	border: solid rgba(123,132,213,.1) 1px;
+	max-width: 208px;
+    min-width: 108px;
+    width: 208px;
+	border: none;
 	text-align: left;
-    display: none;
+    display: inline-block;
 }
 pre{
 	word-wrap: break-word;
 	font-size: 90%;
 }
-/* article */
 article{
     display: none;
     width: 33.33%;
@@ -122,10 +138,9 @@ article p {
     text-align: justify;
 }
 div.article.wrapper{
-    /*text-align: left;*/
     padding: 0px;
     margin: 10px 15px;
-    border: solid rgba(128,128,0,0.25) 1px;
+    /*border: solid rgba(128,128,0,0.25) 1px;*/
 }
 div.article.wrapper h2{
 
