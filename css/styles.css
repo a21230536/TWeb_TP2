@@ -5,84 +5,51 @@ body{
 	margin: 0;
 	padding: 0;
 	text-align: center;
+    vertical-align: top;
     /*background: -webkit-linear-gradient(rgb(201,207,204), rgb(241,247,244));  For Safari */
     /*background: -o-linear-gradient(rgb(201,207,204), rgb(241,247,244)); For Opera 11.1 to 12.0 */
     /*background: -moz-linear-gradient(rgb(201,207,204),rgb(241,247,244)); For Firefox 3.6 to 15 */
-    background: linear-gradient(rgb(241,247,244), rgb(191,197,194));/*  Standard syntax */
-    background: rgb(231,237,234);
+    /* background: linear-gradient(rgb(241,247,244), rgb(191,197,194)); Standard syntax */
+    background-color: rgb(231,237,234);
     color: rgb(66,66,66);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
     width: 100%;
-    vertical-align: top;
+    font-size: 14px;
+    line-height: 22px;
 }
 a {
 	text-decoration: none;
+    color: rgba(128, 8, 8,.7);
 	font-family:'Open Sans', sans-serif;
 	font-weight: 600;
-
 }
 a:hover{
     text-decoration: underline;
 }
-ul,
-li {
-	padding: 0;
-	margin: 0;
-	list-style: none;
-	display: inline-block;
-}
-li{
-	padding: 5px 12px;
-	border-radius: 5px;
-	margin: 0 3px;
-    transition: background-color 1.5s;
-    /* -webkit-transition: background-color 1.5s; Safari */
-}
-li:hover{
-    background-color: rgba(128,158,128,.5);
-}
-li.selected{
-    background-color: rgba(8,38,8,.7);
-    color: rgba(255,255,255,.9);
-}
-li a{
-    color: rgba(8,38,8,.7);
-}
 
-li.selected a{
-	color: inherit;
-	cursor: default;
-}
-li.selected a:active{
-	color: inherit;
-}
-li a:hover{
-    text-decoration: none;
-}
 #body{
 	display: inline-block;
-	margin: 20px auto;
+	margin: 15px auto;
 	padding: 10px;
 	width: auto;
     background: rgb(255,255,255) url('../images/bk_escudo.png') no-repeat bottom right;
-    /*background-color: rgba(128,158,128,.25);*/
-    border: solid rgba(128,128,128,.33) 1px;
-	box-shadow: 0 0 7px rgba(128, 128, 128, .30);
+    /*border: solid rgba(128,128,128,.33) 1px;*/
+	/*box-shadow: 0 0 7px rgba(128, 128, 128, .30);*/
 	border-radius: 5px;
     vertical-align: top;
 }
 #body section{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
-	width: 652px;
+	width: 640px;
 }
 section,
 footer,
 header,
 aside,
 nav{
-    margin: 0px;
+    margin: 0;
     padding: 10px;
 }
 #body > footer{
@@ -91,34 +58,84 @@ nav{
 header{
     border: none;
 }
+footer:empty,
+header:empty{
+    display: none;
+}
+
+/*--------------
+    navegador
+---------------*/
 nav{
+    /*
     border: none;
     border-top: solid rgba(130,130,130,.25) 1px;
     border-bottom: solid rgba(130,130,130,.25) 1px;
+    background-color: white;
+    */
+    margin: 0 -11px;
+    background-color: rgb(231,237,234);
+    border: none;
 }
-
 nav ul{
     width: 100%;
 }
+ul,
+li {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: inline-block;
+}
+nav li{
+    padding: 5px 12px;
+    border-radius: 5px;
+    margin: 0 3px;
+    transition: background-color 1.5s;
+    -webkit-transition: background-color 1.5s;
+}
+nav li:hover{
+    background-color: rgba(128,158,128,.5);
+}
+nav li.selected{
+    background-color: rgba(8,38,8,.7);
+    color: rgba(255,255,255,.9);
+}
+nav li a{
+    color: rgba(8,38,8,.7);
+}
 
+nav li.selected a{
+    color: inherit;
+    cursor: default;
+}
+nav li.selected a:active{
+    color: inherit;
+}
+nav li a:hover{
+    text-decoration: none;
+}
+
+/*------------------
+    Barra Lateral
+--------------------*/
 aside{
 	vertical-align: top;
 	height: auto;
-	max-width: 208px;
+	max-width: 268px;
     min-width: 108px;
-    width: 208px;
+    width: 260px;
 	border: none;
 	text-align: left;
     display: inline-block;
 }
-pre{
-	word-wrap: break-word;
-	font-size: 90%;
-}
+
+/*-------------
+    article
+--------------*/
 article{
+    /*border: solid pink 1px;*/
     display: none;
-    width: 33.33%;
-    /*float: left;*/
     background-color: rgba(255,255,255,.5);
 }
 article:first-child{
@@ -128,23 +145,69 @@ article:first-child{
 article.selected{
     display: inline-block;
     vertical-align: top;
+    min-width: 33.33%;
 }
 article h1{
     text-align: left;
+    color: rgba(8,38,8,.7);
+    font-size: 1.25em;
 }
 article p {
     font-weight: normal;
     font-size: .9em;
-    text-align: justify;
+    /*text-align: justify;*/
+    text-align: left;
+    color: #444444;
+    vertical-align: middle;
 }
 div.article.wrapper{
-    padding: 0px;
+    padding: 0;
     margin: 10px 15px;
-    /*border: solid rgba(128,128,0,0.25) 1px;*/
-}
-div.article.wrapper h2{
-
 }
 div.article.wrapper img{
     width: 100%;
+}
+pre{
+    word-wrap: break-word;
+    font-size: 90%;
+}
+
+/*----------------------
+    Sombras da Página
+ *---------------------*/
+#body > nav,
+#body
+{
+    position:relative;
+    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+#body > nav:before,
+#body > nav:after,
+#body:before,
+#body:after
+{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    -moz-border-radius:100px / 10px;
+    border-radius:100px / 10px;
+}
+#body > nav:after,
+#body:after{
+    right:10px;
+    left:auto;
+    -webkit-transform:skew(8deg) rotate(3deg);
+    -moz-transform:skew(8deg) rotate(3deg);
+    -ms-transform:skew(8deg) rotate(3deg);
+    -o-transform:skew(8deg) rotate(3deg);
+    transform:skew(8deg) rotate(3deg);
 }
