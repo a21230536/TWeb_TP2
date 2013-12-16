@@ -1,3 +1,4 @@
+@import url("fonts/opensans.css");
 html {
     overflow-y: scroll;
 }
@@ -43,6 +44,7 @@ a:hover{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
 	width: 640px;
+    min-height: 300px;
 }
 section,
 footer,
@@ -63,10 +65,10 @@ header:empty{
     display: none;
 }
 
-/*--------------
-    navegador
----------------*/
-nav{
+/*------------------------
+    navegador de secções
+--------------------------*/
+#body > nav{
     /*
     border: none;
     border-top: solid rgba(130,130,130,.25) 1px;
@@ -91,30 +93,68 @@ nav li{
     padding: 5px 12px;
     border-radius: 5px;
     margin: 0 3px;
-    transition: background-color 1.5s;
-    -webkit-transition: background-color 1.5s;
+    transition: all 1.5s;
+    -webkit-transition: all 1.5s;
 }
-nav li:hover{
+#body > nav li:hover{
     background-color: rgba(128,158,128,.5);
 }
-nav li.selected{
+#body > nav li.selected{
     background-color: rgba(8,38,8,.7);
     color: rgba(255,255,255,.9);
 }
+
+#body > nav li.selected a{
+    color: inherit;
+    cursor: default;
+}
+
+#body > nav li.selected a:active{
+    color: inherit;
+}
+
 nav li a{
     color: rgba(8,38,8,.7);
 }
 
-nav li.selected a{
-    color: inherit;
-    cursor: default;
-}
-nav li.selected a:active{
-    color: inherit;
-}
 nav li a:hover{
     text-decoration: none;
 }
+
+
+/*------------------------
+    navegador de artigos
+--------------------------*/
+section > nav{
+    background: none;
+}
+section > nav ul{
+    border-bottom: solid rgb(221,227,224) 5px;
+    text-align: center;
+}
+section > nav ul > li{
+    border-radius: 0;
+    margin: 0;
+    padding-bottom: 2px;
+    padding-top: 0;
+    border-bottom: solid transparent 5px;
+    margin-bottom: -5px;
+}
+section > nav ul > li:hover{
+    background: none;
+    border-bottom-color: rgba(128,158,128,.5);
+}
+section > nav ul > li.selected{
+    background: none;
+    border-bottom-color: rgba(8,38,8,.7);
+
+}
+section > nav a{
+    font-size: 90%;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
 
 /*------------------
     Barra Lateral
@@ -210,4 +250,19 @@ pre{
     -ms-transform:skew(8deg) rotate(3deg);
     -o-transform:skew(8deg) rotate(3deg);
     transform:skew(8deg) rotate(3deg);
+}
+
+/* figure */
+figure {
+    border: thin silver solid;
+    margin: 0.5em;
+    padding: 0.5em;
+    display: inline-block;
+}
+figcaption {
+    text-align: right;
+    font-style: italic;
+    font-size: smaller;
+    font-family: serif;
+    text-indent: 0;
 }

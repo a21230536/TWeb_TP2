@@ -5,31 +5,26 @@
         <title>Embaixada de Portugal em Brasília</title>
         <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
         <link rel="stylesheet" type="text/css" href="css/styles.css">
-        <link rel="stylesheet" type="text/css" href="css/fonts/opensans.css">
     </head>
     <body>
-    <div id="body">
-            <header><!-- Cabeçalho --></header>
-            <nav><!-- Menu Principal --></nav>
-            <section><!-- Seção --></section>
-            <aside><!-- Barra Lateral --></aside>
-            <footer><!-- Rodapé --></footer>
+        <div id="body">
+            <header></header>
+            <nav>Embaixada de Portugal no Brasil</nav>
+            <section></section>
+            <aside></aside>
+            <footer></footer>
         </div>
         <script src="js/jquery/jquery-2.0.3.js"></script>
         <script src="js/index.js"></script>
         <script type="text/javascript">
-            TP2 = new Situs({
+            TP2 = new TWeb({
                 header: "content/header.html",
                 footer: "content/footer.html",
                 nav: "content/nav.html",
                 aside: "content/aside.html",
-                section: "#home"
+                section: "home"
             });
-            //! development
-            if(0) TP2.css({
-                border: "solid rgba(255,0,0,.1) 2px",
-                margin: 1
-            });
+            //TP2.css({ border: "solid rgba(255,0,0,.1) 2px", margin: 1 });
         </script>
     </body>
 </html>

@@ -1,1 +1,61 @@
-<pre>aside</pre>
+<video controls type="video/mp4" src="http://xn--stio-vpa.pt/TWeb_TP2/Portugal_The beauty of simplicity.mp4" poster="images/portugal-video_poster.png">
+    portugal-video_poster.png
+</video>
+<ul class="aside slides">
+    <li><img src="images/portugal/alentejo_31269_600x450.jpg"><span>Alentejo</span></li>
+    <li><img src="images/portugal/almourol_31272_600x450.jpg"><span>Almourol</span></li>
+    <li><img src="images/portugal/countryside_31304_600x450.jpg"><span>Montes</span></li>
+    <li><img src="images/portugal/azores_31274_600x450.jpg"><span>Açores</span></li>
+    <li><img src="images/portugal/fishing-nets_31293_600x450.jpg"><span>Redes de Pesca</span></li>
+    <li><img src="images/portugal/algarve_31270_600x450.jpg"><span>Algarve</span><li>
+    <li><img src="images/portugal/national-archaeology-museum_31290_600x450.jpg"><span>Museu Arqueológico</span></li>
+    <li><img src="images/portugal/douro-river_31284_600x450.jpg"><span>Rio Douro</li>
+    <li><img src="images/portugal/cabo-da-roca_31276_600x450.jpg"><span>Cabo da Roca</span></li>
+    <li><img src="images/portugal/almourol_31272_600x450.jpg"><span>Almourol</span></li>
+    <li><img src="images/portugal/camara-de-lobos_31277_600x450.jpg"><span>Câmara de Lobos</span></li>
+</ul>
+<!-- weather -->
+<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=38.7253&lon=-9.1500&name=LISBOA&units=ca"> </iframe>
+<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=41.1566&lon=-8.6239&name=PORTO&units=ca"> </iframe>
+<style type="text/css">
+    aside{
+         padding: 13px 5px;
+     }
+    aside video{
+        width:100%;
+        margin:0;
+        padding:1px;
+        background-color:silver;
+        margin-bottom: 5px;
+        /*box-shadow: 0 0 15px rgba(0,0,0,0.35);*/
+    }
+    ul.slides{
+        border: none;
+        width: 262px;
+        height: 200px;
+    }
+    ul.aside li {
+        border: none;
+        background-color: #ffffff;
+        position: absolute;
+        width: 262px;
+    }
+    ul.aside li > span{
+        position: relative;
+        top: -7px;
+        padding: 0px 8px 3px;
+        border-radius: 0 0 5px 5px;
+        background-color: rgb(231,237,234);
+    }
+    ul.aside li > img{
+        width: 260px;
+        height: 173px;
+        border: solid silver 1px;
+    }
+</style>
+<script type="text/javascript">
+    TP2.slideshow({
+        el: "aside ul.slides",
+        seconds: 6
+    });
+</script>
