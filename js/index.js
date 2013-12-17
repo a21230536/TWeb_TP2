@@ -1,3 +1,28 @@
+//JavaScript
+/*
+(function(a){window.TWeb=function(b){b=b||{};var d=function(a){a=a||{};for(var b in a)if("undefined"!=typeof this[b])this[b](a[b]);return this},c;for(c in a)d[c]=a[c];c={header:0,nav:0,footer:0,aside:0,section:"home"};for(var e in c)if("undefined"!=typeof b[e])d[e](b[e]);else d[e](c[e]);return d};window.onhashchange=function(){a.section()}})({header:function(a){return this._load("header",a)},footer:function(a){return this._load("footer",a)},nav:function(a){return this._load("nav",a)},aside:function(a){return this._load("aside",
+    a)},section:function(a){this._section?"undefined"==typeof a?a=location.hash:location.hash=a:a=a||location.hash;this._section=1;this._toggle();return this._load("section."+a.replace("#",""))},article:function(a,b){b=b||a+" selected";var d=$('<article class="'+b+'">').load("content/article."+a+".html");d.appendTo("div.articles");var c=$("<a>").html(a.replace(/\_/g," ")).click(function(){$("div.articles article").removeClass("selected");$(this).parent().addClass("selected").siblings().removeClass("selected");
+    d.addClass("selected")}),c=$("<li>").append(c);1!=b&&c.addClass("selected");c.appendTo("section > nav > ul");return this},css:function(a){this.header.$.css(a);this.footer.$.css(a);this.aside.$.css(a);this.section.$.css(a);this.nav.$.css(a)},slideshow:function(a){a=a||{};var b=$(a.el+" li");a.n=b.length-1;var d=a.n;setInterval(function(){var c=b[d];$(c).is(":visible")?$(c).fadeOut(1E3):$(c).fadeIn(1500,function(){b.show();d=a.n});0==--d&&(d=a.n)},1E3*a.seconds)},_toggle:function(a){a=a||$("a[href=%hash%]".replace("%hash%",
+    location.hash));a=a.parent();a.hasClass("selected")||a.addClass("selected").siblings().removeClass("selected")},_load:function(a,b){b=b||"content/"+a+".html";a.match(/^section/)&&(a="section");this[a].$=$(a).first().load(b);return this[a].$},_section:0});
+(function(url, callback){
+    // create a script element
+    var script = document.createElement('script');
+    script.setAttribute('type','text/JavaScript');
+    script.setAttribute('src',url);
+    // ie
+    script.onreadystatechange = function () {
+        if (this.readyState == 'complete') callback(script);
+    };
+    // other
+    script.onload = function (){
+        callback( script );
+    };
+    // append (load) the script
+    var head = document.getElementsByTagName("head");
+    head[0].appendChild(script);
+})("js/jquery/jquery-2.0.3.js")
+*/
+
 /**
  * Situs JavaScript Constructor
  * HTML5 Content Loading with jQuery
