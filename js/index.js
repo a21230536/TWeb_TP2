@@ -49,14 +49,13 @@
     article: function(article, cssClass){
         cssClass = cssClass || article + " selected";
         var $article = $('<article class="' + cssClass + '">')
-            .load('content/article.'+article+'.html');
+            .load('content/article.' + article + '.html');
         $article.appendTo("div.articles");
 
-        var $a = $("<a>").html(article).click(function(){
+        var $a = $("<a>").html(article.replace(/\_/g, " ")).click(function(){
             $("div.articles article").removeClass('selected');
             $(this).parent().addClass("selected").siblings().removeClass("selected");
             $article.addClass("selected");
-
         });
 
         var $li = $("<li>").append($a)
