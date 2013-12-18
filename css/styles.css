@@ -1,4 +1,5 @@
 @import url("fonts/opensans.css");
+
 html {
     overflow-y: scroll;
 }
@@ -28,15 +29,12 @@ a {
 a:hover{
     text-decoration: underline;
 }
-
 #body{
 	display: inline-block;
 	margin: 15px auto;
 	padding: 10px;
 	width: auto;
     background: rgb(255,255,255) url('../images/bk_escudo.png') no-repeat bottom right;
-    /*border: solid rgba(128,128,128,.33) 1px;*/
-	/*box-shadow: 0 0 7px rgba(128, 128, 128, .30);*/
 	border-radius: 5px;
     vertical-align: top;
 }
@@ -44,13 +42,9 @@ a:hover{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
 	width: 640px;
-    min-height: 300px;
+    /*min-height: 300px;*/
 }
-section,
-footer,
-header,
-aside,
-nav{
+section, footer, header, aside, nav{
     margin: 0;
     padding: 10px;
 }
@@ -60,8 +54,7 @@ nav{
 header{
     border: none;
 }
-footer:empty,
-header:empty{
+footer:empty, header:empty{
     display: none;
 }
 
@@ -69,12 +62,6 @@ header:empty{
     navegador de secções
 --------------------------*/
 #body > nav{
-    /*
-    border: none;
-    border-top: solid rgba(130,130,130,.25) 1px;
-    border-bottom: solid rgba(130,130,130,.25) 1px;
-    background-color: white;
-    */
     margin: 0 -11px;
     background-color: rgb(231,237,234);
     border: none;
@@ -82,12 +69,10 @@ header:empty{
 nav ul{
     width: 100%;
 }
-ul,
-li {
+ul, li {
     padding: 0;
     margin: 0;
     list-style: none;
-
 }
 nav li{
     display: inline-block;
@@ -104,24 +89,19 @@ nav li{
     background-color: rgba(8,38,8,.7);
     color: rgba(255,255,255,.9);
 }
-
 #body > nav li.selected a{
     color: inherit;
     cursor: default;
 }
-
 #body > nav li.selected a:active{
     color: inherit;
 }
-
 nav li a{
     color: rgba(8,38,8,.7);
 }
-
 nav li a:hover{
     text-decoration: none;
 }
-
 
 /*------------------------
     navegador de artigos
@@ -156,7 +136,6 @@ section > nav a{
     text-transform: uppercase;
 }
 
-
 /*------------------
     Barra Lateral
 --------------------*/
@@ -175,7 +154,6 @@ aside{
     article
 --------------*/
 article{
-    /*border: solid pink 1px;*/
     display: none;
     background-color: rgba(255,255,255,.5);
 }
@@ -196,7 +174,6 @@ article h1{
 article p {
     font-weight: normal;
     font-size: .9em;
-    /*text-align: justify;*/
     text-align: left;
     color: #444444;
     vertical-align: middle;
@@ -216,19 +193,13 @@ pre{
 /*----------------------
     Sombras da Página
  *---------------------*/
-#body > nav,
-#body
-{
+#body > nav, #body{
     position:relative;
     -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-#body > nav:before,
-#body > nav:after,
-#body:before,
-#body:after
-{
+#body > nav:before, #body > nav:after, #body:before,#body:after{
     content:"";
     position:absolute;
     z-index:-1;
@@ -242,8 +213,7 @@ pre{
     -moz-border-radius:100px / 10px;
     border-radius:100px / 10px;
 }
-#body > nav:after,
-#body:after{
+#body > nav:after, #body:after{
     right:10px;
     left:auto;
     -webkit-transform:skew(8deg) rotate(3deg);
@@ -253,7 +223,9 @@ pre{
     transform:skew(8deg) rotate(3deg);
 }
 
-/* figure */
+/*-----------
+    figure
+ *----------*/
 figure {
     border: thin silver solid;
     margin: 0.5em;

@@ -2,36 +2,36 @@
     <li>
         <ul class="lista-vertical">
             <a href="#">EMBAIXADA</a>
-            <li><a href="#">Nota de Boas Vindas</a></li>
-            <li><a href="#">A Residência da Embaixada</a></li>
+            <li><a href="#embassy/bem-vindo">Nota de Boas Vindas</a></li>
+            <li><a href="#embassy/residencia">A Residência da Embaixada</a></li>
             <li><a href="#">O Embaixador de Portugal</a></li>
-            <li><a href="#">A Rede Consular</a></li>
-            <li><a href="#">O Pessoal</a></li>
-            <li><a href="#">Turismo em Portugal</a></li>
-            <li><a href="#">Turismo no Brasil</a></li>
-            <li><a href="#">Endereços Úteis</a></li>
-            <li><a href="#">Conselhos a Viajantes</a></li>
-            <li><a href="#">Contactos</a></li>
+            <li><a href="#embassy/rede_consular">A Rede Consular</a></li>
+            <li><a href="#embassy/pessoal">O Pessoal</a></li>
+            <li><a href="#turism/portugal">Turismo em Portugal</a></li>
+            <li><a href="#turism/brasil">Turismo no Brasil</a></li>
+            <li><a href="#info/links">Endereços Úteis</a></li>
+            <li><a href="#info/conselhos_a_viajantes">Conselhos a Viajantes</a></li>
+            <li><a href="#contacts/localidade">Localização</a></li>
         </ul>
     </li>
     <li>
-        <ul class="lista-vertical">
-            <a href="#">REDE CONSULAR NO BRASIL</a>
-            <li><a href="#">Consulado em Belo Horizonte</a></li>
-            <li><a href="#">Secção Consular da Embaixada em Brasília</a></li>
-            <li><a href="#">Vice-Consulado em Curitiba</a></li>
-            <li><a href="#">Vice-Consulado em Porto Alegre</a></li>
-            <li><a href="#">Vice-Consulado em Recife</a></li>
-            <li><a href="#">Vice-Consulado em Fortaleza</a></li>
-            <li><a href="#">Consulado Geral no Rio de Janeiro</a></li>
-            <li><a href="#">Consulado Geral em São Paulo</a></li>
-            <li><a href="#">Consulado Geral em Salvador</a></li>
-            <li><a href="#">Consulado Honorário em São Luíz do Maranhão</a></li>
-            <li><a href="#">Consulado Honorário em Manaus </a></li>
+        <ul id="rede-consular-nav" class="lista-vertical">
+            <a href="#embassy/rede_consular">REDE CONSULAR NO BRASIL</a>
+            <li><a data-index="1">Consulado em Belo Horizonte</a></li>
+            <li><a data-index="2">Secção Consular da Embaixada em Brasília</a></li>
+            <li><a data-index="3">Vice-Consulado em Curitiba</a></li>
+            <li><a data-index="4">Vice-Consulado em Porto Alegre</a></li>
+            <li><a data-index="5">Vice-Consulado em Recife</a></li>
+            <li><a data-index="6">Vice-Consulado em Fortaleza</a></li>
+            <li><a data-index="7">Consulado Geral no Rio de Janeiro</a></li>
+            <li><a data-index="8">Consulado Geral em São Paulo</a></li>
+            <li><a data-index="9">Consulado Geral em Salvador</a></li>
+            <li><a data-index="10">Consulado Honorário em São Luíz do Maranhão</a></li>
+            <li><a data-index="11">Consulado Honorário em Manaus </a></li>
         </ul>
     </li>
     <li>
-        <ul class="lista-vertical">
+        <ul id="governo" class="lista-vertical">
             <a href="#">GOVERNO</a>
             <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/a-constituicao-da-republica/a-constituicao-da-republica.aspx" >A Constituição da República</a></li>
             <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-voto/o-voto.aspx">O voto</a></li>
@@ -46,7 +46,9 @@
         </ul>
     </li>
 </ul>
+
 <div style="text-align: left; font-size: 90%; margin-top: 20px; margin-bottom: -10px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-weight: 400; ">Copyright 2014 Embaixada de Portugal em Brasília, Ministério dos Negócios Estrangeiros de Portugal</div>
+
 <style type="text/css">
     footer > ul > li{
         display: inline-block;
@@ -64,6 +66,7 @@
         margin-bottom: 7px;
         cursor: default;
         text-decoration: none;
+        cursor: pointer;
         color: inherit;
     }
     ul.lista-vertical > li{
@@ -74,5 +77,29 @@
     ul.lista-vertical > li a{
         font-size: 90%;
         color: inherit;
+        opacity: .75;
+    }
+    ul.lista-vertical > li a:hover{
+        cursor: pointer;
+    }
+    #governo li a::before{
+        content:url('images/icon-external-link.png'); /* with class ModalCarrot ??*/
+        position:relative; /*or absolute*/
+        z-index:100000; /*a number that's more than the modal box*/
+        left:-5px;
+        top:0px;
     }
 </style>
+
+<script type="text/javascript">
+    $("#rede-consular-nav li > a").click(function(){
+        var index = $(this).attr("data-index");
+        TP2.section("#embassy/rede_consular", 0, function(){
+            setTimeout(function(){
+                $('html, body').animate({
+                    scrollTop: $("#rede-consular li:nth-child(%i%)".replace("%i%", index)).offset().top
+                }, 2000);
+            },300);
+        });
+    });
+</script>
