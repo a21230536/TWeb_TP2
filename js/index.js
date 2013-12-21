@@ -1,4 +1,4 @@
-$('<div id="screen">').css({
+/*$('<div id="screen">').css({
 	position:"absolute",
 	width:"100%",
 	margin:0,
@@ -11,7 +11,7 @@ $('<div id="screen">').css({
 
 $("#screen").click(function(){
 	$(this).fadeOut("fast")
-});
+});*/
 
 /**
  * TWeb - Content Loading with jQuery
