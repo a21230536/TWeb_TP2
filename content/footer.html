@@ -90,16 +90,9 @@
         top:0px;
     }
 </style>
-
 <script type="text/javascript">
     $("#rede-consular-nav li > a").click(function(){
         var index = $(this).attr("data-index");
-        TP2.section("#embassy/rede_consular", 0, function(){
-            setTimeout(function(){
-                $('html, body').animate({
-                    scrollTop: $("#rede-consular li:nth-child(%i%)".replace("%i%", index)).offset().top
-                }, 2000);
-            },300);
-        });
+        TP2.scroll("#embassy/rede_consular", index);
     });
 </script>
