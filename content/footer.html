@@ -1,17 +1,21 @@
 <ul>
     <li>
         <ul class="lista-vertical">
-            <a href="#">EMBAIXADA</a>
+            <a href="#">MAPA DO SÍTIO</a>
             <li><a href="#embassy/bem-vindo">Nota de Boas Vindas</a></li>
             <li><a href="#embassy/residencia">A Residência da Embaixada</a></li>
-            <li><a href="#">O Embaixador de Portugal</a></li>
             <li><a href="#embassy/rede_consular">A Rede Consular</a></li>
             <li><a href="#embassy/pessoal">O Pessoal</a></li>
+            <li><a href="#consular/vistos">Vistos</a></li>
+            <li><a href="#consular/cartao_do_cidadao">Cartão do Cidadão</a></li>
+            <li><a href="#consular/documentos">Documentação</a></li>
             <li><a href="#turism/portugal">Turismo em Portugal</a></li>
             <li><a href="#turism/brasil">Turismo no Brasil</a></li>
+            <li><a href="#info/trabalhar_no_brasil">Trabalhar no Brasil</a></li>
             <li><a href="#info/links">Endereços Úteis</a></li>
             <li><a href="#info/conselhos_a_viajantes">Conselhos a Viajantes</a></li>
             <li><a href="#contacts/localidade">Localização</a></li>
+            <li><a href="#contacts/contacto">Contacto</a></li>
         </ul>
     </li>
     <li>
@@ -32,7 +36,7 @@
     </li>
     <li>
         <ul id="governo" class="lista-vertical">
-            <a href="#">GOVERNO</a>
+            <a href="#">GOVERNO DE PORTUGAL</a>
             <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/a-constituicao-da-republica/a-constituicao-da-republica.aspx" >A Constituição da República</a></li>
             <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-voto/o-voto.aspx">O voto</a></li>
             <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-presidente-da-republica/o-presidente-da-republica.aspx">O Presidente da República</a></li>
@@ -46,19 +50,26 @@
         </ul>
     </li>
 </ul>
-
+<a style="float: right; cursor:pointer;padding: 0 10px;" onclick="scrollTo(0,0)">header</a>
 <div style="text-align: left; font-size: 90%; margin-top: 20px; margin-bottom: -10px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-weight: 400; ">Copyright 2014 Embaixada de Portugal em Brasília, Ministério dos Negócios Estrangeiros de Portugal</div>
-
 <style type="text/css">
     footer > ul > li{
         display: inline-block;
         vertical-align: top;
         padding: 10px;
         margin: 5px;
+        border: solid transparent 5px;
+        border-radius: 10px;
+        transition: all 1.5s;
+        -webkit-transition: all 1.5s;
+    }
+    footer > ul > li.selected{
+        border-color: rgba(8,38,8,.7);
+        background-color: rgb(231,237,234);
+        border-radius: 10px;
     }
     footer > ul > li:hover{
         background-color: rgba(231,237,234, .65);
-        border-radius: 5px;
     }
     ul.lista-vertical > a{
         text-align: center;

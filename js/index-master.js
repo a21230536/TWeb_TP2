@@ -26,6 +26,7 @@
  * @email jose.vieira.lisboa@gmail.com
  * @license Public
  */
+ /*
  $("<div id=\"screen\">").css({
     position: "absolute",
     width: "100%",
@@ -41,7 +42,7 @@
 $("#screen").click(function(){
     $(this).fadeOut("fast");
 });
-
+*/
 (function(situs){
     window.TWeb = function(content){
         content = content || {};
@@ -172,7 +173,6 @@ $("#screen").click(function(){
         if(_callback && callback) callback();
         return $article;
     },
-
     /* EFFECTS */
     css: function(css){
         this.header.$.css(css);
@@ -200,18 +200,31 @@ $("#screen").click(function(){
         var matches = this._match(section);
         if(!matches) return false;
         t = t || 2000;
+        var _this=this;
         var selector = "#%id% li:nth-child(%i%)";
         selector = selector.replace("%id%", matches[2]);
         selector = selector.replace("%i%", i);
         this.section(section, function(){
             setTimeout(function(){   
-                $('html, body').animate({
-                    scrollTop: $(selector).offset().top
-                }, t);
+                _this.scrollTo(selector);
             },300);
         });
     },
+    scrollTo: function(selector, t){
+        var $el = $(selector);
+        if(!$el.length) return false;
+        t = t || 2000;
 
+        $('html, body').animate({
+            scrollTop: $el.offset().top - 10
+        }, t);
+        setTimeout(function(){
+            $(selector).addClass("selected");
+            setTimeout(function(){
+                $(selector).removeClass("selected");
+            }, t);
+        }, t);
+    },
     /* HELPERS */ 
     _match: function(section){
         return section.match(/^(#[\w\-\_]+)\/([\w\-\_]+)$/i);
@@ -263,7 +276,7 @@ $("#screen").click(function(){
         // select article
         $("section div.articles article[data-name='%article%']".replace("%article%", article)).addClass("selected");        
         if(callback) callback();
-        else scroll(0,0);
+        else window.scroll(0,0);
         //$('html,body').scrollTop(0);
         //$('html, body').animate({ scrollTop: 0 }, 'fast');
     },
