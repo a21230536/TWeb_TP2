@@ -1,7 +1,7 @@
 @import url("fonts/opensans.css");
 
 #screen{
-  -webkit-mask-image: -webkit-gradient(linear, left top, 
+    -webkit-mask-image: -webkit-gradient(linear, left top,
         left bottom, from(rgba(0,0,0,.25)), to(rgba(0,0,0,0)));
 }
 html {
@@ -47,7 +47,7 @@ a:hover{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
 	width: 640px;
-    /*min-height: 300px;*/
+    min-height: 1000px;
 }
 section, footer, header, aside, nav{
     margin: 0;
@@ -151,7 +151,7 @@ aside{
     min-width: 108px;
     width: 260px;
 	border: none;
-	text-align: left;
+	text-align: center;
     display: inline-block;
 }
 
@@ -243,4 +243,66 @@ figcaption {
     font-size: smaller;
     font-family: serif;
     text-indent: 0;
+}
+
+/*-----------
+    ul menu
+ *----------*/
+ul.links, ul.menu > li{
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    margin: 5px;
+    border: solid transparent 5px;
+    border-radius: 10px;
+    transition: all 1.5s;
+    -webkit-transition: all 1.5s;
+}
+ul.links.selected, ul.menu > li.selected{
+    border-color: rgba(8,38,8,.7);
+    background-color: rgb(231,237,234);
+    border-radius: 10px;
+}
+ul.links:hover, ul.menu > li:hover{
+    background-color: rgba(231,237,234, .65);
+}
+/*-----------
+    ul lista
+ *----------*/
+ul.lista-vertical > a{
+    text-align: center;
+    display: block;
+    margin-bottom: 7px;
+    cursor: default;
+    text-decoration: none;
+    cursor: pointer;
+    color: inherit;
+}
+ul.lista-vertical > li{
+    display: block;
+    text-align: left;
+    padding: 2px 6px;
+}
+ul.lista-vertical > li a{
+    font-size: 90%;
+    color: inherit;
+    opacity: .75;
+}
+ul.lista-vertical > li a:hover{
+    cursor: pointer;
+}
+
+/* SCREEN */
+#screen{
+    position: fixed;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,.65);
+    text-align: center;
+}
+#screen > *{
+    vertical-align: middle;
 }
