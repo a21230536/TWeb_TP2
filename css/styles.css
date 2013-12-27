@@ -1,10 +1,4 @@
 @import url("fonts/opensans.css");
-/*
-* {
-    margin: 0; 
-    padding: 0;
-}
-*/
 html {
     overflow-x: hidden;
 }
@@ -30,6 +24,9 @@ a {
 a:hover{
     text-decoration: underline;
 }
+section, footer, header, aside, nav{
+    padding: 10px;
+}
 #body{
 	display: inline-block;
 	margin: 15px auto;
@@ -43,14 +40,8 @@ a:hover{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
 	width: 640px;
-    min-height: 1000px;
-}
-section, 
-footer, 
-header, 
-aside, 
-nav{
-    padding: 10px;
+    min-height: 1080px;
+    padding-bottom: 40px;
 }
 #body > footer{
     border-top: solid rgba(130,130,130,.25) 1px;;
@@ -382,7 +373,7 @@ ul.galeria {
 }
 ul.galeria li{
     display: inline-block;
-    width: 256px;
+    width: 256px !important;/* largura da figura */
     vertical-align: top;
     padding: 10px;
     margin: 10px;
