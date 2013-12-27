@@ -1,5 +1,39 @@
 <div class="article wrapper">
     <h1>Turismo no Brasil</h1>
     <p>O produto turístico brasileiro caracteriza-se por oferecer tanto ao turista <a title="Brasil" href="http://pt.wikipedia.org/wiki/Brasil">brasileiro</a> quanto ao estrangeiro uma gama diversificada de opções, com destaque aos atrativos naturais, aventura e histórico-cultural. Nos últimos anos, o governo tem concentrado esforços em políticas públicas para desenvolver o turismo brasileiro, procurando baratear o deslocamento interno, desenvolvendo infra-estrutura turística e capacitando mão de obra para o setor, além de aumentar consideravelmente a divulgação do país no exterior. São notáveis a procura pela <a title="Amazônia" href="http://pt.wikipedia.org/wiki/Amaz%C3%B4nia">Amazônia</a> na <a title="Região Norte do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Norte_do_Brasil">Região Norte</a>, o <a title="Litoral" href="http://pt.wikipedia.org/wiki/Litoral">litoral</a> no <a title="Região Nordeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Nordeste_do_Brasil">Nordeste</a>, o <a title="Pantanal" href="http://pt.wikipedia.org/wiki/Pantanal">Pantanal</a> e o <a title="Planalto Central" href="http://pt.wikipedia.org/wiki/Planalto_Central">Planalto Central</a> no <a title="Região Centro-Oeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Centro-Oeste_do_Brasil">Centro-Oeste</a>. O <a title="Turismo" href="http://pt.wikipedia.org/wiki/Turismo">turismo</a> histórico em <a title="Minas Gerais" href="http://pt.wikipedia.org/wiki/Minas_Gerais">Minas Gerais</a>, as praias do <a title="Rio de Janeiro" href="http://pt.wikipedia.org/wiki/Rio_de_Janeiro">Rio de Janeiro</a> e os negócios em <a title="São Paulo" href="http://pt.wikipedia.org/wiki/S%C3%A3o_Paulo">São Paulo</a> dividem o interesse no <a title="Região Sudeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Sudeste_do_Brasil">Sudeste</a>, e os pampas e o <a title="Clima" href="http://pt.wikipedia.org/wiki/Clima">clima</a> frio no <a title="Região Sul do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Sul_do_Brasil">Sul</a> do país.</p>
-
+    <ul class="galeria" id="galeria">
+        <li><img src="images/brasil/Rio_de_Janeiro.jpg"><span>Rio de Janeiro</span></li>
+        <li><img src="images/brasil/Lencois_Maranhenses.jpg"><span>Lençois Maranheses</span></li>
+        <li><img src="images/brasil/Pantanal.jpg"><span>Pantanal</li>
+        <li><img src="images/brasil/Fernando_noronha.jpg"><span>Fernando Noronha</span></li>
+        <li><img src="images/brasil/Parque_Nacional_da_Chapada_dos_Veadeiros.jpg"><span>Parque Nacional da Chapada dos Veadeiros</span></li>
+        <li><img src="images/brasil/Orla_de_Vitoria.JPG"><span>Orla de Vitória</span></li>
+    </ul>
 </div>
+<script>
+    // mostra slideshow
+    document.getElementById("galeria").onclick = function(){
+        document.getElementById("screen").style.display = "block";
+        this.setAttribute("class", "slideshow");
+    };
+    
+    // esconde slideshow
+    document.getElementById("screen").onclick = function(){
+        document.getElementById("galeria").setAttribute("class", "galeria");
+        this.style.display = "none";
+    };
+</script>
+<!--
+<img src="images/brasil/Belo_Horizonte.jpg"><span>Belo Horizonte</span>
+<img src="images/brasil/Fernando_noronha.jpg"><span>Fernando Noronha</span>
+<img src="images/brasil/GuarujaSP.AsturiasPitangueiras.Noite.jpg"><span>Guaruja, São Paulo</span>
+<img src="images/brasil/Lencois_Maranhenses.jpg"><span>Lençois Maranheses</span>
+<img src="images/brasil/Niteroi_bay.jpg"><span>Niteroy Bay</span>
+<img src="images/brasil/Orla_de_Vitoria.JPG"><span>Orla de Vitória</span>
+<img src="images/brasil/Ouro_preto.jpg"><span>Ouro Preto</span>
+<img src="images/brasil/Pantanal.jpg"><span>Pantanal</span>
+<img src="images/brasil/Paraty_Ocean.JPG"><span>Mar Parati</span>
+<img src="images/brasil/Parque_Ibirapuera2.jpg"><span>Parque Ibirapuera, São Paulo</span>
+<img src="images/brasil/Parque_Nacional_da_Chapada_dos_Veadeiros.jpg"><span>Parque Nacional da Chapada dos Veadeiros</span>
+<img src="images/brasil/Rio_de_Janeiro.jpg"><span>Rio de Janeiro</span>
+-->

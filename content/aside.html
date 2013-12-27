@@ -1,4 +1,4 @@
-<video controls type="video/mp4" src="Portugal_The_beauty_of_simplicity.mp4" poster="images/portugal-video_poster.png">portugal-video_poster.png</video>
+
 <ul class="aside slides">
     <li><img src="images/portugal/alentejo_31269_600x450.jpg"><span>Alentejo</span></li>
     <li><img src="images/portugal/almourol_31272_600x450.jpg"><span>Almourol</span></li>
@@ -12,47 +12,99 @@
     <li><img src="images/portugal/almourol_31272_600x450.jpg"><span>Almourol</span></li>
     <li><img src="images/portugal/camara-de-lobos_31277_600x450.jpg"><span>Câmara de Lobos</span></li>
 </ul>
-<!-- weather -->
-<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=38.7253&lon=-9.1500&name=LISBOA&units=ca"> </iframe>
-<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="http://forecast.io/embed/#lat=41.1566&lon=-8.6239&name=PORTO&units=ca"> </iframe>
+<!-- tempo -->
+<div id="tempo-pt" style="padding-top:10px;">
+    <div id="cont_d3a50eec599b65abf60f389af0d212f2">
+        <span id="h_d3a50eec599b65abf60f389af0d212f2"><a id="a_d3a50eec599b65abf60f389af0d212f2" href="http://www.tempo.pt/lisboa.htm" target="_blank" style="color:#808080;font-family:Helvetica;font-size:14px;">Lisboa</a></span>
+        <script type="text/javascript" src="http://www.tempo.pt/wid_loader/d3a50eec599b65abf60f389af0d212f2"></script>
+    </div>
+    <div id="cont_645f15b78b07837482bfb78b14fc60f6">
+        <span id="h_645f15b78b07837482bfb78b14fc60f6"><a id="a_645f15b78b07837482bfb78b14fc60f6" href="http://www.tempo.pt/" target="_blank" style="color:#808080;font-family:Helvetica;font-size:14px;">Brasília</a></span>
+        <script type="text/javascript" src="http://www.tempo.pt/wid_loader/645f15b78b07837482bfb78b14fc60f6"></script>
+    </div>
+    <script>
+        $("#tempo-pt div span").hide();
+        setTimeout(function(){
+            $("#tempo-pt div span, #tempo-pt div span a").attr("style","");
+            $("#tempo-pt div span").show();
+        }, 2000);
+    </script>
+</div> 
+<ul class="links lista-vertical">
+    <a href="#info/links">ENDREÇOS ÚTEIS</a>
+    <li><a data-index="1">Arte</a></li>
+    <li><a data-index="2">Associações de Classe</a></li>
+    <li><a data-index="3">Bancos/Bolsas</a></li>
+    <li><a data-index="4">Bibliotecas</a></li>
+    <li><a data-index="5">Busca/Portais</a></li>
+    <li><a data-index="6">Clubes Desportivos</a></li>
+    <li><a data-index="7">Culinária</a></li>
+    <li><a data-index="8">Cultura e Lazer</a></li>
+    <li><a data-index="9">Dicionários e Enciclopédias</a></li>
+    <li><a data-index="10">Educativos</a></li>
+    <li><a data-index="11">Feiras</a></li>
+    <li><a data-index="12">AICEP Portugal Global</a></li>
+    <li><a data-index="13">Informações</a></li>
+    <li><a data-index="14">Museus</a></li>
+    <li><a data-index="15">Universidades</a></li>
+    <li><a data-index="16">Ordens Profissionais</a></li>
+    <li><a data-index="17">Orgãos de Soberania</a></li>
+    <li><a data-index="18">Rádios</a></li>
+    <li><a data-index="19">Televisão</a></li>
+    <li><a data-index="20">Turísmo</a></li>    
+</ul>
 <style type="text/css">
-    aside{
-         padding: 13px 5px;
-     }
-    aside video{
-        width:100%;
-        margin:0;
-        padding:1px;
-        background-color:silver;
-        margin-bottom: 5px;
+    /*---------------------
+        tempo.pt widget
+    ---------------------*/
+    #tempo-pt{
+        vertical-align: top;
+        text-align: center;
     }
-    ul.slides{
-        border: none;
+    #tempo-pt > div{
+        vertical-align: top;
+        display: inline-block;
+        margin: 0 5px;
+    }
+    #tempo-pt > div span a{
+        font-family: 'Open Sans', Helvetica, sans-serif;
+        font-weight: 800;
+        font-size: 130%;
+        color: rgba(60,60,60,.9);
+        text-decoration: none;
+    }
+    
+    /*-----------------
+        slides
+    ------------------*/
+    aside ul.slides{
         width: 262px;
         height: 200px;
     }
-    ul.aside li {
-        border: none;
-        background-color: #ffffff;
-        position: absolute;
+    aside ul.slides li {
         width: 262px;
     }
-    ul.aside li > span{
-        position: relative;
-        top: -7px;
-        padding: 0px 8px 3px;
-        border-radius: 0 0 5px 5px;
-        background-color: rgb(231,237,234);
-    }
-    ul.aside li > img{
-        width: 260px;
+    aside ul.slides li > img{
         height: 173px;
-        border: solid silver 1px;
+    }
+
+    /*-----------------------------
+        links (endereços úteis) 
+    -----------------------------*/
+    aside ul.links{
+        display: block;
     }
 </style>
 <script type="text/javascript">
+    // transforma uma lista de imagens num slideshow
     TP2.slideshow({
-        el: "ul.aside.slides",
-        seconds: 6
+        el: "aside ul.aside.slides",// o selector da lista de imagens
+        seconds: 6 // duração de cada imagem
     });
+    
+    // Atribui ao evento 'click' no(s) elemento(s) selecionados fazer a tela deslizar 
+    // até ao elemento de indice N da lista #links na secção #info/links.
+    // o elemento do evento deve ter o atributo data-index="N"...
+    // <a data-index="1">Desliza até '#rede_consular li:nth-child(1)'</a>
+    TP2.el("aside ul.links a").scrolls("#info/links");
 </script>

@@ -1,7 +1,26 @@
 <!-- sem navegador -->
 <div class="articles"></div>
 <script type="text/javascript">
-    TP2.article("porto");
-    TP2.article("fado").addClass("fado");
-    TP2.article("pessoa").addClass("pessoa");
+    TP2.article("beleza_da_simplicidade");  
+    TP2.article("fado");
+    TP2.article("pessoa");
+    TP2.article("porto"); 
 </script>
+<style type="text/css">
+    /*------------------
+        Artigo fado
+    -------------------*/
+	article[data-name="fado"]{
+        width: 60%;
+    }
+    article[data-name="fado"] p{
+        font-size: 90%;
+    }
+    
+    /*------------------
+        Artigo pessoa 
+    -------------------*/
+    article[data-name="pessoa"]{
+        width: 40%;
+    }
+</style>

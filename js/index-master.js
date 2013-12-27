@@ -1,23 +1,4 @@
 //JavaScript
-/*
- (function(url, callback){
- // create a script element
- var script = document.createElement('script');
- script.setAttribute('type','text/JavaScript');
- script.setAttribute('src',url);
- // ie
- script.onreadystatechange = function () {
- if (this.readyState == 'complete') callback(script);
- };
- // other
- script.onload = function (){
- callback( script );
- };
- // append (load) the script
- var head = document.getElementsByTagName("head");
- head[0].appendChild(script);
- })("js/jquery/jquery-2.0.3.js")
- */
 
 /**
  * Situs JavaScript Constructor
@@ -26,24 +7,14 @@
  * @email jose.vieira.lisboa@gmail.com
  * @license Public
  */
- /*
- $("<div id=\"screen\">").css({
-    position: "absolute",
-    width: "100%",
-    margin: 0,
-    padding: 0,
-    top:0,
-    bottom:0,
-    backgroundColor: "black",
-    opacity: .5
-}).appendTo("body");
-
-
-$("#screen").click(function(){
-    $(this).fadeOut("fast");
-});
-*/
 (function(situs){
+    //"js/jquery/jquery-2.0.3.js"
+    situs.loadScript("js/prefixfree.js");
+
+    $("#screen").click(function(){
+        $(this).fadeOut("fast")
+    });
+
     window.TWeb = function(content){
         content = content || {};
 
@@ -64,7 +35,7 @@ $("#screen").click(function(){
 
         if(typeof content.section != 'undefined') _.section(content.section);
         else {
-            console.log(location.hash);
+            //console.log(location.hash);
             //_.section("#home");
             if(!_._validateHash(location.hash) 
                 || (!location.hash && location.hash != "#home")) location.hash = "home";
@@ -150,24 +121,37 @@ $("#screen").click(function(){
         // the navigator nav is empty: create an unordered list
         if(!$nav.find("ul").length) $("<ul>").appendTo($nav); 
 
+        var section = $("#body > section").attr('id');
+
         //3. article navigator link
         var $a = $("section > nav > ul li a[data-name='%article%']".replace('%article%', article));
         // article link item not found: create navigator item
         if(!$a.length){
-            $a = $("<a>").attr("data-name", article).html(article.replace(/\_/g, " ")).click(function(){
+            $a = $("<a>").attr("data-name", article).html(article.replace(/\_/g, " "))
+                .attr("href", "#"+section +"/"+article);
+
+            /*
+            $a.click(function(){
                 $("section div.articles article").removeClass('selected');
                 $(this).parent().addClass("selected").siblings().removeClass("selected");
                 $article.addClass("selected");
             });
+            */
+
             // navigator item
             var $li = $("<li>").append($a) // create item
             $li.appendTo("section > nav > ul");// add item to list
         }
     
         $article.select = function(){
+            var hash = "#" + $("#body > section").attr('id') + "/" + article;
+            //console.log("SELECT", location.hash, hash );
+            //location.hash = hash;
+
             this.siblings().removeClass('selected');
             $li.addClass("selected").siblings().removeClass("selected");
             this.addClass("selected");
+
         };
 
         if(_callback && callback) callback();
@@ -187,24 +171,23 @@ $("#screen").click(function(){
         attr.n = $els.length - 1;
         var i = attr.n;
         setInterval(function(){
-            var el = $els[i];
-            if($(el).is(":visible")) $(el).fadeOut(1000);
-            else $(el).fadeIn(1500, function(){
-                $els.show();
+            if( i > 0) $($els[i--]).fadeOut(1000);
+            else $($els[attr.n]).fadeIn(1000, function(){
                 i = attr.n;
+                $els.show();
             });
-            if(--i == 0) i = attr.n;
         }, attr.seconds*1000);
     },
     scroll: function(section, i, t){
         var matches = this._match(section);
         if(!matches) return false;
         t = t || 2000;
-        var _this=this;
+        var _this = this;
         var selector = "#%id% li:nth-child(%i%)";
         selector = selector.replace("%id%", matches[2]);
         selector = selector.replace("%i%", i);
         this.section(section, function(){
+            location.hash = section;
             setTimeout(function(){   
                 _this.scrollTo(selector);
             },300);
@@ -225,7 +208,74 @@ $("#screen").click(function(){
             }, t);
         }, t);
     },
-    /* HELPERS */ 
+    
+    //music('#id').toggle(this)
+    toggle: function(el, condition){
+        var $el = $(el);
+        if(typeof condition != 'undefined') {
+            if(typeof condition == 'function') condition = condition();
+            if(condition) $el.addClass("selected");
+            else $el.removeClass("selected");
+        }
+        else {
+            if($el.hasClass("selected")) $el.removeClass("selected");
+            else $el.addClass("selected");
+        }
+    },
+
+    play: function(selector, volume){
+        var $el = $(selector);
+        $el[0].volume = volume || .25;
+        if ($el[0].paused) $el[0].play();
+        else $el[0].pause();
+        return this;
+    },
+
+    el: function(selector){
+        var _this = this;
+        return {
+            selector: selector,
+            a: function(attr){
+                var $el = $("<a>");
+                if(attr.cssClass) $el.addClass(attr.cssClass);
+                if(attr.title) $el.attr("title", attr.title);
+                if(attr.click) $el.click(attr.click);
+                $(this.selector).prepend($el);
+                return this;
+            },
+            scrolls: function(section){
+                console.log("scrolls");
+                $(this.selector).click(function(){
+                    var index = $(this).attr("data-index");
+                    _this.scroll(section, index);
+                });
+            }
+        };
+    },
+
+    /* AJAX */
+    loadScript: function(url, callback){
+        // create a script element
+        var script = document.createElement('script');
+        script.setAttribute('type','text/JavaScript');
+        script.setAttribute('src',url);
+
+        // ie
+        script.onreadystatechange = function () {
+            if (this.readyState == 'complete') if(callback) callback(script);
+        };
+
+        // other
+        script.onload = function (){
+            if(callback) callback( script );
+        };
+
+        // append (load) the script
+        var head = document.getElementsByTagName("head");
+        head[0].appendChild(script);
+    },
+
+    /* HELPERS */
     _match: function(section){
         return section.match(/^(#[\w\-\_]+)\/([\w\-\_]+)$/i);
     },
@@ -242,13 +292,13 @@ $("#screen").click(function(){
         }
         return function(){
             if(arguments[1] == "error"){
-                console.log("Failed to load ", section); 
+                //console.log("Failed to load ", section); 
                 // load section #home
                 // if theres isn't any section loaded and failed section is not #home 
                 if(!_this._loaded_section && section != "#home")  _this.section("#home");
             }
             else{
-                
+                if(!location.hash.match(section)) location.hash = section;
                 //$("section").css("opacity", 0).fadeTo("fast" , 1)
 
                 _this._loaded_section = section;

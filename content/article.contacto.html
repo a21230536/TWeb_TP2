@@ -2,7 +2,7 @@
     <h1>Contactar a Embaixada</h1>
     <form id="contact-form" action="#" method="post" onsubmit="alert('Mensagem enviada com sucesso.'); return false;">
         <fieldset>
-            <legend>Enviar um email. Todos os campos com um * são obrigatórios.</legend>
+            <legend>Todos os campos com um * são obrigatórios.</legend>
             <div>
                 <label id="form_contact_name-lbl" for="form_contact_name" title="">Nome<span class="star">&nbsp;*</span></label>
                 <input type="text" name="form[contact_name]" id="form_contact_name" value="" size="30" required aria-required="true" placeholder="O seu nome" aria-invalid="false">
@@ -19,6 +19,11 @@
                 <label id="jform_contact_message-lbl" for="jform_contact_message" title="&lt;strong&gt;Mensagem&lt;/strong&gt;&lt;br /&gt;Enter your message here." aria-invalid="false">Mensagem<span class="star">&nbsp;*</span></label>
                 <textarea placeholder="Escreva a sua mensagem aqui." name="jform[contact_message]" id="jform_contact_message" cols="50" rows="10" required="" aria-required="true" style="margin: 0px; width: 220px; height: 180px;" class="" aria-invalid="false"></textarea>
             </div>
+            <!-- Anexo -->
+            <div>
+                <label id="attachement-label" for="attachement" title="Anexo">Anexar PDF</label>
+                <input type="file" accept="pdf" placeholder="Junte um documento." name="form[attachment]" id="attachement">
+            </div>
             <div>
                 <label id="jform_contact_email_copy-lbl" for="jform_contact_email_copy" class="hasTooltip" title="" data-original-title="&lt;strong&gt;Enviar-me uma cópia&lt;/strong&gt;&lt;br /&gt;Envia uma cópia da mensagem para o endereço que forneçeu.">Enviar-me uma cópia</label>
                 <input type="checkbox" name="jform[contact_email_copy]" id="jform_contact_email_copy" value="1">
@@ -29,67 +34,3 @@
         </fieldset>
     </form>
 </div>
-<style type="text/css">
-#contacts article{
-    width: 100%;
-}
-
-#contacts div.form-submit{
-    padding-left: 180px;
-}
-#contacts fieldset{
-    padding: 25px 0;
-    margin: 25px 0;
-    border: solid rgb(201,207,204) 1px;
-    border-radius: 10px;
-}
-#contacts fieldset > div label{
-    width: 160px;
-    padding: 5px 10px;
-    display: inline-block;
-    vertical-align: top;
-    text-align: right;
-    font-size: 13px;
-    font-weight: normal;
-    line-height: 18px;
-}
-
-#contacts fieldset > div input{
-    padding: 4px 6px;
-    width: 220px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    border-radius: 3px;
-    transition: border linear .2s, box-shadow linear .2s;
-    font: -webkit-small-control;
-}
-#contacts fieldset > div textarea{
-    font: -webkit-small-control; padding: 4px 6px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-    -webkit-transition: border linear .2s, box-shadow linear .2s;
-    -moz-transition: border linear .2s, box-shadow linear .2s;
-    -o-transition: border linear .2s, box-shadow linear .2s;
-    transition: border linear .2s, box-shadow linear .2s;
-    font-size: 13px;
-    line-height: 18px;
-    color: #555;
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-}
-
-#contacts fieldset > div input[type="checkbox"]{
-    box-shadow: none;
-    width: inherit;
-}
-
-#contacts fieldset > div{
-text-align: left;
-    padding: 7px 0;
-}
-</style>

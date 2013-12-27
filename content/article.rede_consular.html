@@ -56,14 +56,11 @@
         </li>
         <li>
             <h1>Vice-Consulado de Portugal em Porto Alegre</h1>
-
             <p>
                 Rua Prof. Annes Dias, 112, 10º andar<br />
                 90020-090 Porto Alegre - RS
             </p>
-
             <img src="http://www.embaixadadeportugal.org.br/images/portoalegre.jpg" alt="Porto Alegre">
-
             <p>
                 <strong>Telefone:</strong> (51) 3061 5767<br />
                 <strong>Fax:</strong> (51) 3228 0087
@@ -200,7 +197,7 @@
     </ul>
 </div>
 <style type="text/css">
-    ul#rede_consular{
+    #rede_consular{
         padding: 0;
         margin: 0;
         list-style: none;
@@ -215,7 +212,6 @@
        background-color: rgba(231,237,234,.25);
        box-shadow: 0 0 15px rgba(231,237,234,1);
        transition: all 1.5s;
-       -webkit-transition: all 1.5s;
     }
     #rede_consular li.selected{
         border-color: rgba(8,38,8,.7);
@@ -229,16 +225,22 @@
        border: solid silver 1px;
        width: 250px;
     }
-    #rede_consular a.scroll{
-        float: right;
-        padding: 10px;
-        cursor: pointer;
-    }
 </style>
 <script type="text/javascript">
-    $("#rede_consular li").prepend($('<a class="scroll">lista</a>').click(function(){
-        TP2.scrollTo("footer > ul > li:nth-child(2)");
-    })).prepend($('<a class="scroll">menu</a>').click(function(){
-        TP2.scrollTo("body");
-    }));
+    // seleciona elemento(s)
+    TP2.el("#rede_consular li")
+    .a({// adiciona <a> ao elemento(s)
+        title: "Lista de Consulados",
+        cssClass: "icon icon-flag",
+        click:  function(){
+            TP2.scrollTo("footer > ul > li:nth-child(2)");
+        }
+    })
+    .a({// adiciona (mais um) <a> ao elemento(s)
+        title: "Topo", 
+        cssClass: "icon icon-up",
+        click:  function(){
+            TP2.scrollTo("body");
+        }
+    });
 </script>

@@ -1,5 +1,6 @@
-<a onclick="TP2.scrollTo('footer > ul > li:first-child');">mapa</a>
-<a onclick="TP2.scrollTo('footer > ul > li:nth-child(2)');">rede</a>
+<a id="musica-icon" class="icon icon-music" title="Música Portuguesa" onclick="TP2.play('#musica').toggle(this)"></a>
+<a class="icon icon-place" title="Mapa do Sítio" onclick="TP2.scrollTo('footer > ul > li:first-child');"></a>
+<a class="icon icon-flag" title="Lista de Consulados" onclick="TP2.scrollTo('footer > ul > li:nth-child(2)');"></a>
 <ul id="main-menu">
 	<li><a href="#home">Início</a></li>
 	<li><a href="#embassy">Embaixada</a></li>
@@ -8,14 +9,11 @@
 	<li><a href="#info">Informação</a></li>
 	<li><a href="#contacts">Contactos</a></li>
 </ul>
+<audio id="musica" loop>
+  <source src="raiz.mp3" type="audio/mpeg">
+	O seu navegador não suporta o elemento de audio.
+</audio> 
 <script type="text/javascript">
     // carrega a seção pedida
     TP2.section();
 </script>
-<style type="text/css">
-nav > a{
-	padding: 2px 6px;
-	float: right;
-	cursor: pointer;
-}
-</style>

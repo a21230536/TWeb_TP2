@@ -1,20 +1,16 @@
 @import url("fonts/opensans.css");
-
-#screen{
-    -webkit-mask-image: -webkit-gradient(linear, left top,
-        left bottom, from(rgba(0,0,0,.25)), to(rgba(0,0,0,0)));
+/*
+* {
+    margin: 0; 
+    padding: 0;
 }
+*/
 html {
     overflow-x: hidden;
 }
 body{
-	margin: 0;
-	padding: 0;
 	text-align: center;
     vertical-align: top;
-    /*background: -webkit-linear-gradient(rgb(201,207,204), rgb(241,247,244));  For Safari */
-    /*background: -o-linear-gradient(rgb(201,207,204), rgb(241,247,244)); For Opera 11.1 to 12.0 */
-    /*background: -moz-linear-gradient(rgb(201,207,204),rgb(241,247,244)); For Firefox 3.6 to 15 */
     /* background: linear-gradient(rgb(241,247,244), rgb(191,197,194)); Standard syntax */
     background-color: rgb(231,237,234);
     color: rgb(66,66,66);
@@ -49,8 +45,11 @@ a:hover{
 	width: 640px;
     min-height: 1000px;
 }
-section, footer, header, aside, nav{
-    margin: 0;
+section, 
+footer, 
+header, 
+aside, 
+nav{
     padding: 10px;
 }
 #body > footer{
@@ -85,7 +84,6 @@ nav li{
     border-radius: 5px;
     margin: 0 3px;
     transition: all 1.5s;
-    -webkit-transition: all 1.5s;
 }
 #body > nav li:hover{
     background-color: rgba(128,158,128,.5);
@@ -145,7 +143,8 @@ section > nav a{
     Barra Lateral
 --------------------*/
 aside{
-	vertical-align: top;
+	padding: 13px 5px;
+    vertical-align: top;
 	height: auto;
 	max-width: 268px;
     min-width: 108px;
@@ -154,7 +153,7 @@ aside{
 	text-align: center;
     display: inline-block;
 }
-
+   
 /*-------------
     article
 --------------*/
@@ -175,6 +174,7 @@ article h1{
     text-align: left;
     color: rgba(8,38,8,.7);
     font-size: 1.25em;
+    margin-bottom: 10px;
 }
 article p {
     font-weight: normal;
@@ -200,31 +200,23 @@ pre{
  *---------------------*/
 #body > nav, #body{
     position:relative;
-    -webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
-    -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
     box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-#body > nav:before, #body > nav:after, #body:before,#body:after{
+#body > nav:before, #body > nav:after, 
+#body:before,#body:after{
     content:"";
     position:absolute;
     z-index:-1;
-    -webkit-box-shadow:0 0 20px rgba(0,0,0,0.8);
-    -moz-box-shadow:0 0 20px rgba(0,0,0,0.8);
     box-shadow:0 0 20px rgba(0,0,0,0.8);
     top:0;
     bottom:0;
     left:10px;
     right:10px;
-    -moz-border-radius:100px / 10px;
     border-radius:100px / 10px;
 }
 #body > nav:after, #body:after{
     right:10px;
     left:auto;
-    -webkit-transform:skew(8deg) rotate(3deg);
-    -moz-transform:skew(8deg) rotate(3deg);
-    -ms-transform:skew(8deg) rotate(3deg);
-    -o-transform:skew(8deg) rotate(3deg);
     transform:skew(8deg) rotate(3deg);
 }
 
@@ -256,7 +248,6 @@ ul.links, ul.menu > li{
     border: solid transparent 5px;
     border-radius: 10px;
     transition: all 1.5s;
-    -webkit-transition: all 1.5s;
 }
 ul.links.selected, ul.menu > li.selected{
     border-color: rgba(8,38,8,.7);
@@ -266,9 +257,10 @@ ul.links.selected, ul.menu > li.selected{
 ul.links:hover, ul.menu > li:hover{
     background-color: rgba(231,237,234, .65);
 }
-/*-----------
-    ul lista
- *----------*/
+
+/*----------------------
+    ul lista (vertical)
+ *---------------------*/
 ul.lista-vertical > a{
     text-align: center;
     display: block;
@@ -292,8 +284,221 @@ ul.lista-vertical > li a:hover{
     cursor: pointer;
 }
 
-/* SCREEN */
-#screen{
+/*-----------
+    icons
+------------*/
+.icon{
+    float: right;
+    background-color: rgb(211,217,214) ;
+    padding: 12px;
+    margin: 4px;
+    margin-left: 6px;
+    border-radius: 12px;
+    transition: all 1.5s;
+    box-shadow: 0 0 7px rgba(255,255,255,.5);
+}
+.icon:hover{
+    background-color: rgba(128,158,128,.5);
+    cursor: pointer;
+}
+.icon.selected{
+    background-color: rgba(8,38,8,.7);
+}
+.icon-up{
+    background-image: url('../images/icons/up.png');
+}
+.icon-music{
+    background-image: url('../images/icons/music.png');
+}
+.icon-place{
+    background-image: url('../images/icons/place.png');
+}
+.icon-star{
+    background-image: url('../images/icons/star.png');
+}
+.icon-flag{
+    background-image: url('../images/icons/flag.png');
+}
+
+/* G A L E R I A S */
+/*-----------------------------------
+    galeria
+    slider (article.portugal.html)
+------------------------------------*/
+div.slider{
+    width: 800px; /*Same as width of the large image*/
+    position: relative;
+    padding-top: 425px; /* padding brings the labels down */
+    margin: 10px auto;
+    padding-bottom: 100px;
+}
+div.slider > img{
+    position: absolute;
+    left: 0; 
+    top: 0;
+    transition: all 0.5s;
+}
+div.slider input[type=radio] {
+    display: none;
+}
+/* spacing for the thumbnails */
+div.slider label {
+    margin: 16px 0 0 16px;
+    border: 3px solid rgb(131,137,134);
+    float: left;
+    cursor: pointer;
+    transition: all 0.5s;
+    opacity: 0.6;
+}
+div.slider label img {
+    display: block;
+}
+/* click effects: thumbnail changes its opacity */
+div.slider input[type=radio]:checked+label {
+    opacity: 1;
+}
+div.slider input[type=radio]:checked+label+img {
+    opacity: 1;/* Clicking on any thumbnail activates the image related to it*/
+}
+/* main images */
+div.slider input[type=radio] ~ img {
+    opacity: 0;
+    width: 620px;
+    border: solid silver 1px;
+    box-shadow: 0 5px 20px -5px rgba(0, 0, 0, .5);
+}
+div.slider img.thumbnail{
+     width:100px;
+}
+
+/*-----------------------------------
+    galeria (article.brasil.html)
+------------------------------------*/
+ul.galeria {
+    height: 840px !important;
+    position:relative;
+    display: block;
+    padding: 5px;
+}
+ul.galeria li{
+    display: inline-block;
+    width: 256px;
+    vertical-align: top;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 14px 0 rgba(0,0,0,.5);
+    border-radius: 5px;
+    border: solid silver 1px;
+    cursor: pointer;
+}
+ul.galeria img{
+    border: solid silver 1px;
+}
+
+/*-----------------------------------
+    slideshow (article.brasil.html)
+------------------------------------*/
+ul.slideshow {
+    background-color: #000000;
+    width:800px;
+    height:600px;
+    border: 1px solid silver;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -300px;
+    margin-left: -400px;
+    box-shadow: 0 0 15px black;
+    z-index: 10;
+}
+/* animação */
+@-webkit-keyframes ciclo{
+     0%{opacity:0}
+    4%{opacity:1}
+    16%{opacity:1}
+    20%{opacity:0}
+}
+@keyframes ciclo{
+     0%{opacity:0}
+    4%{opacity:1}
+    16%{opacity:1}
+    20%{opacity:0}
+}
+ul.slideshow li{
+    position: absolute;
+    -webkit-animation: ciclo 24s infinite;
+    animation: ciclo 24s infinite; /* 24s <= 6x 4s */
+    opacity: 0;
+}
+ul.slideshow li:nth-child(1){
+    animation-delay: 0s;/* 0s <= 0x 4s */
+    -webkit-animation-delay: 0s;
+}
+ul.slideshow li:nth-child(2){
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+ul.slideshow li:nth-child(3){
+    -webkit-animation-delay: 8s;
+    animation-delay: 8s;/* 8s <= 2x 4s */
+}
+ul.slideshow li:nth-child(4){
+    -webkit-animation-delay: 12s;
+    animation-delay: 12s; /* ... */
+}
+ul.slideshow li:nth-child(5){
+    animation-delay: 16s;
+    -webkit-animation-delay: 16s;
+}
+ul.slideshow li:nth-child(6){
+    -webkit-animation-delay: 20s;
+    animation-delay: 20s;
+}
+
+/*------------------------
+    slides  (aside.html)
+-------------------------*/
+ul.slides{
+    border: none;
+}
+ul.slides li {
+    border: none;
+    background-color: #ffffff;
+    position: absolute;
+    max-width: 600px;
+}
+ul.slides li > span{
+     position: relative;
+     top: -7px;
+     padding: 0px 8px 3px;
+     border-radius: 0 0 5px 5px;
+     background-color: rgb(231,237,234);
+}
+ul.slides li > img{
+    border: solid silver 1px;
+}
+
+/*----------------------------------------
+    blockquote (article.pessoa.html)
+----------------------------------------*/
+blockquote{
+    margin: 5px;
+    padding: 0 0 0 5px;
+    border-left: solid rgba(130,130,130,.2) 5px;
+    font-family: Georgia, serif;
+}
+blockquote p{
+    text-align: left;
+}
+blockquote p:first-letter {
+    font-size: 125%;
+    font-weight: bold;
+}
+
+/*-----------
+    cortina
+------------*/
+#screen {
     position: fixed;
     width: 100%;
     margin: 0;
@@ -302,7 +507,30 @@ ul.lista-vertical > li a:hover{
     bottom: 0;
     background-color: rgba(0,0,0,.65);
     text-align: center;
+    z-index: 1;
 }
 #screen > *{
     vertical-align: middle;
+}
+
+/*-------------------------------
+    Trabalho Prático 2: nomes
+--------------------------------*/
+#TP2{
+    border: solid transparent 1px;
+    border-radius: 10px;
+    width: 240px;
+    padding: 20px;
+    line-height: 30px;
+    vertical-align: middle;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -65px;
+    margin-left: -140px;
+    background-color: white;
+    display: inline-block;
+    z-index: 10;
+    box-shadow: 0 0 25px 4px black;
 }

@@ -950,96 +950,69 @@
 </ul>
 </div>
 <style type="text/css">
-    
-    article[data-name='links'] table{
+    #links table{
         border-collapse: collapse;
         border-spacing: 0px;
         color: #373737;
         line-height: normal;
         margin: 0;
         width: 610px;
-        /*border: none;*/
         border-radius: 10px; 
-       
-/*
-        border-radius: 15px;
-        padding: 10px 20px 20px 30px;
-       margin: 10px 10px 20px 10px;
-       
-       text-align: left;
-       display: block;*/
-       /*background-color: rgba(231,237,234,.25);*/
-       box-shadow: 0 0 15px rgba(231,237,234,1);
-
+        box-shadow: 0 0 15px rgba(231,237,234,1);
     }
-    table td{
+    #links table td{
         vertical-align: top;
         background-color:none;
         width: 50%;
-                padding: 7px 0;
-       /* height: 30px;*/
+        padding: 7px 0;
     }
-    table td:first-child{
+    #links table td:first-child{
         text-align: right;
         font-size: 95%;
 
     }
-    /*
-    table td::after{
-        content: ":";
-    }
-    */
-
-    table tr{
+    #links table tr{
         border-bottom: solid rgba(237,234,231,.5) 1px;
         border-top: solid rgba(37,34,31,.5) 1px;
     }
-     table tr:first-child{
+    #links table tr:first-child{
         border-top: none;
-     }
-table tr:last-child{
+    }
+    #links table tr:last-child{
         border-bottom: none;
      }
-    table td:nth-child(2) {
+    #links table td:nth-child(2) {
         text-align: left;
         padding-left: 5px;
     }
-    table td:nth-child(2)::before{
-        content:url('images/icon-external-link.png'); /* with class ModalCarrot ??*/
-        position:relative; /*or absolute*/
-        z-index:1; /*a number that's more than the modal box*/
-        left:-3px;
-        top:0px;
+    #links table td:nth-child(2)::before{
+        content: url('images/icon-external-link.png');
+        position: relative;
+        z-index: 1;
+        left: -3px;
+        top: 0px;
         margin-left: 7px;
     }
-    table tr:first-child td{
+    #links table tr:first-child td{
         font-family: 'Open Sans', sans-serif;
         font-weight: 400;
         font-size: 120%;
         color: rgba(8,38,8,.65);
-     /*   background-color: rgba(237,234,231,.5);
-        background: linear-gradient(rgba(237,234,231,.75), rgba(237,234,231,0));*/
         padding: 5px 0 10px 15px;
         text-align: center;
         width: 100%;
-    /*background: -webkit-linear-gradient(rgb(201,207,204), rgb(241,247,244));  For Safari */
-    /*background: -o-linear-gradient(rgb(201,207,204), rgb(241,247,244)); For Opera 11.1 to 12.0 */
-    /*background: -moz-linear-gradient(rgb(201,207,204),rgb(241,247,244)); For Firefox 3.6 to 15 */
-    /*  background: linear-gradient(rgba(231,237,234,0.75), rgba(231,237,234,0));Standard syntax */
-
+        /*background: linear-gradient(rgba(231,237,234,0.75), rgba(231,237,234,0));*/
     }
-    table tr:nth-child(2) td{
+    #links table tr:nth-child(2) td{
         padding-top: 10px;
     }
-    
-    ul#rede_consular{
+    #links ul#rede_consular{
         padding: 0;
         margin: 0;
         list-style: none;
     }
     #links li{
        padding: 10px 20px 20px 30px;
-
        margin: 10px 10px 20px 10px;
        border: solid rgba(231,237,234,1) 5px;
        border-radius: 15px;
@@ -1048,27 +1021,34 @@ table tr:last-child{
        background-color: rgba(231,237,234,.25);
        box-shadow: 0 0 15px rgba(231,237,234,1);
        transition: all 1.5s;
-       -webkit-transition: all 1.5s;
     }
     #links li.selected{
         border-color: rgba(8,38,8,.7);
         background-color: rgb(231,237,234);
     }
-
     #links li{
         padding: 0;
         margin-left: 0;
     }
-
-    #links a.scroll{
-        float: right;
-        padding: 0;
-        cursor: pointer;
-        font-size: 90%;
+    #links a.icon{
+        margin-right: 10px;
+        margin-left: 0;
     }
 </style>
 <script type="text/javascript">
-    $("article[data-name='links'] table tr:first-child td").prepend($('<a title="Índice de Endereços" class="scroll">lista</a>').click(function(){
-        TP2.scrollTo("aside > ul.links");
-    }));
+    TP2.el("article[data-name='links'] table tr:first-child td")
+    .a({
+        title: "Índice de Endereços",
+        cssClass: "icon icon-star",
+        click: function(){
+            TP2.scrollTo("aside > ul.links");
+        }
+    })
+    .a({
+        title: "Topo",
+        cssClass: "icon icon-up",
+        click: function(){
+            TP2.scrollTo("body");
+        }
+    })
 </script>

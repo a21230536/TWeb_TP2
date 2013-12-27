@@ -3,4 +3,80 @@
 <script type="text/javascript">
     TP2.article("localidade").select();
     TP2.article("contacto");
+    TP2.article("pedidos");
 </script>
+<style type="text/css">
+    select + input{
+        display: none;
+    }
+    select.outro + input {
+        display: inline-block;
+    }
+    #contacts article{
+        width: 100%;
+    }
+    #contacts div.form-submit{
+        padding-left: 180px;
+    }
+    #contacts fieldset{
+        padding: 25px 0;
+        margin: 25px 0;
+        border: solid rgb(201,207,204) 1px;
+        border-radius: 10px;
+    }
+    #contacts fieldset > div label{
+        width: 160px;
+        padding: 5px 10px;
+        display: inline-block;
+        vertical-align: top;
+        text-align: right;
+        font-size: 13px;
+        font-weight: normal;
+        line-height: 18px;
+    }
+    #contacts fieldset > div select{
+        padding: 3px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        border-radius: 3px;
+        transition: border linear .2s, box-shadow linear .2s;
+        font: small-control;
+    }
+    #contacts fieldset > div > input{
+        padding: 4px 6px;
+        width: 220px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        border-radius: 3px;
+        transition: border linear .2s, box-shadow linear .2s;
+        font: small-control;
+    }
+    #contacts fieldset > div textarea{
+        font: small-control; padding: 4px 6px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+        transition: border linear .2s, box-shadow linear .2s;
+        font-size: 13px;
+        line-height: 18px;
+        color: #555;
+        border-radius: 3px;
+    }
+    #contacts fieldset input[type="checkbox"],
+    #contacts fieldset input[type="radio"]{
+        box-shadow: none;
+        width: inherit;
+    }
+    #contacts fieldset input[type="file"]{
+        width: inherit;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+    }
+    #contacts fieldset > div{
+        text-align: left;
+        padding: 7px 0;
+    }
+</style>

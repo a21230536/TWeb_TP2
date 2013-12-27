@@ -14,18 +14,29 @@
             <aside></aside>
             <footer></footer>
         </div>
+        <div id="screen">
+            <p id="TP2">
+                <strong>TWeb | TRABALHO PRÁTICO 2</strong><br>
+                21230536 José Lisboa [P10]<br>
+                21230658 Luis Martins [P10]
+            </p>
+        </div> 
         <script src="js/jquery/jquery-2.0.3.js"></script>
-        <script src="js/index.js"></script>
+        <script src="js/index-master.js"></script>
         <script type="text/javascript">
-            TP2 = new TWeb();
+            TP2 = new TWeb({
+                section: "#home",
+                header: "content/header.html",
+                footer: "content/footer.html",
+                nav: "content/nav.html",
+                aside: "content/aside.html"
+            });
 
             //TP2.header("content/header.html");
             //TP2.footer("content/footer.html");
             //TP2.footer("content/nav.html");
             //TP2.aside("content/aside.html");
             //TP2.section("#home");
-
-            //TP2.css({ border: "solid rgba(255,0,0,.1) 2px", margin: 1 });
         </script>
     </body>
 </html>

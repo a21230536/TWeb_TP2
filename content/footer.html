@@ -16,6 +16,7 @@
             <li><a href="#info/conselhos_a_viajantes">Conselhos a Viajantes</a></li>
             <li><a href="#contacts/localidade">Localização</a></li>
             <li><a href="#contacts/contacto">Contacto</a></li>
+            <li><a href="#contacts/pedido">Pedido de Informação</a></li>
         </ul>
     </li>
     <li>
@@ -50,20 +51,21 @@
         </ul>
     </li>
 </ul>
-<a style="float: right; cursor:pointer;padding: 0 10px;" onclick="scrollTo(0,0)">header</a>
+<a class="icon icon-up" title="Acima" onclick="scrollTo(0,0)"></a>
 <div style="text-align: left; font-size: 90%; margin-top: 20px; margin-bottom: -10px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-weight: 400; ">Copyright 2014 Embaixada de Portugal em Brasília, Ministério dos Negócios Estrangeiros de Portugal</div>
 <style type="text/css">
     #governo li a::before{
-        content:url('images/icon-external-link.png'); /* with class ModalCarrot ??*/
-        position:relative; /*or absolute*/
-        z-index:100000; /*a number that's more than the modal box*/
-        left:-5px;
-        top:0px;
+        content: url('images/icon-external-link.png');
+        position: relative;
+        z-index: 10;
+        left: -5px;
+        top: 0px;
     }
 </style>
-<script type="text/javascript">
-    $("#rede-consular-nav li > a").click(function(){
-        var index = $(this).attr("data-index");
-        TP2.scroll("#embassy/rede_consular", index);
-    });
+<script type="text/javascript"> 
+    // Atribui ao evento 'click' no(s) elemento(s) selecionados fazer 
+    // a tela deslizar até ao elemento de indice N da lista #rede_consular.
+    // o elemento do evento deve ter o atributo data-index="N"...
+    // <a data-index="1">Desliza até '#rede_consular li:nth-child(1)'</a>
+    TP2.el("#rede-consular-nav li > a").scrolls("#embassy/rede_consular");
 </script>
