@@ -1,0 +1,59 @@
+<div class="article wrapper">
+    <h1>Pedido de informação</h1>
+    <form id="document-form" action="#" method="post" onsubmit="alert('Mensagem enviada com sucesso.'); return false;">
+        <fieldset>
+            <legend>Todos os campos com um * são obrigatórios.</legend>
+            <!-- Nome -->
+            <div>
+                <label for="request_name" title="">Nome <span class="star">*</span></label>
+                <input type="text" name="form[request_name]" id="request_name" value="" size="30" required aria-required="true" placeholder="O seu nome" aria-invalid="false">
+            </div>
+            <!-- Identificação -->
+            <div>
+                <label for="request_id" title="">Identificação <span class="star">*</span></label>
+                <select>
+                    <option value="id">B.I. / C.C.</option>
+                    <option value="passport">Passaporte</option>
+                </select>
+                <input style="width: 110px; display: inline-block" type="text" name="request_id" id="request_id" placeholder="Número" value="" required>
+            </div>
+            <!-- Idade -->
+            <div>
+                <label for="age" title="">Idade</label>
+                <input placeholder="6-100" style="width: inherit" id="age" name="age" type="number" min="6" max="100" value="">
+            </div>
+            <!-- Sexo -->
+            <div id="sexo">
+                <label title="Género" style="vertical-align: middle">Sexo</label>
+                <input id="male" type="radio" name="sex" value="male" style="vertical-align: middle"><label style="width: inherit; vertical-align: middle; margin: 0; padding: 0" for="male">Masculino &nbsp; </label>
+                <input id="female" type="radio" name="sex" value="female" style="vertical-align: middle"><label style="width: inherit; vertical-align: middle; margin: 0; padding: 0" for="female">Feminino</label>
+            </div>
+            <!-- Morada -->
+            <div>
+                <label id="address-label" for="address" title="">Morada <span class="star">*</span></label>
+                <input type="text" name="form[address]" id="address" value="" size="30" required aria-required="true" placeholder="O seu endereço postal" >
+            </div>
+            <!-- Assunto -->
+            <div>
+                <label id="subject-label" for="subject" title="">Assunto</label>
+                <select id="subject" onchange="if(this.value==5) this.setAttribute('class','outro'); else this.setAttribute('class','')" >
+                    <option value = "1">Economia</option>
+                    <option value = "2">Educação</option>
+                    <option value = "3">Apoio Jurídico</option>
+                    <option value = "4">Reclamação</option>
+                    <option value = "5">Outro</option>
+                </select>
+                <input value="" placeholder="Escreva o assunto do pedido aqui.">
+            </div>
+            <!-- Descrição -->
+            <div>
+                <label id="description-label" for="description" title="Descrição" aria-invalid="false">Descrição</label>
+                <textarea placeholder="Descreva o seu pedido aqui." name="form[description]" id="description" cols="50" rows="10" required="" aria-required="true" style="margin: 0px; width: 220px; height: 180px;" class="" aria-invalid="false"></textarea>
+            </div>
+
+            <div class="form-submit">
+                <button style="padding: 4px 9px;cursor: pointer" type="submit" >Enviar Pedido</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
