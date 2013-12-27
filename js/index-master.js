@@ -244,7 +244,7 @@
                 return this;
             },
             scrolls: function(section){
-                console.log("scrolls");
+                //console.log("scrolls");
                 $(this.selector).click(function(){
                     var index = $(this).attr("data-index");
                     _this.scroll(section, index);
