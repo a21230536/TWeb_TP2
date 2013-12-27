@@ -1,4 +1,6 @@
 *.db
 .idea
 *.old.js
+*-master.js
 music-black.png
+
