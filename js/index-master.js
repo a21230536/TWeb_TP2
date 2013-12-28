@@ -1,5 +1,3 @@
-//JavaScript
-
 /**
  * Situs JavaScript Constructor
  * HTML5 Content Loading with jQuery
@@ -231,6 +229,17 @@
         return this;
     },
 
+    screen: function(url){
+        $("#screen").show();
+        this.el("#screen").load(url);
+        return this;
+    },
+
+    append: function(url){
+        $("body").append($("<div>").load(url));
+        return this;
+    },
+
     el: function(selector){
         var _this = this;
         return {
@@ -249,6 +258,19 @@
                     var index = $(this).attr("data-index");
                     _this.scroll(section, index);
                 });
+                return this;
+            },
+            load: function(url){
+                $(this.selector).load(url);
+                return this;
+            },
+            append: function(url){
+                $(this.selector).append($("<div>").load(url));
+                return this;
+            },
+            fadeOut: function(speed){
+                $(this.selector).fadeOut(speed);
+                return this;
             }
         };
     },

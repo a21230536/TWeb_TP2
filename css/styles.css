@@ -36,7 +36,7 @@ section, footer, header, aside, nav{
 	border-radius: 5px;
     vertical-align: top;
 }
-#body section{
+#body > section{
 	display: inline-block;
     border-right: solid rgba(130,130,130,.25) 1px;
 	width: 640px;
@@ -46,7 +46,7 @@ section, footer, header, aside, nav{
 #body > footer{
     border-top: solid rgba(130,130,130,.25) 1px;;
 }
-header{
+#body > header{
     border: none;
 }
 footer:empty, header:empty{
@@ -499,6 +499,7 @@ blockquote p:first-letter {
     background-color: rgba(0,0,0,.65);
     text-align: center;
     z-index: 1;
+    display: none;
 }
 #screen > *{
     vertical-align: middle;

@@ -7,9 +7,6 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body>
-        <!--
-        <a href="https://github.com/a21230536/TWeb_TP2"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
-        -->
         <div id="body">
             <header></header>
             <nav>Embaixada de Portugal no Brasil</nav>
@@ -17,11 +14,12 @@
             <aside></aside>
             <footer></footer>
         </div>
-        <div id="screen"></div>
+        <div id="screen" onclick="TP2.el(this).fadeOut('fast')"></div>
         <script src="js/jquery/jquery-2.0.3.js"></script>
         <script src="js/index.js"></script>
         <script type="text/javascript">
-            TP2 = new TWeb({
+            // conteúdos
+            var TP2 = new TWeb({
                 //section: "#home",
                 header: "content/header.html",
                 footer: "content/footer.html",
@@ -29,11 +27,11 @@
                 aside: "content/aside.html"
             });
 
-            //TP2.header("content/header.html");
-            //TP2.footer("content/footer.html");
-            //TP2.footer("content/nav.html");
-            //TP2.aside("content/aside.html");
-            //TP2.section("#home");
+            // TP2 info
+            TP2.screen('tp2.html');
+
+            // botão Fork me!
+            TP2.append("github.html");
         </script>
     </body>
 </html>
