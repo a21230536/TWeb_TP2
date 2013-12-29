@@ -1,17 +1,12 @@
 /**
- * Situs JavaScript Constructor
+ * TWeb JavaScript Constructor
  * HTML5 Content Loading with jQuery
- * @version none
+ * @version 0.0.0
  * @email jose.vieira.lisboa@gmail.com
  * @license Public
  */
 (function(situs){
-    //"js/jquery/jquery-2.0.3.js"
     situs.loadScript("js/prefixfree.js");
-
-    $("#screen").click(function(){
-        $(this).fadeOut("fast")
-    });
 
     window.TWeb = function(content){
         content = content || {};
@@ -29,15 +24,15 @@
         var defaults = { header:0, nav:0, footer:0, aside:0 };
         for(var name in defaults )
             if(typeof content[name] != 'undefined') _[name](content[name]);
-            else _[name](defaults[name]);
-
-        if(typeof content.section != 'undefined') _.section(content.section);
-        else {
-            //console.log(location.hash);
-            //_.section("#home");
-            if(!_._validateHash(location.hash) 
-                || (!location.hash && location.hash != "#home")) location.hash = "home";
-        }
+//Ze           else _[name](defaults[name]);
+//Ze
+//Ze        if(typeof content.section != 'undefined') _.section(content.section);
+//Ze        else {
+//Ze            //console.log(location.hash);
+//Ze            //_.section("#home");
+                if((!_._validateHash(location.hash) || !location.hash)
+                    && location.hash != "#home" ) location.hash = "home";
+//Ze        }
 
         // to use the same object
         window.onhashchange = function(){
@@ -47,6 +42,27 @@
 
         return _;
     };
+
+    TWeb.ready = function(f){
+        if(this._ready) f();
+        else this._readyStack.unshift(f);
+    };
+    TWeb._ready = 0;
+    TWeb._readyStack = [];
+
+    if(!jQuery) situs.loadScript("js/jquery/jquery-2.0.3.js", function(){
+        TWeb._ready = 1;
+        while(TWeb._readyStack.length) (TWeb._readyStack.shift())();
+    });
+    else TWeb._ready = 1;
+/*
+    TWeb.ready(function(){
+        $("section").css({
+            "min-height": 1090,
+            "padding-bottom": 30
+        });
+    });
+*/
 })({
     header: function(url){
         return this._load("header", url);
@@ -58,30 +74,44 @@
         return this._load("nav", url);
     },
     aside: function(url){
-        return this._load("aside", url);
+        return this._load("aside", url, function(){
+            $("section").css({
+                "min-height": 1105//$('aside').height() + 15
+            });
+        });
     },
     section: function(section, callback){
+        if(this._loading_section) return false;
+
+
         var _this = this;
         //1. first (section) load
         if(!this._loaded_section){
             section = section || location.hash;
-            
             if(!this._validateHash(section)) return false;
+            //console.log("first hash:", section, location.hash);
         }
         //2. section not specified (hashchange event)
         else if(typeof section == 'undefined'){
+
+            if(this._loaded_section === location.hash) return false;
+
             if(!this._validateHash(location.hash)) return false;
-            
+            //console.log("undefined section:", section, location.hash);
             section = location.hash;// no section argument: use hash
         }
         //3. section specified
         else {
+
+            if(this._loaded_section == section) return false;
+
             if(!this._validateHash(section)) return false;
             if(!section.match(/\//g)){    
                 // change the location hash
                 if(location.hash != section) location.hash = section;//console.log("force hashchange to", section);
                 return;  
-            }        
+            }
+            //console.log("section:", section);
         }
 
         var _callback = this._sectionCallback(section, callback, this);
@@ -91,11 +121,28 @@
         // É necessário carregar a secção se a secção for diferente da secção carregada
         if( this._loaded_section !== section )  return this._section(section, _callback);
         //else console.warn("the section "+section+" has already loaded!");
-        
+
         if(matches && matches[2] ) _this._article(matches[2], callback); 
         return $(section);
     },
+_loading_section: null,
+
+    _: function(){
+        // ...
+        return this;
+    },
+
     article: function(article, callback){// returns jQuery wrapped article with custom select method
+        /*/
+        var _this = this;
+        if(!TWeb._ready){
+            console.log("TWeb is not ready!");
+            TWeb.ready(function(){
+                _this.article(article, callback);
+            });
+            return _this;
+        }
+        //*/
         var _callback = 0;
 
         // 1. article
@@ -127,14 +174,6 @@
         if(!$a.length){
             $a = $("<a>").attr("data-name", article).html(article.replace(/\_/g, " "))
                 .attr("href", "#"+section +"/"+article);
-
-            /*
-            $a.click(function(){
-                $("section div.articles article").removeClass('selected');
-                $(this).parent().addClass("selected").siblings().removeClass("selected");
-                $article.addClass("selected");
-            });
-            */
 
             // navigator item
             var $li = $("<li>").append($a) // create item
@@ -322,7 +361,6 @@
             else{
                 if(!location.hash.match(section)) location.hash = section;
                 //$("section").css("opacity", 0).fadeTo("fast" , 1)
-
                 _this._loaded_section = section;
                 if(article){
                     _this._toggle( $("a[href='%hash%']".replace("%hash%", section)) );
@@ -330,11 +368,16 @@
                 }
                 else _this._toggle();
             }
+            _this._loading_section = 0;
         };
     },
     _section: function(section, callback){
         if(!section.match(/^#/)) throw "invalid section name " + section;
         $("section").attr("id", section.replace("#", ""));
+
+
+
+        this._loading_section = section;
         return this._load(section,
             "content/section.%section%.html".replace("%section%", section.replace("#", "")),
             callback);
