@@ -3,7 +3,7 @@ html {
     overflow-x: hidden;
 }
 body{
-	text-align: center;
+    text-align: center;
     vertical-align: top;
     /* background: linear-gradient(rgb(241,247,244), rgb(191,197,194)); Standard syntax */
     background-color: rgb(231,237,234);
@@ -312,14 +312,13 @@ ul.lista-vertical > li a:hover{
 }
 
 /* G A L E R I A S */
-/*-----------------------------------
-    galeria
-    slider (article.portugal.html)
-------------------------------------*/
+/*------------------------------------
+    .slider (article.portugal.html)
+-------------------------------------*/
 div.slider{
-    width: 800px; /*Same as width of the large image*/
+    width: 800px; /* igual à largura da imagem grande */
     position: relative;
-    padding-top: 425px; /* padding brings the labels down */
+    padding-top: 425px; /* padding faz descer as imagens pequenas (labels) */
     margin: 10px auto;
     padding-bottom: 100px;
 }
@@ -363,17 +362,17 @@ div.slider img.thumbnail{
 }
 
 /*-----------------------------------
-    galeria (article.brasil.html)
+    .galeria (article.brasil.html)
 ------------------------------------*/
 ul.galeria {
-    height: 840px !important;
+    height: 840px !important;/* altura da galeria */
     position:relative;
     display: block;
     padding: 5px;
 }
 ul.galeria li{
     display: inline-block;
-    width: 256px !important;/* largura da figura */
+    width: 256px !important;/* largura de cada figura */
     vertical-align: top;
     padding: 10px;
     margin: 10px;
@@ -387,7 +386,7 @@ ul.galeria img{
 }
 
 /*-----------------------------------
-    slideshow (article.brasil.html)
+    .slideshow (article.brasil.html)
 ------------------------------------*/
 ul.slideshow {
     background-color: #000000;
