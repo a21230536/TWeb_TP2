@@ -23,7 +23,8 @@
 
         var defaults = { header:0, nav:0, footer:0, aside:0 };
         for(var name in defaults )
-            if(typeof content[name] != 'undefined') _[name](content[name]);
+           if(typeof content[name] != 'undefined') _[name](content[name]);
+//Ze DISABLED load defaults...
 //Ze           else _[name](defaults[name]);
 //Ze
 //Ze        if(typeof content.section != 'undefined') _.section(content.section);
@@ -50,19 +51,12 @@
     TWeb._ready = 0;
     TWeb._readyStack = [];
 
-    if(!jQuery) situs.loadScript("js/jquery/jquery-2.0.3.js", function(){
+    if(!window.jQuery) situs.loadScript("js/jquery/jquery-2.0.3.min.js", function(){
         TWeb._ready = 1;
         while(TWeb._readyStack.length) (TWeb._readyStack.shift())();
     });
     else TWeb._ready = 1;
-/*
-    TWeb.ready(function(){
-        $("section").css({
-            "min-height": 1090,
-            "padding-bottom": 30
-        });
-    });
-*/
+
 })({
     header: function(url){
         return this._load("header", url);
@@ -81,37 +75,49 @@
         });
     },
     section: function(section, callback){
+        var _this = this;
+
+        //*/ not ready, put it on when ready stack
+        if(!TWeb._ready){
+            if(section){
+                TWeb.ready(function(){
+                    setTimeout(function(){
+                       scrollTo(0,0);
+                    }, 250);
+                    _this.section(section, callback);
+                });
+            }
+            return _this;
+        }
+        //*/
+
         if(this._loading_section) return false;
 
-
-        var _this = this;
         //1. first (section) load
         if(!this._loaded_section){
             section = section || location.hash;
             if(!this._validateHash(section)) return false;
-            //console.log("first hash:", section, location.hash);
         }
         //2. section not specified (hashchange event)
         else if(typeof section == 'undefined'){
-
             if(this._loaded_section === location.hash) return false;
-
             if(!this._validateHash(location.hash)) return false;
-            //console.log("undefined section:", section, location.hash);
             section = location.hash;// no section argument: use hash
         }
         //3. section specified
         else {
-
             if(this._loaded_section == section) return false;
 
             if(!this._validateHash(section)) return false;
             if(!section.match(/\//g)){    
                 // change the location hash
-                if(location.hash != section) location.hash = section;//console.log("force hashchange to", section);
-                return;  
+                if(location.hash != section){
+                    console.log("force hashchange to", section);
+                    location.hash = section;
+                }
+                else console.log("hash didn't change", section);
+                return;
             }
-            //console.log("section:", section);
         }
 
         var _callback = this._sectionCallback(section, callback, this);
@@ -120,29 +126,11 @@
 
         // É necessário carregar a secção se a secção for diferente da secção carregada
         if( this._loaded_section !== section )  return this._section(section, _callback);
-        //else console.warn("the section "+section+" has already loaded!");
 
         if(matches && matches[2] ) _this._article(matches[2], callback); 
         return $(section);
     },
-_loading_section: null,
-
-    _: function(){
-        // ...
-        return this;
-    },
-
     article: function(article, callback){// returns jQuery wrapped article with custom select method
-        /*/
-        var _this = this;
-        if(!TWeb._ready){
-            console.log("TWeb is not ready!");
-            TWeb.ready(function(){
-                _this.article(article, callback);
-            });
-            return _this;
-        }
-        //*/
         var _callback = 0;
 
         // 1. article
@@ -227,23 +215,26 @@ _loading_section: null,
             location.hash = section;
             setTimeout(function(){   
                 _this.scrollTo(selector);
-            },300);
+            }, 250);
         });
     },
     scrollTo: function(selector, t){
         var $el = $(selector);
         if(!$el.length) return false;
-        t = t || 2000;
-
+        t = t || 1000;
+/*
         $('html, body').animate({
             scrollTop: $el.offset().top - 10
         }, t);
+*/
+        window.scrollTo(0, $el.offset().top - 10);
+
         setTimeout(function(){
             $(selector).addClass("selected");
             setTimeout(function(){
                 $(selector).removeClass("selected");
             }, t);
-        }, t);
+        }, 250);
     },
     
     //music('#id').toggle(this)
@@ -259,7 +250,6 @@ _loading_section: null,
             else $el.addClass("selected");
         }
     },
-
     play: function(selector, volume){
         var $el = $(selector);
         $el[0].volume = volume || .25;
@@ -267,19 +257,37 @@ _loading_section: null,
         else $el[0].pause();
         return this;
     },
-
     screen: function(url){
+        //*/ not ready, put it on the 'when ready' stack
+        var _this = this;
+        if(!TWeb._ready){
+            TWeb.ready(function(){
+                _this.screen(url);
+            });
+            return _this;
+        }
+        //*/
+
         $("#screen").show();
         this.el("#screen").load(url);
         return this;
     },
-
     append: function(url){
+        //*/ not ready, put it on the 'when ready' stack
+        var _this = this;
+        if(!TWeb._ready){
+            TWeb.ready(function(){
+                _this.append(url);
+            });
+            return _this;
+        }
+        //*/
         $("body").append($("<div>").load(url));
         return this;
     },
-
     el: function(selector){
+        if(!TWeb._ready) return false;
+
         var _this = this;
         return {
             selector: selector,
@@ -313,7 +321,6 @@ _loading_section: null,
             }
         };
     },
-
     /* AJAX */
     loadScript: function(url, callback){
         // create a script element
@@ -335,7 +342,6 @@ _loading_section: null,
         var head = document.getElementsByTagName("head");
         head[0].appendChild(script);
     },
-
     /* HELPERS */
     _match: function(section){
         return section.match(/^(#[\w\-\_]+)\/([\w\-\_]+)$/i);
@@ -375,8 +381,6 @@ _loading_section: null,
         if(!section.match(/^#/)) throw "invalid section name " + section;
         $("section").attr("id", section.replace("#", ""));
 
-
-
         this._loading_section = section;
         return this._load(section,
             "content/section.%section%.html".replace("%section%", section.replace("#", "")),
@@ -402,8 +406,23 @@ _loading_section: null,
         $menuItem.addClass('selected').siblings().removeClass('selected');
     },
     _load: function(el, url, callback){
+        //*/ not ready, put it on the 'when ready' stack
+        var _this = this;
+        if(!TWeb._ready){
+            //console.log("TWeb is not ready!");
+            TWeb.ready(function(){
+                _this._load(el, url, callback);
+            });
+            return _this;
+        }
+        //*/
         url = url || "content/" + el + ".html";
         return $(el).first().load(url, callback);
     },
-    _loaded_section: 0
+    _loading_section: null,
+    _loaded_section: 0,
+    _: function(){
+        // ...
+        return this;
+    }
 });
