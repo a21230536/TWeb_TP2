@@ -286,31 +286,47 @@ ul.lista-vertical > li a:hover{
     margin-left: 6px;
     border-radius: 12px;
     transition: all 1.5s;
-    box-shadow: 0 0 7px rgba(255,255,255,.5);
+    box-shadow: 0 0 10px rgba(255,255,255,.75);
+    opacity: .6;
 }
 .icon:hover{
-    background-color: rgba(128,158,128,.5);
+    background-color: rgba(128,158,128,.7);
     cursor: pointer;
 }
 .icon.selected{
     background-color: rgba(8,38,8,.7);
+    opacity: 1;
 }
 .icon-up{
-    background-image: url('../images/icons/up.png');
+    background-image: url('../images/icons/up-dark.png');
 }
 .icon-music{
-    background-image: url('../images/icons/music.png');
+    background-image: url('../images/icons/music-dark.png');
 }
 .icon-place{
-    background-image: url('../images/icons/place.png');
+    background-image: url('../images/icons/place-dark.png');
 }
 .icon-star{
-    background-image: url('../images/icons/star.png');
+    background-image: url('../images/icons/star-dark.png');
 }
 .icon-flag{
+    background-image: url('../images/icons/flag-dark.png');
+}
+.icon-up.selected{
+    background-image: url('../images/icons/up.png');
+}
+.icon-music.selected{
+    background-image: url('../images/icons/music.png');
+}
+.icon-place.selected{
+    background-image: url('../images/icons/place.png');
+}
+.icon-star.selected{
+    background-image: url('../images/icons/star.png');
+}
+.icon-flag.selected{
     background-image: url('../images/icons/flag.png');
 }
-
 /* G A L E R I A S */
 /*------------------------------------
     .slider (article.portugal.html)
