@@ -29,15 +29,14 @@
 //Ze
 //Ze        if(typeof content.section != 'undefined') _.section(content.section);
 //Ze        else {
-//Ze            //console.log(location.hash);
 //Ze            //_.section("#home");
                 if((!_._validateHash(location.hash) || !location.hash)
-                    && location.hash != "#home" ) location.hash = "home";
+                        && location.hash !=  "#home") _.section("#home");//location.hash = "home";
+                else _.section(location.hash);
 //Ze        }
 
         // to use the same object
         window.onhashchange = function(){
-            //console.log("hashchange", location.hash, arguments);
             _.section();
         };
 
@@ -58,6 +57,31 @@
     else TWeb._ready = 1;
 
 })({
+    load: function(blocks){
+        location.hash = "home";
+        blocks = blocks || {};
+        for(var name in {
+            header:0,
+            footer:0,
+            nav:0,
+            aside:0
+            } ){
+            if(blocks[name]) this[name](blocks[name]);
+            else this[name]();
+        }
+        return this;
+    },
+
+    unload: function(){
+        for(var name in { header:0, footer:0, nav:0, aside:0, section:0} ){
+            $("#body > " + name).html("");
+        }
+        $("#body").hide();
+
+        this._loaded_section = 0;
+        this._visible = 0;
+        return this;
+    },
     header: function(url){
         return this._load("header", url);
     },
@@ -69,15 +93,14 @@
     },
     aside: function(url){
         return this._load("aside", url, function(){
-            $("section").css({
+            $("#body > section").css({
                 "min-height": 1105//$('aside').height() + 15
             });
         });
     },
     section: function(section, callback){
         var _this = this;
-
-        //*/ not ready, put it on when ready stack
+        //*/ not ready, put it on the 'when ready' stack
         if(!TWeb._ready){
             if(section){
                 TWeb.ready(function(){
@@ -90,7 +113,6 @@
             return _this;
         }
         //*/
-
         if(this._loading_section) return false;
 
         //1. first (section) load
@@ -170,13 +192,11 @@
     
         $article.select = function(){
             var hash = "#" + $("#body > section").attr('id') + "/" + article;
-            //console.log("SELECT", location.hash, hash );
             //location.hash = hash;
 
             this.siblings().removeClass('selected');
             $li.addClass("selected").siblings().removeClass("selected");
             this.addClass("selected");
-
         };
 
         if(_callback && callback) callback();
@@ -222,11 +242,12 @@
         var $el = $(selector);
         if(!$el.length) return false;
         t = t || 1000;
-/*
+
+        /*/
         $('html, body').animate({
             scrollTop: $el.offset().top - 10
         }, t);
-*/
+        //*/
         window.scrollTo(0, $el.offset().top - 10);
 
         setTimeout(function(){
@@ -236,8 +257,6 @@
             }, t);
         }, 250);
     },
-    
-    //music('#id').toggle(this)
     toggle: function(el, condition){
         var $el = $(el);
         if(typeof condition != 'undefined') {
@@ -300,7 +319,6 @@
                 return this;
             },
             scrolls: function(section){
-                //console.log("scrolls");
                 $(this.selector).click(function(){
                     var index = $(this).attr("data-index");
                     _this.scroll(section, index);
@@ -359,7 +377,6 @@
         }
         return function(){
             if(arguments[1] == "error"){
-                //console.log("Failed to load ", section); 
                 // load section #home
                 // if theres isn't any section loaded and failed section is not #home 
                 if(!_this._loaded_section && section != "#home")  _this.section("#home");
@@ -395,7 +412,7 @@
         // select article
         $("section div.articles article[data-name='%article%']".replace("%article%", article)).addClass("selected");        
         if(callback) callback();
-        else window.scroll(0,0);
+        else window.scrollTo(0,0);
         //$('html,body').scrollTop(0);
         //$('html, body').animate({ scrollTop: 0 }, 'fast');
     },
@@ -406,19 +423,29 @@
         $menuItem.addClass('selected').siblings().removeClass('selected');
     },
     _load: function(el, url, callback){
+
         //*/ not ready, put it on the 'when ready' stack
         var _this = this;
         if(!TWeb._ready){
-            //console.log("TWeb is not ready!");
             TWeb.ready(function(){
                 _this._load(el, url, callback);
             });
             return _this;
         }
         //*/
+
+        if(!$('#body').is(":visible") && !this._visible) {
+            this.visible = 1;
+            setTimeout(function(){
+                $('#body').css("display", "inline-block");
+            }, 500);
+        }
+
         url = url || "content/" + el + ".html";
-        return $(el).first().load(url, callback);
+
+        return $("#body > " + el).first().load(url, callback);
     },
+    _visible: 0,
     _loading_section: null,
     _loaded_section: 0,
     _: function(){
