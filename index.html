@@ -7,9 +7,12 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
     <body>
+        <noscript>
+            <a href="http://www.embaixadadeportugal.org.br/">Embaixada de Portugal em Brasília</a>
+        </noscript>
         <div id="body">
             <header></header>
-            <nav>Embaixada de Portugal no Brasil</nav>
+            <nav></nav>
             <section></section>
             <aside></aside>
             <footer></footer>
@@ -17,7 +20,6 @@
         <div id="screen" onclick="TP2.el(this).fadeOut('fast')"></div>
         <script src="js/tweb/tweb.min.js"></script>
         <script type="text/javascript">
-            // carregador de conteúdos
             window.TP2 = new TWeb;
 
             // conteúdos
@@ -26,9 +28,8 @@
             TP2.nav("content/nav.html");
             TP2.aside("content/aside.html");
 
-            // section defaults to #home or valid hash
             // optional: always start with this section
-            //TP2.section("#embassy");
+            //TP2.section("#home");
 
             // TP2 info banner e botão Fork me!
             TP2.screen('tp2.html');

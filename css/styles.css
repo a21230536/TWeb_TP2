@@ -1,19 +1,35 @@
 @import url("fonts/opensans.css");
+* {
+    user-select: none;
+    cursor: default;
+}
+article p,
+article h1,
+article span,
+article p a{
+    user-select: text;
+    cursor: text;
+}
 html {
     overflow-x: hidden;
 }
 body{
     text-align: center;
     vertical-align: top;
-    /* background: linear-gradient(rgb(241,247,244), rgb(191,197,194)); Standard syntax */
-    background-color: rgb(231,237,234);
+    background: linear-gradient(rgb(241,247,244), rgb(191,197,194));
+    /*background-color: rgb(231,237,234);*/
     color: rgb(66,66,66);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
     width: 100%;
+    min-height: 1024px;
     max-height: 5000px;
     font-size: 14px;
     line-height: 22px;
+}
+a,
+a img{
+    cursor: pointer;
 }
 a {
 	text-decoration: none;
@@ -24,11 +40,22 @@ a {
 a:hover{
     text-decoration: underline;
 }
-section, footer, header, aside, nav{
+section,
+footer,
+header,
+aside,
+nav{
     padding: 10px;
 }
+#body > section:empty,
+#body > aside:empty,
+#body > footer:empty,
+#body > nav:empty,
+#body > header:empty{
+    display: none;
+}
 #body{
-	display: inline-block;
+    display: none;
 	margin: 10px auto;
 	padding: 10px;
 	width: auto;
@@ -36,22 +63,33 @@ section, footer, header, aside, nav{
 	border-radius: 5px;
     vertical-align: top;
 }
-#body > section{
-	display: inline-block;
-    border-right: solid rgba(130,130,130,.25) 1px;
-	width: 640px;
-}
-#body > footer{
-    border-top: solid rgba(130,130,130,.25) 1px;;
-}
+
+/*------------------------
+    header - Cabeçalho
+--------------------------*/
 #body > header{
     border: none;
+    clear: both;
+    min-width: 640px;
 }
-#body > section:empty,
-aside:empty,
-footer:empty,
-header:empty{
-    display: none;
+
+/*------------------------
+    footer - Roda-pé
+--------------------------*/
+#body > footer{
+    display: block;
+    border-top: solid rgba(130,130,130,.25) 1px;
+    clear: both;
+    min-width: 878px;
+}
+
+/*------------------------
+    section - secções
+--------------------------*/
+#body > section{
+    display: inline-block;
+    width: 640px;
+    padding: 10px 20px;
 }
 
 /*------------------------
@@ -61,6 +99,7 @@ header:empty{
     margin: 0 -11px;
     background-color: rgb(231,237,234);
     border: none;
+    min-width: 900px;
 }
 nav ul{
     width: 100%;
@@ -134,17 +173,13 @@ section > nav a{
     Barra Lateral
 --------------------*/
 aside{
-	padding: 13px 5px;
+	padding: 15px 5px 10px 10px;
     vertical-align: top;
-	height: auto;
-	max-width: 268px;
-    min-width: 108px;
     width: 260px;
-	border: none;
 	text-align: center;
     display: inline-block;
 }
-   
+
 /*-------------
     article
 --------------*/
@@ -256,9 +291,7 @@ ul.lista-vertical > a{
     text-align: center;
     display: block;
     margin-bottom: 7px;
-    cursor: default;
     text-decoration: none;
-    cursor: pointer;
     color: inherit;
 }
 ul.lista-vertical > li{
@@ -270,9 +303,6 @@ ul.lista-vertical > li a{
     font-size: 90%;
     color: inherit;
     opacity: .75;
-}
-ul.lista-vertical > li a:hover{
-    cursor: pointer;
 }
 
 /*-----------
@@ -287,7 +317,8 @@ ul.lista-vertical > li a:hover{
     border-radius: 12px;
     transition: all 1.5s;
     box-shadow: 0 0 10px rgba(255,255,255,.75);
-    opacity: .6;
+    opacity: .65;
+    background-image: url('../images/icons/sprite.png');
 }
 .icon:hover{
     background-color: rgba(128,158,128,.7);
@@ -298,35 +329,26 @@ ul.lista-vertical > li a:hover{
     opacity: 1;
 }
 .icon-up{
-    background-image: url('../images/icons/up-dark.png');
+    background-position: -96px -24px;
 }
 .icon-music{
+    /*background-position: -25px -24px;*/
     background-image: url('../images/icons/music-dark.png');
 }
 .icon-place{
-    background-image: url('../images/icons/place-dark.png');
+    background-position: -48px -24px;
 }
 .icon-star{
-    background-image: url('../images/icons/star-dark.png');
+    background-position: -72px -25px;
 }
 .icon-flag{
-    background-image: url('../images/icons/flag-dark.png');
-}
-.icon-up.selected{
-    background-image: url('../images/icons/up.png');
+    background-position: 0 -24px;
 }
 .icon-music.selected{
+    /*background-position: -25px 0;*/
     background-image: url('../images/icons/music.png');
 }
-.icon-place.selected{
-    background-image: url('../images/icons/place.png');
-}
-.icon-star.selected{
-    background-image: url('../images/icons/star.png');
-}
-.icon-flag.selected{
-    background-image: url('../images/icons/flag.png');
-}
+
 /* G A L E R I A S */
 /*------------------------------------
     .slider (article.portugal.html)
@@ -352,12 +374,12 @@ div.slider label {
     margin: 16px 0 0 16px;
     border: 3px solid rgb(131,137,134);
     float: left;
-    cursor: pointer;
     transition: all 0.5s;
-    opacity: 0.6;
+    opacity: 0.5;
 }
 div.slider label img {
     display: block;
+    cursor: pointer;
 }
 /* click effects: thumbnail changes its opacity */
 div.slider input[type=radio]:checked+label {
@@ -385,6 +407,7 @@ ul.galeria {
     position:relative;
     display: block;
     padding: 5px;
+
 }
 ul.galeria li{
     display: inline-block;
@@ -395,10 +418,10 @@ ul.galeria li{
     box-shadow: 0 0 14px 0 rgba(0,0,0,.5);
     border-radius: 5px;
     border: solid silver 1px;
-    cursor: pointer;
 }
 ul.galeria img{
     border: solid silver 1px;
+    cursor: pointer;
 }
 
 /*-----------------------------------
@@ -409,13 +432,14 @@ ul.slideshow {
     width:800px;
     height:600px;
     border: 1px solid silver;
+    box-shadow: 0 0 15px black;
+    z-index: 10;
+    /* centrar na tela */
     position: fixed;
     top: 50%;
     left: 50%;
     margin-top: -300px;
     margin-left: -400px;
-    box-shadow: 0 0 15px black;
-    z-index: 10;
 }
 /* animação */
 @-webkit-keyframes ciclo{
