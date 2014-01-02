@@ -1,10 +1,10 @@
-<img id="ribbon" src="images/bom_ano_2014.png"/>
+<img id="ribbon" src="" />
 <img src="images/Coat_of_arms_of_Portugal.png" width="160"/>
 <p id="title">EMBAIXADA <span>DE</span> PORTUGAL</p>
 <p id="subtitle">em BRASÍLIA</p>
 <style type="text/css">
-    @import url("/TWeb_TP2/css/fonts/sortsmillgoudy/regular/stylesheet.css");
-    @import url("/TWeb_TP2/css/fonts/sortsmillgoudy/italic/stylesheet.css");
+    @import url("css/fonts/sortsmillgoudy/regular/stylesheet.css");
+    @import url("css/fonts/sortsmillgoudy/italic/stylesheet.css");
     #title{
         font-family: sorts_mill_goudyregular;
         margin:  0px;
@@ -30,4 +30,12 @@
         left: -1px; 
         top: -1px;
     }
+    #ribbon[src=""] {
+        display: none;
+    }
 </style>
+<script type="text/javascript">
+    if(!(new Date).getMonth() && (new Date).getFullYear() == 2014){
+        document.getElementById("ribbon").setAttribute("src", "images/bom_ano_2014.png");
+    }
+</script>
