@@ -4,32 +4,32 @@
         <fieldset>
             <legend>Todos os campos com um * são obrigatórios.</legend>
             <div>
-                <label id="form_contact_name-lbl" for="form_contact_name" title="">Nome<span class="star">&nbsp;*</span></label>
-                <input type="text" name="form[contact_name]" id="form_contact_name" value="" size="30" required aria-required="true" placeholder="O seu nome" aria-invalid="false">
+                <label for="contact_name" title="">Nome *</label>
+                <input type="text" name="contact_name" id="contact_name" value="" size="30" required placeholder="O seu nome">
             </div>
             <div>
-                <label id="form_contact_email-lbl" for="form_contact_email" title="">Email<span class="star">&nbsp;*</span></label>
-                <input type="email" name="form[contact_email]" id="form_contact_email" value="" size="30" required aria-required="true" placeholder="O endereço de correio electrónico" >
+                <label for="contact_email" title="">Email *</label>
+                <input type="email" name="contact_email" id="contact_email" value="" size="30" required placeholder="O endereço de correio electrónico" >
             </div>
             <div>
-                <label id="form_contact_emailmsg-lbl" for="form_contact_emailmsg" title="&lt;strong&gt;Assunto&lt;/strong&gt;&lt;br /&gt;Enter the subject of your message here ." aria-invalid="false">Assunto<span class="star">&nbsp;*</span></label>
-                <input placeholder="O assunto da mensagem" type="text" name="form[contact_subject]" id="form_contact_emailmsg" value="" size="60" required="" aria-required="true" class="" aria-invalid="false">
+                <label for="contact_subject" title="Escreva o assunto da mensagem aqui.">Assunto *</label>
+                <input placeholder="O assunto da mensagem" type="text" name="contact_subject" id="contact_subject" value="" size="60" required>
             </div>
             <div>
-                <label id="jform_contact_message-lbl" for="jform_contact_message" title="&lt;strong&gt;Mensagem&lt;/strong&gt;&lt;br /&gt;Enter your message here." aria-invalid="false">Mensagem<span class="star">&nbsp;*</span></label>
-                <textarea placeholder="Escreva a sua mensagem aqui." name="jform[contact_message]" id="jform_contact_message" cols="50" rows="10" required="" aria-required="true" style="margin: 0px; width: 220px; height: 180px;" class="" aria-invalid="false"></textarea>
+                <label for="contact_message" title="Escreva a sua mensagem aqui.">Mensagem *</label>
+                <textarea placeholder="Escreva a sua mensagem aqui." name="contact_message" id="contact_message" cols="50" rows="10" required></textarea>
             </div>
             <!-- Anexo -->
             <div>
-                <label id="attachement-label" for="attachement" title="Anexo">Anexar PDF</label>
-                <input type="file" accept="pdf" placeholder="Junte um documento." name="form[attachment]" id="attachement">
+                <label for="attachement" title="Anexo">Anexar PDF</label>
+                <input type="file" accept="pdf" placeholder="Junte um documento." name="attachment" id="attachement">
             </div>
             <div>
-                <label id="jform_contact_email_copy-lbl" for="jform_contact_email_copy" class="hasTooltip" title="" data-original-title="&lt;strong&gt;Enviar-me uma cópia&lt;/strong&gt;&lt;br /&gt;Envia uma cópia da mensagem para o endereço que forneçeu.">Enviar-me uma cópia</label>
-                <input type="checkbox" name="jform[contact_email_copy]" id="jform_contact_email_copy" value="1">
+                <label for="contact_copy" title="Envia uma cópia da mensagem para o endereço que forneçeu.">Enviar-me uma cópia</label>
+                <input type="checkbox" name="contact_copy" id="contact_copy" value="1">
             </div>
             <div class="form-submit">
-                <button style="padding: 4px 9px;cursor: pointer" type="submit" >Enviar Email</button>
+                <button type="submit" >Enviar Email</button>
             </div>
         </fieldset>
     </form>

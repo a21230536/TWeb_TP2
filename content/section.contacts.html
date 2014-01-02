@@ -1,4 +1,4 @@
-<nav><!-- navegador --></nav>
+<nav></nav>
 <div class="articles"></div>
 <script type="text/javascript">
     TP2.article("localidade").select();
@@ -63,6 +63,9 @@
         line-height: 18px;
         color: #555;
         border-radius: 3px;
+        margin: 0px;
+        width: 220px;
+        height: 180px;"
     }
     #contacts fieldset input[type="checkbox"],
     #contacts fieldset input[type="radio"]{
@@ -78,5 +81,34 @@
     #contacts fieldset > div{
         text-align: left;
         padding: 7px 0;
+    }
+
+    /*-----------------------
+        Pedidos Oficiais
+    -------------------------*/
+    #sexo input{
+        vertical-align: middle;
+    }
+
+    #sexo > label{
+        vertical-align: middle
+    }
+
+    #sexo label.gender{
+        width: inherit;
+        margin: 0;
+        padding: 0;
+        vertical-align: middle
+    }
+    #request_id{
+       width: 110px;
+        display: inline-block
+    }
+    #request_age {
+        style="width: inherit"
+    }
+    div.form-submit button{
+        padding: 4px 9px;
+        cursor: pointer
     }
 </style>
