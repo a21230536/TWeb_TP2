@@ -12,18 +12,29 @@ article p a{
 }
 html {
     overflow-x: hidden;
+    /*
+    background-color: rgb(191,197,194);
+*/
 }
+
 body{
+    margin: 0;
+    padding: 0;
     text-align: center;
     vertical-align: top;
     background: linear-gradient(rgb(241,247,244), rgb(191,197,194));
-    /*background-color: rgb(231,237,234);*/
+    background-color: rgb(231,237,234);
     color: rgb(66,66,66);
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
     width: 100%;
-    min-height: 1024px;
+    /*
+    position: absolute;
+    bottom: 0;
+    top: 0;
     max-height: 5000px;
+    */
+    min-height: 1024px;
     font-size: 14px;
     line-height: 22px;
 }
@@ -56,7 +67,7 @@ nav{
 }
 #body{
     display: none;
-	margin: 10px auto;
+	margin: 20px auto;
 	padding: 10px;
 	width: auto;
     background: rgb(255,255,255) url('../images/bk_escudo.png') no-repeat bottom right;
@@ -331,10 +342,16 @@ ul.lista-vertical > li a{
 .icon-up{
     background-position: -96px -24px;
 }
+
 .icon-music{
     /*background-position: -25px -24px;*/
     background-image: url('../images/icons/music-dark.png');
 }
+.icon-left{
+    /*background-position: -25px -24px;*/
+    background-image: url('../images/icons/left-dark.png');
+}
+
 .icon-place{
     background-position: -48px -24px;
 }
@@ -403,15 +420,14 @@ div.slider img.thumbnail{
     .galeria (article.brasil.html)
 ------------------------------------*/
 ul.galeria {
-    height: 840px !important;/* altura da galeria */
+    height: 840px;/* !important altura da galeria */
     position:relative;
     display: block;
     padding: 5px;
-
 }
 ul.galeria li{
     display: inline-block;
-    width: 256px !important;/* largura de cada figura */
+    width: 254px;/* !important largura de cada figura */
     vertical-align: top;
     padding: 10px;
     margin: 10px;

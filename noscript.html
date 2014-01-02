@@ -1,0 +1,2323 @@
+<!doctype html>
+<html lang="pt" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <meta charset="utf-8">
+        <title>Embaixada de Portugal em Brasília</title>
+        <link href="favicon.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
+        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <style type="text/css">
+        /* HEADER */
+        @import url("/TWeb_TP2/css/fonts/sortsmillgoudy/regular/stylesheet.css");
+        @import url("/TWeb_TP2/css/fonts/sortsmillgoudy/italic/stylesheet.css");
+        #body{
+            display: inline-block;
+            margin-bottom: 256px;
+        }
+        #main-menu{
+            display: inline;
+        }
+        #title{
+            font-family: sorts_mill_goudyregular;
+            margin:  0px;
+            padding: 5px;
+            margin-top: 5px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            font-size: 140%;
+        }
+        #title span{
+            font-size: 70%;
+        }
+        #subtitle{
+            font-family: sorts_mill_goudyitalic;
+            padding: 0px;
+            margin: 0px;
+            letter-spacing: 3px;
+            font-weight: normal;
+            margin-bottom: 0;
+        }
+        audio{
+            float:right;
+            display: inline-block;
+            width: 128px;
+            vertical-align: middle;
+            margin-left: 10px;
+        }
+        /* HOME */
+        #fado{
+            width: 395px;
+        }
+        #pessoa{
+            width: 240px;
+        }
+        article[data-name="fado"] p{
+            font-size: 90%;
+        }
+        article[data-name='beleza_da_simplicidade'] video{
+            border: solid silver 1px;
+        }
+        #porto img{
+            border: solid silver 1px;
+            padding: 0px;
+        }
+        #fado img{
+            float: left;
+            width: 200px;
+            margin-right: 10px;
+        }
+
+        /* EMBASSY */
+        #sketch{
+            margin: 50px 0;
+        }
+
+        #rede_consular{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+        #rede_consular li{
+            padding: 10px 20px 20px 30px;
+            margin: 10px 10px 20px 10px;
+            border: solid rgba(231,237,234,1) 5px;
+            border-radius: 15px;
+            text-align: left;
+            display: block;
+            background-color: rgba(231,237,234,.25);
+            box-shadow: 0 0 15px rgba(231,237,234,1);
+            transition: all 1.5s;
+        }
+        #rede_consular li.selected{
+            border-color: rgba(8,38,8,.7);
+            background-color: rgb(231,237,234);
+        }
+        #rede_consular li h1{
+            margin-bottom: 0;
+        }
+        #rede_consular li img{
+            padding: 5px;
+            border: solid silver 1px;
+            width: 250px;
+        }
+        #pessoal li{
+            margin: 15px 0 25px 0;
+        }
+        #pessoal li img{
+            padding: 5px;
+            border: solid silver 1px;
+            width: 200px;
+        }
+        /* CONSULAR */
+        div.article.wrapper > ul{
+            text-align: left;
+            padding-left: 25px;
+        }
+        div.article.wrapper > h4{
+            text-align: left;
+        }
+        /* listas não ordenadas */
+        div.article.wrapper > ul{
+            text-align: left;
+            padding-left: 10px;
+        }
+        /* itens de listas ordenadas */
+        div.article.wrapper > ol li{
+            text-align: left;
+            padding-left: 10px;
+            list-style: upper-latin;/* ordenados por letra maiúscula */
+            margin-bottom: 10px;
+            font-size: 90%;
+        }
+        div.article.wrapper > ul{
+            text-align: left;
+            padding-left: 10px;
+        }
+        /* TURISM */
+        /*-----------------------------------
+                                        .slideshow (article.brasil.html)
+                                    ------------------------------------*/
+        #galeria-label{
+            display: none;
+        }
+        #slideshow-brasil:checked + label #galeria-label{
+            display: inline-block;
+        }
+        #slideshow-brasil:checked + label ul {
+            background-color: black;
+            width:800px;
+            height:600px;
+            border: 1px solid silver;
+            box-shadow: 0 0 15px black;
+            z-index: 10;
+            /* centrar na tela*/
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            margin-top: -300px;
+            margin-left: -400px;
+            padding: 0;
+        }
+        #slideshow-brasil:checked +label span{
+            height: 30px;
+            vertical-align: middle;
+            position: relative;
+            top: -40px;
+            background-color: rgba(0,0,0,.6);
+            color:rgb(200,200,200);
+            padding: 5px 12px;
+            border-radius: 7px;
+        }
+        #slideshow-brasil:checked +label li{
+            position: absolute;
+            -webkit-animation: ciclo 24s infinite;
+            animation: ciclo 24s infinite; /* 24s <= 6x 4s */
+            opacity: 0;
+
+            margin: 0;
+            padding: 0;
+
+            border: none;
+            margin-left: -400px;
+
+            width:800px;
+            height:600px;
+        }
+
+        #slideshow-brasil:checked +label ul li:nth-child(1){
+            animation-delay: 0s;/* 0s <= 0x 4s */
+            -webkit-animation-delay: 0s;
+        }
+        #slideshow-brasil:checked +label ul li:nth-child(2){
+            -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+        }
+        #slideshow-brasil:checked +label ul li:nth-child(3){
+            -webkit-animation-delay: 8s;
+            animation-delay: 8s;/* 8s <= 2x 4s */
+        }
+        #slideshow-brasil:checked +label ul li:nth-child(4){
+            -webkit-animation-delay: 12s;
+            animation-delay: 12s; /* ... */
+        }
+        #slideshow-brasil:checked +label ul li:nth-child(5){
+            animation-delay: 16s;
+            -webkit-animation-delay: 16s;
+        }
+        #slideshow-brasil:checked +label ul li:nth-child(6){
+            -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+        }
+
+
+        /* CONTACTS */
+        #localidade-article h1{
+            margin-bottom: 0;
+            margin-top: 20px;
+        }
+        #localidade-article p{
+            margin-top: 5px;
+        }
+        #localidade-article iframe{
+            margin-top: 10px;
+        }
+
+        select + input{
+            display: none;
+        }
+        select.outro + input {
+            display: inline-block;
+        }
+        #contacts + div.articles {
+            width: 100%;
+        }
+        #contacts + div.articles  div.form-submit{
+            padding-left: 180px;
+        }
+        #contacts + div.articles fieldset{
+            padding: 25px 0;
+            margin: 25px 0;
+            border: solid rgb(201,207,204) 1px;
+            border-radius: 10px;
+        }
+        #contacts + div.articles fieldset > div label{
+            width: 160px;
+            padding: 5px 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: right;
+            font-size: 13px;
+            font-weight: normal;
+            line-height: 18px;
+        }
+        #contacts + div.articles fieldset > div select{
+            padding: 3px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            border-radius: 3px;
+            transition: border linear .2s, box-shadow linear .2s;
+            font: small-control;
+        }
+        #contacts + div.articles fieldset > div > input{
+            padding: 4px 6px;
+            width: 220px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            border-radius: 3px;
+            transition: border linear .2s, box-shadow linear .2s;
+            font: small-control;
+        }
+        #contacts + div.articles fieldset > div textarea{
+            font: small-control; padding: 4px 6px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+            transition: border linear .2s, box-shadow linear .2s;
+            font-size: 13px;
+            line-height: 18px;
+            color: #555;
+            border-radius: 3px;
+        }
+        #contacts + div.articles fieldset input[type="checkbox"],
+        #contacts + div.articles fieldset input[type="radio"]{
+            box-shadow: none;
+            width: inherit;
+        }
+        #contacts + div.articles fieldset input[type="file"]{
+            width: inherit;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+        }
+        #contacts + div.articles fieldset > div{
+            text-align: left;
+            padding: 7px 0;
+        }
+
+        /* ATALHOS */
+        #links {
+            margin-left: -25px;
+        }
+        #links table{
+            border-collapse: collapse;
+            border-spacing: 0px;
+            color: #373737;
+            line-height: normal;
+            margin: 0;
+            width: 615px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(231,237,234,1);
+        }
+        #links table td{
+            vertical-align: top;
+            background-color:none;
+            width: 50%;
+            padding: 7px 0;
+        }
+        #links table td:first-child{
+            text-align: right;
+            font-size: 95%;
+
+        }
+        #links table tr{
+            border-bottom: solid rgba(237,234,231,.5) 1px;
+            border-top: solid rgba(37,34,31,.5) 1px;
+        }
+        #links table tr:first-child{
+            border-top: none;
+        }
+        #links table tr:last-child{
+            border-bottom: none;
+        }
+        #links table td:nth-child(2) {
+            text-align: left;
+            padding-left: 5px;
+        }
+        #links table td:nth-child(2)::before{
+            content: url('images/icon-external-link.png');
+            position: relative;
+            z-index: 1;
+            left: -3px;
+            top: 0px;
+            margin-left: 7px;
+        }
+        #links table tr:first-child td{
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 400;
+            font-size: 120%;
+            color: rgba(8,38,8,.65);
+            padding: 5px 0 10px 15px;
+            text-align: center;
+            width: 100%;
+        }
+        #links table tr:nth-child(2) td{
+            padding-top: 10px;
+        }
+
+        #links li{
+            width:615px;
+            padding: 10px 20px 20px 30px;
+            margin: 10px 10px 20px 10px;
+            border: solid rgba(231,237,234,1) 5px;
+            border-radius: 15px;
+            text-align: left;
+            display: block;
+            background-color: rgba(231,237,234,.25);
+            box-shadow: 0 0 15px rgba(231,237,234,1);
+            transition: all 1.5s;
+        }
+        #links li.selected{
+            border-color: rgba(8,38,8,.7);
+            background-color: rgb(231,237,234);
+        }
+        #links li{
+            padding: 0;
+            margin-left: 0;
+        }
+        #links a.icon{
+            margin-right: 10px;
+            margin-left: 0;
+        }
+        div.articles article{
+            margin-bottom: 30px;
+            width: 640px;;
+        }
+        article > a{
+            position: relative;
+            top: 10px;
+        }
+/* FOOTER */
+        #footer{
+            padding-top: 30px;
+
+        }
+
+        #governo li a::before{
+            content: url('images/icon-external-link.png');
+            position: relative;
+            z-index: 10;
+            left: -5px;
+            top: 0px;
+        }
+
+        #logos{
+            padding-top: 30px;
+        }
+
+        #logos li{
+            height: 50px;
+            display: inline-block;
+            margin: 10px 25px;
+            vertical-align: middle;
+        }
+        img.grayscale{
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            filter: grayscale(100%);
+            transition: all 1s;
+        }
+        img.grayscale:hover{
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            filter: grayscale(0%);
+        }
+        </style>
+    </head>
+    <body id="top">
+        <div id="body">
+            <header>
+                <img src="images/Coat_of_arms_of_Portugal.png" width="160"/>
+                <p id="title">EMBAIXADA <span>DE</span> PORTUGAL</p>
+                <p id="subtitle">em BRASÍLIA</p>
+            </header>
+            <nav>
+               <ul id="main-menu">
+                   <li><a href="#embassy">Embaixada</a></li>
+                   <li><a href="#consular">Assuntos Consulares</a></li>
+                    <li><a href="#turism">Turísmo</a></li>
+                    <li><a href="#info">Informação</a></li>
+                    <li><a href="#contacts">Contactos</a></li>
+                </ul>
+                <audio loop>
+                    <source src="raiz.mp3" type="audio/mpeg">
+                    O seu navegador não suporta o elemento de audio.
+                </audio>
+                <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+            </nav>
+            <section>
+                <!-- HOME -->
+                <div class="articles">
+                    <article class="selected" data-name='beleza_da_simplicidade'>
+                        <div class="article wrapper">
+                            <h1>A Beleza da Simplicidade</h1>
+                            <p>O video promocional «Portugal The Beauty of Simplicity» foi lançado para promover Portugal em 2015 com o tema "Europe's West Cost" (Costa Oeste da Europa) pelo Turismo de Portugal.</p>
+                            <video id="simplicity" width="610" type="video/mp4" src="Portugal_The_beauty_of_simplicity.mp4" poster="images/portugal-video_poster.png" controls>portugal-video_poster.png</video>
+                        </div>
+                    </article>
+                    <article id="fado" class="selected">
+                        <div class="article wrapper">
+                            <h1>Fado, Património da Humanidade</h1>
+                            <img src="images/fado_patrimonio.jpg" />
+                            <p> O VI Comité Inter-Governamental da UNESCO que vai analisar a candidatura do Fado a Património Imaterial da Humanidade começa hoje, em Bali, na Indonésia, e decorre até ao próximo dia 29. Presidido pelo embaixador da Indonésia junto da UNESCO, Aman Wirakartakusumah, o comité é constituído por 24 países, entre eles, Espanha, Quénia, Japão e Venezuela.</p>
+                            <p>A delegação portuguesa chega esta quinta-feira a Bali, sendo composta pelo presidente cessante da Comissão Nacional da UNESCO, embaixador  Fernando Andresen Guimarães, o presidente da Comissão Científica da candidatura, Rui Vieira Nery, a directora do Museu do Fado, Sara Pereira,  e ainda o presidente da Câmara Municipal de Lisboa, António Costa e a vereadora da Cultura, Catarina Vaz Pinto. Os 24 delegados devem analisar um total de 49 candidaturas para inscrição na lista do Património Imaterial da Humanidade, entre as quais o Fado.</p>
+                        </div>
+                    </article>
+                    <article id="pessoa" class="selected">
+                        <div class="article wrapper">
+                            <img src="images/fernando-pessoa1.jpg" alt="Fernando Pessoa" />
+                            <blockquote cite="http://eusouempreendedor.wordpress.com/2010/02/07/pensamento-do-dia-8/">
+                                <p>A maioria pensa com a sensibilidade, eu sinto com o pensamento. Para o homem vulgar, sentir é viver e pensar é saber viver. Para mim, pensar é viver e sentir não é mais que o alimento de pensar.</p>
+                                <footer>— <em>Fernando Pessoa</em></footer>
+                            </blockquote>
+                        </div>
+                    </article>
+                    <article id="porto" class="selected">
+                        <div class="article wrapper">
+                            <h1>Porto, Entre os Melhores Destinos para Viajar</h1>
+                            <a href="images/porto.jpg">
+                                <img src="images/porto.jpg" alt="Porto" />
+                            </a>
+                            <p>A arquitectura, o encontro de igrejas medievais com edifícios icónicos e futurísticos, o vinho do Porto, as margens do Douro. São algumas das atracções, aponta o <a href="http://www.tripadvisor.com">TripAdvisor</a>, que mais convencerão os viajantes e que os terá levado a valorizar positivamente o Porto, elevando-o ao 2.º posto do <a href="http://www.tripadvisor.com/TravelersChoice-DestinationsontheRise-cTop10-g4">top de destinos "on the rise"</a>  deste megaportal turístico – que se anuncia como o maior do mundo, com mais de 260 milhões de visitantes únicos mensais e mais de 125 milhões de opiniões inseridas, segundo dados da empresa.</p>
+                        </div>
+                    </article>
+                </div>
+                <!-- EMBAIXADA -->
+                <nav id="embassy">
+                    <!-- navegador -->
+                    <ul>
+                        <li><a href="#embassy-bem-vindo">bem-vindo</a></li>
+                        <li><a href="#embassy-residencia">residencia</a></li>
+                        <li><a href="#embassy-rede_consular">rede consular</a></li>
+                        <li><a href="#embassy-pessoal">pessoal</a></li>
+                    </ul>
+                </nav>
+                <div class="articles">
+                    <!-- Bem-vindo -->
+                    <article id="embassy-bem-vindo" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#embassy" title="Embaixada"></a>
+                        <div class="article wrapper">
+                            <h1>Bem-vindo</h1>
+                            <p>Bem-vindo ao sítio na Internet da Embaixada de Portugal no Brasil.</p>
+                            <p>Ao assumir, com grande satisfação, as funções de Embaixador de Portugal neste magnífico e imenso país, gostaria de a todos saudar e dar as boas vindas a esta página eletrónica (site) da Embaixada.</p>
+                            <p>As relações entre Portugal e Brasil vivem um excelente momento, do ponto vista político, económico, social e cultural, assente num vasto e crescente número de interesses comuns e numa multiplicidade de iniciativas e ações conjuntas, que se pretende aumentar e melhorar.  </p>
+                            <p>Existe, obviamente, ainda margem para, desejavelmente, se intensificar o nosso relacionamento, nomeadamente ao nível económico, volume de trocas comerciais, investimentos e parcerias recíprocas, mutuamente vantajosos.</p>
+                            <p>A ligação, aos mais diversos níveis e nas mais variadas áreas, entre os nossos dois Povos, a dinâmica das respetivas sociedades civis, o acrescido fluxo de deslocações e movimento de cidadãos portugueses e brasileiros, em Portugal e no Brasil, a projeção internacional da nossa língua e os fraternais laços e afetos que, de há muito e cada vez mais, nos unem, constituem, sem dúvida, um dos mais mais importantes ativos do nosso intenso e ímpar relacionamento bilateral.</p>
+                            <p>A celebração conjunta, de 7 de setembro deste ano a 10 de Junho de 2013, do<em>“Ano de Portugal no Brasil e do Brasil em Portugal”</em>, constituirá igualmente uma oportunidade para, além da reafirmação dos aspetos culturais que nos identificam e aproximam, reciprocamente, também melhor podermos dar a conhecer aspetos do que de mais moderno e tecnologicamente avançado atualmente se faz em Portugal e no Brasil.</p>
+                            <p>Uma palavra também de profundo apreço e reconhecimento pelo papel da significativa e relevante Comunidade de origem Portuguesa que vive e trabalha no Brasil, muito contribuindo, com o seu esforço, dedicação e sucesso, para a elevação e pretendida dignificação aqui do nosso país.</p>
+                            <p>Nestes tempos exigentes, tudo deveremos fazer em prol da afirmação, crescimento e desenvolvimento sustentado de Portugal. Desde já reafirmo o empenho desta Missão e de todos os seus colaboradores na prossecução daqueles objetivos.  </p>
+                            <p>Esta Embaixada, bem como todos os demais Consulados-Gerais, Consulados, Vice-Consulados e Consulados Honorários de Portugal, por todo o Brasil, estão, naturalmente, à vossa inteira disposição.</p>
+                            <p>É minha firme intenção trabalhar convosco para, em conjunto, prestigiarmos o nome de Portugal neste grande país, ao qual estamos tão profunda e intimamente ligados.</p>
+                            <p>É objetivo deste site, para além da informação prestada, colocar ao dispor dos interessados um instrumento, que se pretende simplificado e cada vez mais útil, na perspetiva do utilizador, oferecendo diversas valências e plataformas de dados, com permanentemente atualização de conteúdos.</p>
+                            <p>Através desta página na Internet, a Embaixada de Portugal pretende, igualmente acolher pertinentes sugestões e comentários, com o intuito de procurar sempre a melhoria da qualidade dos serviços públicos que presta.</p>
+                            <p> </p>
+                            <p><strong>Francisco Ribeiro Telles</strong><br />Embaixador de Portugal</p>
+                        </div>
+                    </article>
+                    <!-- residência -->
+                    <article id="embassy-residencia" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#embassy" title="Embaixada"></a>
+                        <div class="article wrapper">
+                            <h1>Residência da Embaixada de Portugal</h1>
+                            <p>A residência da Embaixada de Portugal será construída no sector Embaixadas Sul, em Brasília, no lote que pertence a Portugal. O projecto conta com quatro elementos construídos em redor de um pátio interior. As áreas principais situam-se nas alas Norte e Sul. As alas Este e Oeste destinam-se a serviços técnicos e aos acessos.
+                                Todo o edifício se encontra elevado acima do nível do solo, apoiando-se em pilares afastados entre si 10 e 15 metros. </p>
+                            <figure>
+                                <img src="images/residencia.jpg" alt="Maquete da Residência da Embaixada">
+                                <figcaption>Residência da Embaixada de Portugal em Brasília</figcaption>
+                            </figure>
+                            <p>Estes vãos requerem a utilização de lajes pré-esforçadas. As áreas secundárias também se situam ao mesmo nível, e vencem, sem qualquer apoio intermédio, o vão de 45 metros que separa os corpos principais, apoiando-se nestes.</p>
+                            <img id="sketch" alt="Esboço da residência da Embaixada de Portugal em Brasília, 1995" src="images/embassy-sketch.jpg">
+                        </div>
+
+                    </article>
+                    <!-- Rede Consular -->
+                    <article id="embassy-rede_consular" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#embassy" title="Embaixada"></a>
+                        <div class="article wrapper">
+                            <h1>Rede Consular no Brasil</h1>
+
+                            <ul id="rede_consular">
+                                <li id="consulado-1">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+
+                                    <h1>Consulado de Portugal em Belo Horizonte</h1>
+                                    <p>
+                                        Av. Álvares Cabral, 1366, 9º andar - Lourdes<br />
+                                        30170-001 Belo Horizonte - MG
+                                    </p>
+                                    <img src="images/consulados/belohorizonte.jpg" alt="Belem-Pará"  />
+                                    <p><strong>Cônsul: </strong>André Sopas Bandeira</p>
+                                    <p>
+                                        <strong>Telefone:</strong> (31) 3291 8192<br />
+                                        <strong>Fax:</strong> (31) 3291 8064
+                                    </p>
+                                    <p>
+                                        <strong>E-mail:</strong> <a href="mailto:mail@cnbel.dgaccp.pt">mail@cnbel.dgaccp.pt</a><br />
+                                        <strong>Sítio Internet:</strong> <a href="http://www.secomunidades.pt/web/belohorizonte" target="_blank">www.secomunidades.pt/web/belohorizonte</a>
+                                    </p>
+                                    <p><strong >Horário de atendimento:</strong> 2ª a 6ª feira das 8:00 às 13:00 horas</p>
+                                </li>
+                                <li id="consulado-2">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Secção Consular da Embaixada em Brasília</h1>
+                                    <p>
+                                        SES – Av. das Nações, Quadra 801, Lote 02<br />
+                                        70402-900 Brasília - DF
+                                    </p>
+                                    <img src="images/consulados/brasilia.jpg" alt="Brasilia" width="200" height="150" />
+                                    <p><strong>Encarregada da Secção Consular: </strong>Gonçalo Ferraz de Lima Sanchez da Motta</p>
+                                    <p>
+                                        <strong>Telefones:</strong> (61) 3032 9600<br />
+                                        <strong>Fax:</strong> (61) 3032 9627
+                                    </p>
+                                    <p><strong>E-mail:</strong> <a href="mailto:mail@brasilia.dgaccp.pt">mail@brasilia.dgaccp.pt</a></p>
+                                    <p><strong>Horário de atendimento:</strong> 2ª a 6ª feira, das 8:30 às 13:00 horas</p>
+                                    <p><strong>Nota: </strong>Agendamentos para Cartão do Cidadão, Passaporte e vistos devem ser efectuados através do endereço de correio electrónico: <a href="mailto:mail@brasilia.dgaccp.pt">mail@brasilia.dgaccp.pt</a></p>
+                                </li>
+                                <li id="consulado-3">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Vice-Consulado de Portugal em Curitiba</h1>
+                                    <p>
+                                        Rua Visconde do Rio Branco, 1358, 20ª andar, Centro<br />
+                                        Curitiba - PR<br />
+                                        CEP 80420-210</p>
+                                    <p>
+                                        <img src="images/consulados/curitiba.jpg" alt="Curitiba" />
+                                    <p><strong>Vice-Cônsul:</strong> Rogério dos Santos Vieira</p>
+
+                                    <strong>Telefone:</strong> (41) 3233 4211<br />
+                                    <strong>Fax:</strong> (41) 3222 1190
+                                    </p>
+                                    <p>
+                                        <strong>E-mail:</strong> <a href="mailto:mail@curitiba.dgaccp.pt">mail@curitiba.dgaccp.pt</a><br />
+                                        <strong>Sítio Internet:</strong> <a href="http://www.secomunidades.pt/web/curitiba" target="_blank">www.secomunidades.pt/web/curitiba</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> De 2ª feira a 5ª feira das 9h30 às 13h30. Às 6ª feiras das 8h00 12h00 ( a partir dessa hora por e-mail ou fax )</p>
+                                </li>
+                                <li id="consulado-4">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Vice-Consulado de Portugal em Porto Alegre</h1>
+                                    <p>
+                                        Rua Prof. Annes Dias, 112, 10º andar<br />
+                                        90020-090 Porto Alegre - RS
+                                    </p>
+                                    <img src="images/consulados/portoalegre.jpg" alt="Porto Alegre">
+                                    <p>
+                                        <strong>Telefone:</strong> (51) 3061 5767<br />
+                                        <strong>Fax:</strong> (51) 3228 0087
+                                    </p>
+                                    <p>
+                                        <strong>E-mail: </strong><a href="mailto:mail@cnpal.dgaccp.pt">mail@cnpal.dgaccp.pt </a><br />
+                                        <strong>Sítio Internet:</strong> <a href="http://www.secomunidades.pt/web/portoalegre" target="_blank">www.secomunidades.pt/web/portoalegre</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento ao publico presencial:</strong> de 2ª a 6ª feira das 10h00 às 13h00</p>
+                                    <p><strong>Horário de atendimento ao publico por telefone, fax, email:</strong> de 2ª a 6ª feira das 10h00 às 16h00. </p>
+                                </li>
+                                <li id="consulado-5">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Vice-Consulado de Portugal em Recife</h1>
+                                    <p>
+                                        Av. Engº Domingos Ferreira, 4060 - 6º andar - Boa Viagem<br />
+                                        51021-040 Recife - PE
+                                    </p>
+                                    <img src="images/consulados/recife.jpg" alt="Recife" width="250" height="167" />
+                                    <p><strong>Vice-Cônsul:</strong> Adriano José da Fonte Moutinho</p>
+
+                                    <p>
+                                        <strong>Telefone:</strong> (81) 3327 1514<br />
+                                        <strong>Fax:</strong> (81) 3327 1514<br />
+                                        <strong> Telemóvel de Emergência:</strong> (81) 9974 6894
+                                    </p>
+                                    <p>
+                                        <strong>E-mail</strong>: <a href="mailto:mail@cnrec.dgaccp.pt">mail@cnrec.dgaccp.pt </a><br />
+                                        <strong>Sítio Internet:</strong> <a href="http://www.secomunidades.pt/web/recife" target="_blank">www.secomunidades.pt/web/recife</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> das 8:00 às 13:00 horas</p>
+                                </li>
+                                <li id="consulado-6">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Vice-Consulado de Portugal em Fortaleza</h1>
+                                    <p>
+                                        Edifício Metropolitan Empresarial<br />
+                                        Rua Desembargador Leite Albuquerque 635 Sala 402<br />
+                                        CEP 60150-150<br />
+                                        Fortaleza Ceará Brasil
+                                    </p>
+                                    <img src="images/consulados/fortaleza.jpg" alt="Fortaleza" />
+                                    <p><strong>Vice-Cônsul:</strong> Francisco Neto Brandão</p>
+                                    <p>
+                                        <strong>Telefone:</strong> (85) 3261 7420 <strong>Fax:</strong> (85) 3261 7421<br />
+                                        <strong>Telemóvel de Emergência</strong>: (85) 8867 9850
+                                    </p>
+                                    <p>
+                                        <strong>E-mail:</strong> <a href="mailto:fortaleza@mne.pt">fortaleza@mne.pt</a>
+                                    </p>
+                                    <p><strong>Sítio Internet:</strong> <a title="blocked::http://www.secomunidades.pt/web/fortaleza" href="http://www.secomunidades.pt/web/fortaleza" target="_blank">www.secomunidades.pt/web/fortaleza</a></p>
+                                    <p><strong>Horário de atendimento:</strong> De 2ª a 6ª feira das 8:30 às 12:30 horas</p>
+                                </li>
+                                <li id="consulado-7">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Consulado Geral no Rio de Janeiro</h1>
+                                    <p>
+                                        Av. Marechal Câmara, 160 - Sala 1809 - Ed. Orly<br />
+                                        20020-080 Rio de Janeiro - RJ
+                                    </p>
+                                    <img src="images/consulados/riodejaneiro.jpg" alt="Rio de Janeiro">
+                                    <p>
+                                        <strong>Telefone:</strong> (21) 3509 1850<br />
+                                        <strong>Fax:</strong> (21) 2544 3382 / 2544 3226 / 2511 2508
+                                    </p>
+                                    <p><strong>E-mail:</strong><a title="mailto:mailconsulafo@rio.dgaccp.pt" href="mailto:mailconsulado@rio.dgaccp.pt">mailconsulado@rio.dgaccp.pt</a><br />
+                                        <strong>Sítio Internet:</strong> <a href="http://www.secomunidades.pt/web/riojaneiro" target="_blank">www.secomunidades.pt/web/riojaneiro</a></p>
+                                    <p><strong>Horário de atendimento:</strong> De 2ª a 6ª, das 8:00 às 12:00 horas</p>
+                                </li>
+                                <li id="consulado-8">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Consulado Geral de Portugal em São Paulo</h1>
+                                    <p>
+                                        Rua Canadá, 324 - Jardim América<br />
+                                        01436-000 - São Paulo - SP
+                                    </p>
+                                    <img src="images/consulados/saopaulo.jpg" alt="Sao Paulo"/>
+                                    <p><strong>Cônsul Geral: </strong><em>Paulo Jorge Lopes Lourenço</em></p>
+                                    <p>
+                                        <strong>Telefone:</strong> (11) 3084 1800<br />
+                                        <strong>Fax:</strong> (11) 3085 5633
+                                    </p>
+                                    <p>
+                                        <strong>E-mail: </strong><a href="mailto:duvidas@spaulo.dgaccp.pt">duvidas@spaulo.dgaccp.pt</a><br />
+                                        <strong>Sítio Internet</strong>: <a href="http://consuladoportugalsp.org.br/">http://consuladoportugalsp.org.br/</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> De 2ª a 6ª feria, das 09:00 às 17:00 horas</p>
+                                </li>
+                                <li id="consulado-9">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Consulado Geral de Portugal em Salvador</h1>
+                                    <p>
+                                        Avenida Tancredo Neves, nº 1632,<br />
+                                        Edifício Salvador Trade Center, Torre Norte,<br />
+                                        1º andar, Salas 109 a 113, Caminho das Árvores<br />
+                                        Salvador - BA<br />
+                                        41820-020
+                                    </p>
+                                    <img src="images/consulados/salvador.jpg" alt="Rio de Janeiro"/>
+                                    <p><strong>Cônsul Geral: </strong> José Manuel Lomba</p>
+                                    <p>
+                                        <strong>Telefone: </strong>(71) 3341 0636 / 3341 1499<br />
+                                        <strong>Fax:</strong> (71) 3341-2796
+                                    </p>
+                                    <p>
+                                        <strong>E-mail:</strong> <a href="mailto:mail@salvador.dgaccp.pt">mail@salvador.dgaccp.pt</a><br />
+                                        <strong>Sitio Internet:</strong> <a href="http://www.secomunidades.pt/web/salvador" target="_blank">www.secomunidades.pt/web/salvador</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> De 2ª a 6ª feira, das 8:00 às 13:00 horas</p>
+                                </li>
+                                <li id="consulado-10">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Consulado Honorário de Portugal em São Luíz do Maranhão</h1>
+                                    <p><strong>Cônsul honorário:</strong> Abraão Freitas Valinhas</p>
+                                    <p>
+                                        <strong>Endereço Postal</strong><br />
+                                        Rua dos Jenipapos, Qd. 22 - nº 15 - São Francisco<br />
+                                        65076-490 - São Luiz - MA
+                                    </p>
+                                    <p>
+                                        <strong>Telefone / Fax:</strong> (98) 3235 4635<br />
+                                        <strong>E-mail:</strong><a href="mailto:consptslz@gmail.com"> consptslz@gmail.com</a><br />
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> de 2ª a 6ª feira de 8:00 às 14:00 horas</p>
+                                </li>
+                                <li id="consulado-11">
+                                    <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                                    <a class="icon icon-up" href="#top" title="Topo"></a>
+                                    <h1>Consulado Honorário de Portugal em Manaus</h1>
+                                    <p><strong>Cônsul honorário:</strong> Com. José dos Santos Silva Azevedo</p>
+                                    <p>
+                                        <strong>Endereço Postal</strong><br />
+                                        Rua Ferreira Pena, 37 - Centro<br />
+                                        69010-140 Manaus – AM
+                                    </p>
+                                    <p>
+                                        <strong>Telefone:</strong> (92) 3633 1577<br />
+                                        <strong>e-mail:</strong> <a href="mailto:consulado.portugal.am@internext.com.br">consulado.portugal.am@internext.com.br</a>
+                                    </p>
+                                    <p><strong>Horário de atendimento:</strong> 2ª a 6ª, das 08:00 às 12:00 horas</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                    <!-- Pessoal -->
+                    <article id="embassy-pessoal" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#embassy" title="Embaixada"></a>
+                        <div class="article wrapper">
+                            <h1>Quadro Executivo</h1>
+                            <ul style="text-align: center" id="pessoal">
+                                <li><img src="images/ribeiro_telles.jpg" alt="Ribeiro Telles, Embaixador de Portugal" /><br />Francisco Ribeiro Telles<br /><strong>Embaixador</strong></li>
+                                <li>Florbela Paraíba<br /><strong>Ministra-Conselheira</strong></li>
+                                <li>Coronel António Emídio da Silva Salgueiro<br /> <strong>Adido de Defesa</strong></li>
+                                <li>Patrícia Cadeiras <br /> <strong>Primeira-Secretária </strong></li>
+                                <li>Gonçalo Motta <br /> <strong>Primeiro-Secretário<br /> Encarregado da Secção Consular</strong></li>
+                                <li>João Pignatelli<br /><strong>Conselheiro </strong><strong>para os Assuntos Culturais e Imprensa</strong></li>
+                                <li>Luís Lourenço<br /> <strong>Conselheiro</strong></li>
+                                <li>Francisco Marques Alves<strong><br /> Adido Civil </strong></li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <!-- ASSUNTOS CONSULARES -->
+                <nav id="consular">
+                    <ul>
+                        <li><a href="#consular-vistos">vistos</a></li>
+                        <li><a href="#consular-cartao_do_cidadao">cartão do cidadão</a></li>
+                        <li><a href="#consular-documentos">documentos</a></li>
+                    </ul>
+                </nav>
+                <div class="articles">
+                    <!-- Vistos -->
+                    <article id="consular-vistos" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#consular" title="Assuntos Consulares"></a>
+                        <div class="article wrapper">
+                            <h1>Vistos</h6>
+                                <p align="left"><strong>1. Um cidadão brasileiro necessita  de visto para ir de férias a Portugal?</strong></p>
+                                <p>Nos termos da legislação em vigor, os  cidadãos brasileiros não necessitam de visto para entrar em Portugal, por um  período de 90 dias, nos casos de:</p>
+                                <ol>
+                                    <li>Turismo;</li>
+                                    <li>Negócios;</li>
+                                    <li>cobertura jornalística;</li>
+                                    <li>missão cultural.</li>
+                                </ol>
+                                <p>Este prazo poderá ser prorrogado em  Portugal mediante autorização do Serviço  de Estrangeiros e Fronteiras</a>, não podendo a prorrogação ultrapassar 90  dias. </p>
+                                <p>Para qualquer outra situação é exigido  visto aos cidadãos brasileiros.</p>
+                                <p>Os cidadãos de outras nacionalidades  devem contactar o Consulado de Portugal na sua área de residência para  determinar da necessidade ou não de visto para entrar em Portugal.</p>
+                                <p><strong>2. Que documentos necessita um cidadão brasileiro  para entrar em Portugal?</strong></p>
+                                <p>A isenção de visto não exime os seus  beneficiários do cumprimento de algumas formalidades de entrada no país  previstas na legislação em vigor (<a href="http://www.embaixadadeportugal.org.br/docs/Lei%20Vistos.pdf" target="_blank" >Decreto-Lei n° 34/2003</a>, de 25 de Fevereiro, e Documento do  Conselho da União Europeia n° 10479/02, de 17 de Julho, que aprova a Instrução  Consular Comum no âmbito do Acordo Schengen).</p>
+                                <p> Assim, à entrada em Portugal, torna-se  necessária a apresentação às autoridades fronteiriças portuguesas:</p>
+                                <ol>
+                                    <li>do passaporte com validade superior  em, pelo menos,&nbsp;6 meses à duração da estada prevista; </li>
+                                    <li>do bilhete de viagem aérea (ida e  volta); </li>
+                                    <li>de comprovativo de alojamento; </li>
+                                    <li>de documento comprovativo de vínculo laboral ou atividade profissional no Brasil   (declaração emitida pela entidade patronal, pública ou privada, devidamente   reconhecida em Cartório e autenticado no Consulado de Portugal da sua área de   residência</li>
+                                    <li>de comprovativos dos meios financeiros  para suportar a estada, equivalentes a <br>
+                                        75 euros por cada entrada em território nacional, acrescidos de 40 euros por  cada dia de permanência. </li>
+                                </ol>
+                                <p><strong>NOTA:</strong> <br>
+                                    A comprovação do valor diário (40 Euros, em dinheiro, “Travelers cheques”, ou  cartões de crédito internacionalmente aceites) poderá ser dispensada, caso seja  apresentada uma carta convite ou termo de responsabilidade emitido por cidadão  português ou por estrangeiro habilitado com título de residência, autorização  de permanência, visto de trabalho, estudo, estada temporária, válidos, que  garanta a alimentação e o alojamento do interessado durante a sua estada, sem  prejuízo da possibilidade de recurso a outros meios de prova.</p>
+                                <p><strong>3. Que tipos de Vistos existem?</strong></p>
+                                <p>Podem ser concedidos pelos postos consulares portugueses os  seguintes tipos de vistos:</p>
+                                <p>Uniformes (previstos no Acordo Schengen para cidadãos de  nacionalidades não dispensadas de visto)</p>
+                                <ol>
+                                    <li>Visto de escala;</li>
+                                    <li>Visto de trânsito;</li>
+                                    <li>Visto de curta duração;</li>
+                                    <li>Visto de residência;</li>
+                                    <li>Visto de estada temporária.</li>
+                                </ol>
+                                <p><strong style="text-decoration: underline">IMPORTANTE</strong><strong><br>
+                                    <span  style="text-decoration: underline">Todos  os pedidos de vistos devem ser instruídos pessoalmente pelo interessado junto  ao Consulado de Portugal na área de residência do interessado. Deverá ser  apresentada prova de residência. Não são aceites pedidos de visto de  estrangeiros que não tenham residência legal no país.</span></strong></p>
+                                <p><strong style="text-decoration: underline">Documentação  necessária comum a todos os vistos</strong></p>
+                                <ol>
+                                    <li> Requerimento  em modelo próprio (formulário fornecido pela Secção Consular no caso dos vistos  nacionais); </li>
+                                    <li> Documento de viagem válido (+3 meses após validade do visto); </li>
+                                    <li> 2 fotografias iguais, tipo passe, a cores e fundo liso, actualizadas e com boas  condições de identificação do requerente; </li>
+                                    <li> Título de transporte que assegure o seu regresso (excepto para vistos de  residência para reagrupamento familiar e para actividade de investigação, docente  em estabelecimento de ensino superior ou altamente qualificada); </li>
+                                    <li> Seguro médico de viagem; </li>
+                                    <li> Requerimento para consulta do registo criminal português pelo SEF (para vistos  de estada temporária e de residência) - formulário fornecido pelo Posto Consular  aquando da entrega da restante documentação); </li>
+                                    <li> Certificado de registo criminal do país de origem ou onde o requerente reside  há mais de um ano (para vistos de residência e estada temporária); </li>
+                                    <li> Comprovativo das condições de alojamento; </li>
+                                    <li> Comprovativo da existência de meios de subsistência (comprovativo de bolsa ou  Declaração de rendimentos dos pais ou responsáveis); </li>
+                                    <li> Para menores ou incapazes, autorização de quem exerça o poder paternal ou  tutela.</li>
+                                </ol>
+                                <p><strong>Nota</strong>: Os  menores de 16 anos estão isentos da apresentação dos documentos relativos ao  registo criminal.</p>
+                                <br>
+                                <strong>Exemplo do Termo de Responsabilidade:</strong>
+                                <p></p>
+                                <p>Eu______ (nome do cônjuge/ dos pais), ________ (estado civil),  _______ (profissão, mencionando o local de trabalho), ______ portador do  Bilhete de Identidade / da Autorização de Permanência n°_____, residente  em_________ declaro, para os devidos efeitos, que me responsabilizo pelos meios  de subsistência – alojamento, alimentação e assistência médica hospitalar – de  minha esposa / marido / filho(a)______ (nome do requerente), de nacionalidade  brasileira, titular do passaporte nº _______, o(a) qual vem residir comigo no  endereço acima mencionado. Local, data e Assinatura do declarante.</p>
+                                <p>&nbsp;</p>
+                                <ul>
+                                    <li><a href="http://secomunidades.pt/web/brasilia/LivreCirculacao" onfocus="if(this.blur)this.blur()">Direito de livre circulação  e residência dos cidadãos da União Europeia e dos membros das suas famílias</a></li>
+                                    <li><a href="http://secomunidades.pt/web/brasilia/PaisesNaoIsentos" onfocus="if(this.blur)this.blur()"> Lista de Países cujos  cidadãos estão sujeitos a visto para entrar em Portugal</a></li>
+                                    <li><a href="http://secomunidades.pt/web/brasilia/PaisesIsentos" onfocus="if(this.blur)this.blur()"> Lista de Países cujos  cidadãos estão isentos de visto para entrar em Portugal </a></li>
+                                    <li><a href="http://secomunidades.pt/web/brasilia/NotaEntrada" onfocus="if(this.blur)this.blur()"> Nota sobre a entrada de  estrangeiros em Portugal</a></li>
+                                </ul>
+                        </div>
+                    </article>
+                    <!-- Cartão do Cidadão -->
+                    <article id="consular-cartao_do_cidadao" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#consular" title="Assuntos Consulares"></a>
+                        <div class="article wrapper">
+                            <h1 align="center">Cartão do Cidadão</h1>
+                            <img src="images/Cart-o-de-Cidad-o-sp-cimen.jpg">
+                            <p align="left"><strong>1.1. O que é o  cartão de cidadão?</strong></p>
+                            <p>O cartão de cidadão é o novo documento de  identificação multifuncional dos cidadãos portugueses, em formato de smart  card, com um chip de contacto integrado, que veio substituir&nbsp; os  principais documentos de&nbsp;identificação actualmente existentes: </p>
+                            <ul>
+                                <li>Bilhete de Identidade </li>
+                                <li>Cartão da Segurança  Social </li>
+                                <li>Cartão de Contribuinte </li>
+                                <li>Cartão do Serviço Nacional de Saúde</li>
+                            </ul>
+                            <p><strong>1.2. Quais as  características do cartão de cidadão?</strong></p>
+                            <p>O cartão de cidadão permite a identificação  visual e presencial de forma segura dos cidadãos portugueses, bem como a  identificação e autenticação electrónica em actos informatizados, exibindo: </p>
+                            <ul>
+                                <li>Na frente, a fotografia e os elementos de  identificação civil; </li>
+                                <li>No verso, os números de identificação dos  diferentes organismos cujos cartões agrega e substitui, uma zona de leitura  óptica e o chip de contacto, com os certificados digitais (para autenticação e  assinatura electrónica). </li>
+                            </ul>
+                            <p><strong>1.3. Quais as  funcionalidades de identificação electrónica do cartão de cidadão?</strong></p>
+                            <p>O cartão de cidadão possibilita: </p>
+                            <ul>
+                                <li>A autenticação electrónica do cidadão perante  serviços públicos e privados; </li>
+                                <li>o envio de informação de identificação pessoal  nos contactos com a Administrarão Pública ou em transacções autorizadas pelo  cidadão; </li>
+                                <li>a assinatura digital de documentos, recorrendo ao certificado digital  qualificado, que tem disponível, com o mesmo valor da assinatura manuscrita. </li>
+                            </ul>
+                            <p><strong>1.4. Onde pode  ser solicitado o cartão de cidadão?</strong></p>
+                            <p>O  cartão de cidadão poderá ser solicitado: </p>
+                            <ul>
+                                <li><u>Em Portugal</u>, nos Serviços de Identificação Civil; nas Conservatórias  do Registo Civil; nas Lojas do Cidadão ou em serviços equivalentes;</li>
+                                <li><u>No Estrangeiro</u>, através da rede consular portuguesa,  estando disponível nos seguintes postos: <br>
+                                    Brasil: Brasília, Rio de Janeiro,Salvador da  Bahia, São Paulo, Belém e Curitiba </li>
+                            </ul>
+                            <p><strong>1.5. Quais os  documentos necessários para solicitar o cartão de cidadão?</strong></p>
+                            <p>Sempre que possível, deverão ser apresentados  bilhete de identidade e cartões de contribuinte, segurança social, utente do  serviço nacional de saúde e de eleitor junto dos Serviços competentes. </p>
+                            <p><strong>1.6. Qual a  validade do cartão de cidadão?</strong></p>
+                            <p> O cartão de cidadão é válido por 5 anos, no  entanto, em algumas situações excepcionais, o prazo de validade poderá ser  diferente. </p>
+                            <p><strong>1.7. Quanto  custa o pedido de emissão do cartão de cidadão?</strong></p>
+                            <ul>
+                                <li>Regime Normal (menores de 6  anos) – 7,50€</li>
+                                <li>Regime Normal com serviço  de expedição para o estrangeiro (menores de 6 anos) – 12,50€</li>
+                                <li>Regime Normal (maiores de 6  anos) – 15,00€</li>
+                                <li>Regime Normal com serviço  de expedição para o estrangeiro (maiores de 6 anos) – 20,00€</li>
+                                <li>Regime Urgente Nacional –  30,00€</li>
+                                <li>Regime Urgente com entrega  no estrangeiro – 45,00€</li>
+                                <li>Regime Extremo Urgente –  35,00€</li>
+                                <li>Substituição de BI  vitalício por Cartão de Cidadão (Regime Normal apenas) – 12,00€</li>
+                                <li>Substituição de BI vitalício por Cartão de  Cidadão com expedição para o estrangeiro - 17,00€</li>
+                                <li>Pedido autónomo de alteração de morada - 3€</li>
+                            </ul>
+                        </div>
+                    </article>
+                    <!-- Documentos -->
+                    <article id="consular-documentos" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#consular" title="Assuntos Consulares"></a>
+                        <div class="article wrapper">
+                            <h1>Documentos de Viagem</h1>
+                            <h4>1. Passaporte Electrónico Português (PEP)</h4>
+                            <p> O passaporte electrónico português é um documento de viagem individual, que permite ao seu titular a entrada e saída do território nacional, bem como do território de outros Estados que o reconheçam para esse efeito.</p>
+                            <p>Em território português, as taxas a cobrar relativamente ao passaporte são estabelecidas por portaria conjunta dos Ministros da Administração Interna e dos Negócios Estrangeiros e das Finanças e da Administração Pública.</p>
+                            <p>No estrangeiro, as taxas devidas são as previstas na Tabela de Emolumentos Consulares. </p>
+                            <h4>1.1. Onde pode requerer o Passaporte</h4>
+                            <ul>
+                                <li>Governos  Civis </li>
+                                <li>Governos  das Regiões Autónomas </li>
+                                <li>Lojas  do Cidadão </li>
+                                <li>Se  residente no estrangeiro, no posto consular da área de residência (para  consultar moradas dos consulados clique aqui <a href="http://www.secomunidades.pt/" target="_blank">www.secomunidades.pt</a> ) </li>
+                            </ul>
+                            <p><strong>1.2. Quem pode requerer</strong> <strong><a name="712" id="712" onfocus="if(this.blur)this.blur()"></a></strong></p>
+                            <p>Têm  direito à titularidade de passaporte os cidadãos de nacionalidade portuguesa. </p>
+                            <p>Só  o próprio, presencialmente, pode requerer o passaporte </p>
+                            <p>No caso de menores de 18 anos, cidadãos interditos  ou inabilitados, o passaporte é requerido por quem exerce o poder paternal, a  tutela ou a curatela. </p>
+                            <p><strong>1.3. Passaportes para menores</strong></p>
+                            <p>Os  menores, quando não forem acompanhados por quem exerça o poder paternal, só  podem entrar e sair de território nacional exibindo autorização para o efeito.</p>
+                            <p>A autorização referida deve constar de documento escrito, datado e com a  assinatura de quem exerce o poder paternal, legalmente certificada, conferindo  poderes de acompanhamento por parte de terceiros,  devidamente identificados.</p>
+                            <p>A autorização pode ser utilizada ilimitadamente, dentro do prazo de validade  que o documento mencionar, a qual, no entanto, não poderá exceder o período de  um ano civil.</p>
+                            <p>Se não for mencionado outro prazo, a autorização é válida por seis meses,  contados a partir da respectiva data.</p>
+                            <p><strong>Documentos  necessários: </strong></p>
+                            <ul>
+                                <li>Cartão  de Cidadão ou Bilhete de identidade de cidadão nacional válido e  actualizado, independentemente da respectiva idade, não podendo os mesmos serem  substituídos por outro documento.</li>
+                            </ul>
+                            <p><strong>1.4. Custo e prazos de entrega do Passaporte</strong></p>
+                            <p>O  prazo normal é de seis dias úteis, contados da data do deferimento do pedido. </p>
+                            <p>Em  casos de urgência - a solicitação do titular - pode ser estabelecido prazo mais  curto, sendo cobradas, adicionalmente, as respectivas taxas de urgência.  Consulte o <a href="http://www.portaldocidadao.pt/PORTAL/pt/cidadao/areas+interesse/documentos+pessoais/passaporte/SER_pedido+de+passaporte+electr++243+nico+portugu++234+s.htm#Quais%20os%20prazos%20para%20a%20prestação%20do%20serviço" target="_blank">Portal do Cidadão</a> para obter informação adicional. </p>
+                            <p><strong>1.5. Validade do Passaporte</strong></p>
+                            <ul>
+                                <li>O  passaporte é válido por um período de cinco anos. </li>
+                                <li>No caso de menores de idade inferior a 4 anos, a validade do passaporte é de  dois anos. </li>
+                            </ul>
+                            <p><strong>1.6. Cancelamento e apreensão</strong></p>
+                            <p>O  titular do passaporte perdido, destruído, furtado ou extraviado deve comunicar  imediatamente tal facto à entidade emissora, para efeitos de cancelamento e  apreensão.</p>
+                            <p>Os representantes legais de menores e incapazes podem requerer à entidade  emitente o cancelamento e a apreensão de passaporte emitido a favor daqueles.</p>
+                            <p>As autoridades consulares, quando solicitadas a custear a repatriação de  nacionais portadores de passaporte, farão a retenção deste, que apenas será  restituído no destino após pagamento dos encargos suportados pelo Estado. <br>
+                                Na  situação prevista no número anterior, o repatriado regressará a Portugal munido  de passaporte temporário ou título de viagem única. </p>
+                            <p><strong>1.7. Concessão de segundo Passaporte</strong></p>
+                            <p>Em  circunstâncias excepcionais, devidamente fundamentadas, poderá ser concedido um  segundo passaporte, a indivíduo titular de outro ainda válido, quando, após  cuidada apreciação da situação, se conclua que a sua emissão corresponde ao  interesse nacional ou a um interesse legítimo do requerente, decorrente das  relações entre Estados terceiros.</p>
+                            <p><strong>2. Passaporte  Temporário</strong></p>
+                            <p>O  passaporte temporário é o documento de viagem individual, que permite a  circulação do respectivo titular de e para fora do território nacional, durante  um período de tempo limitado.</p>
+                            <p>O passaporte temporário deve ser substituído por um passaporte comum logo que  possível, ainda que dentro do prazo de validade.</p>
+                            <p>A  validade máxima do passaporte temporário é de seis meses. </p>
+                            <p><strong>2.1. Elementos que acompanham o pedido de  passaporte temporário</strong></p>
+                            <p>O pedido de concessão de passaporte temporário é  instruído com os seguintes elementos:</p>
+                            <ul>
+                                <li>duas fotografias do rosto do requerente, tipo passe, iguais, obtidas há  menos de um ano, a cores e fundo liso, com boas condições de identificação e  medidas adequadas ao modelo de passaporte;</li>
+                                <li>impresso de requerimento do passaporte temporário devidamente preenchido;</li>
+                                <li>documento comprovativo do exercício do poder paternal, da tutela ou da  curatela, no caso de o passaporte temporário se destinar a menor, interdito ou  inabilitado; </li>
+                                <li>documento justificativo do carácter urgente e excepcional do pedido, quando  os fundamentos para a emissão do passaporte temporário resultem de factos  imputáveis ao requerente. </li>
+                            </ul>
+                            <p><strong>2.2. Emissão do Passaporte comum a titular de Passaporte Temporário</strong></p>
+                            <p>O  passaporte comum só poderá ser emitido a titular de passaporte temporário,  desde que este:</p>
+                            <ul>
+                                <li> faça prova de identidade, mediante a exibição de documento de identificação  de cidadão português;</li>
+                                <li>faça entrega do passaporte temporário que lhe foi emitido. </li>
+                            </ul>
+                            <p>Nos casos de  perda, destruição, furto ou extravio do passaporte temporário, deve o  requerente apresentar declaração, sob compromisso de honra, prestada em  impresso próprio, fundamentando o pedido e comprometendo-se a não utilizar e a  devolver ao serviço emissor o passaporte substituído, se vier a recuperá-lo. </p>
+                            <p><strong>3. Título de Viagem Única</strong></p>
+                            <p>O título  de viagem única é emitido a favor de indivíduos de nacionalidade portuguesa,  devidamente confirmada, que se encontrem indocumentados no estrangeiro e aos  quais, por urgência, não seja possível em tempo oportuno oferecer prova de identificação  bastante.</p>
+                            <p>O título de viagem única é concedido e emitido pelas autoridades consulares.</p>
+                            <p><strong>3.1 Validade</strong></p>
+                            <p>O título  de viagem única é emitido com a validade estritamente necessária ao regresso a  Portugal.</p>
+
+                        </div>
+
+                    </article>
+                </div>
+                <!-- TURISMO -->
+                <nav id="turism">
+                    <ul>
+                        <li><a href="#turism-portugal">Turismo em Portugal</a></li>
+                        <li><a href="#turism-brasil">Turismo no Brasil</a></li>
+                    </ul>
+                </nav>
+                <div class="articles">
+                    <article id="turism-portugal" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#turism" title="Turismo"></a>
+                        <div class="article wrapper">
+                            <h1>Turismo em Portugal</h4>
+                                <img style="width: 200px; float: left; margin-right: 5px" src="images/turismo.jpg" width="200" alt="Turismo" />
+                                <p>Situado no extremo sudoeste da Península Ibérica, a sua localização ao longo da costa atlântica desde cedo determinou uma vocação marítima.</p>
+                                <p>Em 1415, os portugueses lançaram-se numa epopeia de viagens que os tornaria os primeiros a percorrer os caminhos marítimos para a Índia, Brasil, China e Japão, ao mesmo tempo que se estabeleceram nas costas ocidental e oriental da África.</p>
+                                <p>Desta história de presença em todo o mundo muitas marcas ficaram, fazendo do português uma das línguas mais faladas e dos Portugueses um dos povos com mais abertura a outras civilizações. O riquíssimo património monumental, artístico e arqueológico é testemunho não apenas desses 850 anos de História de encontros com culturas longínquas, mas também de presenças anteriores (Celtas, Suevos, Visigodos, Romanos e Árabes).</p>
+
+                                <div class="slider">
+                                    <input type="radio" name="slide_switch" id="id1"/>
+                                    <label for="id1">
+                                        <img class="thumbnail" src="images/portugal/camara-de-lobos_31277_600x450.jpg">
+                                    </label>
+                                    <img src="images/portugal/camara-de-lobos_31277_600x450.jpg">
+                                    <input type="radio" name="slide_switch" id="id2" checked="checked"/>
+                                    <label for="id2">
+                                        <img class="thumbnail" src="images/portugal/countryside_31304_600x450.jpg">
+                                    </label>
+                                    <img src="images/portugal/countryside_31304_600x450.jpg">
+                                    <input type="radio" name="slide_switch" id="id3"/>
+                                    <label for="id3">
+                                        <img class="thumbnail" src="images/portugal/cabo-da-roca_31276_600x450.jpg">
+                                    </label>
+                                    <img src="images/portugal/cabo-da-roca_31276_600x450.jpg">
+                                    <input type="radio" name="slide_switch" id="id4"/>
+                                    <label for="id4">
+                                        <img class="thumbnail" src="images/portugal/douro-river_31284_600x450.jpg">
+                                    </label>
+                                    <img src="images/portugal/douro-river_31284_600x450.jpg">
+                                    <input type="radio" name="slide_switch" id="id5"/>
+                                    <label for="id5">
+                                        <img class="thumbnail" src="images/portugal/algarve_31270_600x450.jpg">
+                                    </label>
+                                    <img src="images/portugal/algarve_31270_600x450.jpg">
+                                </div>
+
+                                <p>As vantagens naturais de um país de sol radioso e de surpreendente variedade geográfica fizeram de Portugal um destino de eleição, ideal para a prática de desportos náuticos e de golfe, dotado de modernas infra-estruturas turísticas e de formas muito tradicionais e personalizadas de acolhimento, como o turismo de habitação, os hotéis de charme ou as pousadas.</p>
+                                <p>Membro da União Europeia desde 1986, Portugal é hoje uma nação em crescimento acelerado, que tem conservado através dos séculos o seu maior tesouro: a identidade de um povo hospitaleiro que faz do seu país um porto de simpatia e segurança.</p>
+                                <p> </p>
+                                <p>Se vai visitar Portugal, consulte o site <a href="http://www.visitportugal.pt/" target="_blank">Visit Portugal</a>.</p>
+                        </div>
+                    </article>
+                    <article id="turism-brasil" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#turism" title="Turismo"></a>
+                        <div class="article wrapper">
+                            <h1>Turismo no Brasil</h1>
+                            <p>O produto turístico brasileiro caracteriza-se por oferecer tanto ao turista <a title="Brasil" href="http://pt.wikipedia.org/wiki/Brasil">brasileiro</a> quanto ao estrangeiro uma gama diversificada de opções, com destaque aos atrativos naturais, aventura e histórico-cultural. Nos últimos anos, o governo tem concentrado esforços em políticas públicas para desenvolver o turismo brasileiro, procurando baratear o deslocamento interno, desenvolvendo infra-estrutura turística e capacitando mão de obra para o setor, além de aumentar consideravelmente a divulgação do país no exterior. São notáveis a procura pela <a title="Amazônia" href="http://pt.wikipedia.org/wiki/Amaz%C3%B4nia">Amazônia</a> na <a title="Região Norte do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Norte_do_Brasil">Região Norte</a>, o <a title="Litoral" href="http://pt.wikipedia.org/wiki/Litoral">litoral</a> no <a title="Região Nordeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Nordeste_do_Brasil">Nordeste</a>, o <a title="Pantanal" href="http://pt.wikipedia.org/wiki/Pantanal">Pantanal</a> e o <a title="Planalto Central" href="http://pt.wikipedia.org/wiki/Planalto_Central">Planalto Central</a> no <a title="Região Centro-Oeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Centro-Oeste_do_Brasil">Centro-Oeste</a>. O <a title="Turismo" href="http://pt.wikipedia.org/wiki/Turismo">turismo</a> histórico em <a title="Minas Gerais" href="http://pt.wikipedia.org/wiki/Minas_Gerais">Minas Gerais</a>, as praias do <a title="Rio de Janeiro" href="http://pt.wikipedia.org/wiki/Rio_de_Janeiro">Rio de Janeiro</a> e os negócios em <a title="São Paulo" href="http://pt.wikipedia.org/wiki/S%C3%A3o_Paulo">São Paulo</a> dividem o interesse no <a title="Região Sudeste do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Sudeste_do_Brasil">Sudeste</a>, e os pampas e o <a title="Clima" href="http://pt.wikipedia.org/wiki/Clima">clima</a> frio no <a title="Região Sul do Brasil" href="http://pt.wikipedia.org/wiki/Regi%C3%A3o_Sul_do_Brasil">Sul</a> do país.</p>
+                            <input style="display: none" type="radio" name="galeria-brasil" id="galeria-brasil"/>
+                            <input style="display: none" type="radio" name="galeria-brasil" id="slideshow-brasil"/>
+                            <label for="slideshow-brasil">
+                                <ul class="galeria" id="galeria">
+                                    <label id="galeria-label" title="Fechar" style="padding: 3px 8px; border-radius: 0 0 0 8px; background-color: rgba(255,255,255,.5); position:absolute; right: -2px; z-index: 11; float: right; cursor: pointer" for="galeria-brasil">fechar</label>
+                                    <li><img src="images/brasil/Rio_de_Janeiro.jpg"><span>Rio de Janeiro</span></li>
+                                    <li><img src="images/brasil/Lencois_Maranhenses.jpg"><span>Lençois Maranheses</span></li>
+                                    <li><img src="images/brasil/Pantanal.jpg"><span>Pantanal</li>
+                                    <li><img src="images/brasil/Fernando_noronha.jpg"><span>Fernando Noronha</span></li>
+                                    <li><img src="images/brasil/Parque_Nacional_da_Chapada_dos_Veadeiros.jpg"><span>Parque Nacional da Chapada dos Veadeiros</span></li>
+                                    <li><img src="images/brasil/Orla_de_Vitoria.JPG"><span>Orla de Vitória</span></li>
+                                </ul>
+                            </label>
+                        </div>
+                    </article>
+                </div>
+                <!-- INFORMAÇÃO -->
+                <nav id="info">
+                    <ul>
+                        <li><a href="#info-trabalhar_no_brasil">Trabalha no Brasil</a></li>
+                        <li><a href="#info-conselhos_a_viajantes">Conselhos a Viajantes</a></li>
+                        <li><a href="#info-atalhos">Endereços Úteis</a></li>
+                    </ul>
+                </nav>
+                <div class="articles">
+                    <article id="info-trabalhar_no_brasil" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#info" title="Informação"></a>
+                        <div class="article wrapper">
+                            <h1>Trabalhar no Brasil</h1>
+                            <p>Para obter informações sobre as condições do mercado de trabalho, regime laboral e direitos e obrigações do trabalhador no Brasil, consulte o Portal do Ministério do Trabalho e Emprego em <a href="http://portal.mte.gov.br/portal-mte/">http://portal.mte.gov.br/portal-mte/</a>Trabalho estrangeiro - Guia de procedimentos – Autorização de Trabalho a Estrangeiro <a href="http://portal.mte.gov.br/trab_estrang/guia-de-procedimentos.htm">http://portal.mte.gov.br/trab_estrang/guia-de-procedimentos.htm</a></p>
+                            <p>Note que para muitos postos de trabalho é pedida a certificação da equivalência das habilitações académicas e profissionais (reconhecimento de diplomas). Neste âmbito deverá ser consultado o Portal do Ministério da Educação em <a href="http://emec.mec.gov.br/">http://emec.mec.gov.br/</a><a href="http://emec.mec.gov.br/">http://emec.mec.gov.br/</a>.</p>
+                            <p>Portugal e o Brasil assinaram um Acordo sobre a Contratação Recíproca de Trabalhadores, o qual pretende facilitar a circulação dos seus nacionais para a prestação de trabalho em ambos os países. Para mais informações poderá aceder a <a href="http://www.consulado-brasil.pt/acordo2003.htm">http://www.consulado-brasil.pt/acordo2003.htm</a></p>
+                            <p>Para procura de emprego no Brasil poderá consultar:</p>
+                            <p><a href="http://maisemprego.mte.gov.br/portal/pages/home.xhtml">http://maisemprego.mte.gov.br/portal/pages/home.xhtml</a></p>
+                            <p>Existem outros sites (não oficiais) de divulgação da oferta de trabalho no Brasil como,</p>
+                            <p>por exemplo:</p>
+                            <p><a href="http://www.empregos.com.br/">http://www.empregos.com.br/</a> - site de emprego</p>
+                            <p><a href="http://www.catho.com.br/">http://www.catho.com.br/</a> - site de emprego;</p>
+                            <p><a href="http://br.trabalhar.com/">http://br.trabalhar.com/</a> - site de emprego;</p>
+                            <p><a href="http://www.facebook.com/empregosnobrasil">http://www.facebook.com/empregosnobrasil</a> - página de rede social orientada especificamente para a procura de emprego por estrangeiros;</p>
+                            <p><a href="http://www.online24.pt/trabalhar-no-brasil/">http://www.online24.pt/trabalhar-no-brasil/</a> - página que contém orientações práticas.</p>
+                            <p>Salário Mínimo - Desde 1 de Janeiro de 2013, segundo Decreto 7.872/2012, publicado em Diário Oficial da União no dia 26.12.2012, o salário mínimo nacional é de R$678. Poderá aceder a mais informação em:</p>
+                            <p><a href="http://portal.mte.gov.br/sal_min/">http://portal.mte.gov.br/sal_min/</a> e;</p>
+                            <p><a href="http://www.guiatrabalhista.com.br/guia/salario_minimo.htm">http://www.guiatrabalhista.com.br/guia/salario_minimo.htm</a></p>
+                        </div>
+                    </article>
+                    <article id="info-conselhos_a_viajantes" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#info" title="Informação"></a>
+                        <div class="article wrapper">
+                            <h1>Conselhos a Viajantes</h1>
+                            <p><strong>Em caso de necessidade, as Secções Consulares das Embaixadas e os Consulados Portugueses podem prestar apoio aos viajantes. Esse apoio traduz-se na:</strong><br /><br />
+                                -emissão de documento de viagem provisório, para situações de extravio de documentação</p>
+                            <p>-facilitação do contacto com unidades hospitalares, em caso de acidente ou doença e com advogados em caso de detenção.<br /><br />
+                                <strong style="text-decoration: underline">A protecção consular não poderá, no entanto, libertá-lo da prisão, pagar as contas do hotel, do médico, do advogado, de viagens ou outras.<br /><br /></strong>
+                                Nos  países não pertencentes à União Europeia e onde não exista representação consular portuguesa,<strong> pode solicitar auxílio junto das Embaixadas e Consulados de outros Estados Membros da União Europeia.</strong></p>
+                            <p><strong>Aconselham-se os viajantes a seguir algumas recomendações gerais, que servirão para qualquer país para onde decidam viajar:</strong></p>
+                            <p><strong>A. Antes da partida:</strong></p>
+                            <p>Verifique se dispõe de passaporte válido. Alguns países exigem um prazo de validade que poderá ir até 6 meses após a viagem. Se possível deixe a familiares fotocópia do passaporte e o contacto do hotel onde ficará instalado. Verifique ainda se os seus cartões de crédito/débito são aceites no país de destino;</p>
+                            <p>Se vai viajar para um país da União Europeia utilizando como documento de viagem o seu Bilhete de Identidade/ Cartão de Cidadão, verifique se o mesmo se encontra válido;</p>
+                            <p>Atempadamente verifique se necessita de visto para entrar no(s) país(es) de destino. Em caso afirmativo não parta sem obter o(s) respectivo(s) visto(s);</p>
+                            <p>Se vai viajar para países com condições de segurança precárias, procure obter o máximo de informação possível antes da partida e informe a Embaixada(s) e/ou o(s) Consulado(s) de Portugal no país ou países que pretende visitar, das datas previstas para o início o conclusão da viagem, itinerário, locais de pernoita e respectivos contactos telefónicos;</p>
+                            <p>Alguns países regem-se por severas leis proibindo o consumo, importação e venda de bebidas alcoólica. Informe-se antes da partida;<br /><br />
+                                Atempadamente informe-se se o país que vai visitar exige a apresentação do certificado internacional de vacinação contra a febre amarela. A vacinação contra a febre amarela deverá realizar-se com uma antecedência mínima de 10 dias antes da viagem e tem uma validade de 10 anos; <br /><br />
+                                Caso de desloque a um país de clima tropical ou com doenças endémicas, efectue antecipadamente, 6 a 4 semanas antes da partida, uma consulta de Medicina das Viagens;<br /><br />
+                                Transporte sempre consigo a receita médica dos medicamentos que esteja a tomar. Lembre-se que existem substâncias legalmente permitidas em Portugal que são ilegais noutros países;<br /><br />
+                                Caso se desloque a um país da União Europeia, obtenha o seu Cartão Europeu Seguro de Doença-CESD;<br /><br />
+                                Informe-se, com antecedência, quanto a eventuais cuidados de saúde especiais, como vacinação ou outras precauções especiais;<br /><br />
+                                Informe-se sobre os acordos de assistência médica que possam existir com o(s) paíse(s) de destino;<br /><br />
+                                Caso vá conduzir, verifique se a sua carta de condução está dentro do prazo de validade e se é reconhecida pelo país que pretende visitar. Informe-se da legislação local e cumpra escrupulosamente o Código da Estrada do país por onde viaja. Lembre-se que muitos países utilizam mecanismos de aplicação imediata da sanção decorrente da infracção praticada; <br /><br />
+                                Faça um seguro de viagem completo.<br /><br />
+                                <strong>B. À chegada ao destino:</strong></p>
+                            <p>A fim de evitar o extravio da documentação, é aconselhável o depósito dos originais e dos bilhetes de viagem nos cofres do hotel. É suficiente, na maior parte dos países, a exibição de fotocópia dos documentos, autenticada com selo a óleo do hotel;</p>
+                            <p>Qualquer que seja o país de destino, deverá evitar a exibição de jóias e objectos de valor. Os pequenos furtos são uma constante e toda a precaução é recomendável;<br /><br />
+                                Evite frequentar ruas mal iluminadas de noite e não resista a uma tentativa de roubo violento;<br /><br />
+                                Não transporte malas ou embrulhos que não lhe pertençam e mantenha sempre sob vigilância a sua bagagem;<br /><br />
+                                Não conduza veículos de outras pessoas através de fronteiras;<br /><br />
+                                Recuse e evite qualquer tipo de contacto, manipulação ou consumo de drogas. Poderá enfrentar, consoante a lei de cada país, multas pesadas, longas penas de prisão em condições difíceis, ou mesmo a pena de morte; <br /><br />
+                                Nos países muçulmanos e orientais, o viajante deparará com culturas muito diferentes da ocidental, devendo observar as regulamentações locais relativas ao vestuário e formas de comportamento. O consumo de drogas e de bebidas alcoólicas é geralmente punido com pesadas penas de prisão.</p>
+                            <p>Tenha também sempre presente que as suas atitudes poderão beneficiar ou prejudicar a imagem de Portugal.</p>
+                        </div>
+                    </article>
+                    <article id="info-atalhos" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#info" title="Informação"></a>
+                        <div class="article wrapper">
+                            <h1>Endereços Úteis</h1>
+                            <p>Indicam-se a seguir alguns do sítios na Internet que poderão ter interesse para quem visite esta página.</p>
+                            <p>Não é, naturalmente, uma lista exaustiva. Outros haverá com igual ou maior interesse que aqui não estão indicados. Porém, esta é uma página que se pretende dinâmica e outros se acrescentarão assim que deles se for tendo conhecimento.</p>
+                            <ul id="links">
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Arte</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ceramicarte</td>
+                                            <td ><a href="http://www.ceramicarte.pt/" target="_blank">www.ceramicarte.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td >Cinema</td>
+                                            <td ><a href="http://www.7arte.net/" target="_blank">www.7arte.net/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cultura</td>
+                                            <td><a href="http://www.citi.pt/cultura/index.html" target="_blank">www.citi.pt/cultura/index.html</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Literatura portuguesa</td>
+                                            <td><a href="http://www.vidaslusofonas.pt/" target="_blank">www.vidaslusofonas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Seis Séculos Pintura Portuguesa</td>
+                                            <td><a href="http://www.uc.pt/artes/6spp/" target="_blank">www.uc.pt/artes/6spp/</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2" ><strong>Associações de Classe</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Anetie-Associação Nacional das Empresas dasTecnologias de Informação e Electrónica</td>
+                                            <td><a href="http://www.anetie.pt/" target="_blank">www.anetie.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Associação Empresarial de Portugal</td>
+                                            <td><a href="http://www.aeportugal.pt/" target="_blank">www.aeportugal.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Associação Industrial Portuguesa</td>
+                                            <td><a href="http://www.aip.pt/" target="_blank">www.aip.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Associação Nacional dos Jovens Empresários - ANJE</td>
+                                            <td><a href="http://www.anje.pt/">www.anje.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>APMP- Associação para a Promoção do Multimédia em Portugal</td>
+                                            <td><a href="http://www.apmp.pt/" target="_blank">www.apmp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cefamol - Associação Nacional da Indústria de Moldes</td>
+                                            <td><a href="http://www.cefamol.pt/" target="_blank">www.cefamol.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong><a id="bb" name="bb"></a>Bancos / Bolsas</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Banco Central Europeu</td>
+                                            <td><a href="http://www.ecb.int/" target="_blank">www.ecb.int</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Banco de Portugal</td>
+                                            <td><a href="http://www.bportugal.pt/" target="_blank">www.bportugal.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Banco Espirito Santo</td>
+                                            <td><a href="http://www.bes.pt/" target="_blank">www.bes.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bolsa de Valores de Lisboa</td>
+                                            <td><a href="http://pt.portaldebolsa.com/pt/index_entry.asp" target="_blank">www.bvl.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Caixa Geral de Depósitos</td>
+                                            <td><a href="http://www.cgd.pt/" target="_blank">www.cgd.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Banco 7</td>
+                                            <td><a href="http://www.banco7.pt/" target="_blank">www.banco7.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Câmbios</td>
+                                            <td><a href="http://www.guianet.pt/cambios/default.shtml" target="_blank">www.guianet.pt/cambios/default.shtml</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Canal de Negócios</td>
+                                            <td><a href="http://www.negocios.pt/" target="_blank">www.negocios.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Bibliotecas</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Biblioteca Nacional de Lisboa</td>
+                                            <td><a href="http://www.bn.pt/" target="_blank">http://www.bn.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Busca / Portais</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aeiou de Portugal</td>
+                                            <td><a href="http://www.aeiou.pt/" target="_blank">http://www.aeiou.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cidade Virtual</td>
+                                            <td><a href="http://www.cidadevirtual.pt/" target="_blank">http://www.cidadevirtual.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Correio gratuito</td>
+                                            <td><a href="http://www.portugalmail.pt/" target="_blank">http://www.portugalmail.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eunet</td>
+                                            <td><a href="http://www.eunet.pt/" target="_blank">http://www.eunet.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>FBNet</td>
+                                            <td><a href="http://www.fbnet.pt/" target="_blank">http://www.fbnet.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gertrudes - Lusófonos</td>
+                                            <td><a href="http://www.gertrudes.com/" target="_blank">http://www.gertrudes.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal-info</td>
+                                            <td><a href="http://www.portugal-info.com/" target="_blank">http://www.portugal-info.com/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sapo (Servidor de Apontadores)</td>
+                                            <td><a href="http://www.sapo.pt/" target="_blank">http://www.sapo.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Telepac</td>
+                                            <td><a href="http://www.telepac.pt/" target="_blank">http://www.telepac.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Terra Portugal</td>
+                                            <td><a href="http://www.telepac.pt/" target="_blank">http://www.terraportugal.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Terràvista</td>
+                                            <td><a href="http://www.telepac.pt/" target="_blank">http://www.terravista.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Clubes desportivos</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Benfica</td>
+                                            <td><a href="http://www.slbenfica.pt/">www.slbenfica.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Boavista</td>
+                                            <td><a href="http://www.boavistafc.pt/">www.boavistafc.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Guimarães</td>
+                                            <td><a href="http://www.vitoriasc.pt/">www.vitoriasc.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Porto</td>
+                                            <td><a href="http://www.fcporto.pt/">www.fcporto.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sporting</td>
+                                            <td><a href="http://www.scp.pt/">www.scp.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Culinária</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bacalhau-MariaElizabethLamosa</td>
+                                            <td><a href="http://www.bacalhau.com.br/portugal.html" target="_blank">www.bacalhau.com.br/portugal.html</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comezainas</td>
+                                            <td><a href="http://comezainas.clix.pt/" target="_blank">http://comezainas.clix.pt/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal em linha – Receitas</td>
+                                            <td><a href="http://www.portugal-linha.pt/sabores" target="_blank">www.portugal-linha.pt/sabores</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Roteiro Gastronómico de Portugal</td>
+                                            <td><a href="http://www.gastronomias.com/" target="_blank">www.gastronomias.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinho do Porto</td>
+                                            <td><a href="http://www.ivp.pt/" target="_blank">www.ivp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vinhos verdes</td>
+                                            <td><a href="http://www.cvrvv.pt/" target="_blank">www.cvrvv.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Cultura e Lazer</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Directório Cultural Português</td>
+                                            <td><a href="http://www.gri.pt/directorio.asp" target="_blank">http://www.gri.pt/directorio.asp</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gabinete das Relações Culturais Internacionais</td>
+                                            <td><a href="http://www.grci.pt/" target="_blank">http://www.grci.pt/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Net Parque</td>
+                                            <td><a href="http://www.netparque.pt/" target="_blank">www.netparque.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Vidas Lusófonas</td>
+                                            <td><a href="http://www.vidaslusofonas.pt/" target="_blank">www.vidaslusofonas.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Dicionários e Enciclopédias</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dúvidas sobre Língua Portuguesa</td>
+                                            <td><a href="http://www.ciberduvidas.com/" target="_blank">www.ciberduvidas.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dicionário do Porto Editora</td>
+                                            <td><a href="http://www.portoeditora.pt/dol" target="_blank">www.portoeditora.pt/dol</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dicionário Universal On-line</td>
+                                            <td><a href="http://www.priberam.pt/dlpo" target="_blank">www.priberam.pt/dlpo</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Enciclopédia Universal</td>
+                                            <td><a href="http://www.universal.pt/" target="_blank">www.universal.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Educativos</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Educare Soluções Educativas SA</td>
+                                            <td><a href="http://www.edunau.net/" target="_blank">www.edunau.net</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Língua Portuguesa</td>
+                                            <td><a href="http://www.ciberduvidas.com/" target="_blank">www.ciberduvidas.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Literatura – Projecto Vercial</td>
+                                            <td><a href="http://www.ipn.pt/literatura" target="_blank">www.ipn.pt/literatura</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Programa Internet na Escola</td>
+                                            <td><a href="http://www.uarte.mct.pt/" target="_blank">www.uarte.mct.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Xadrez (Ass.Port.MestresXadrez)</td>
+                                            <td><a href="http://www.apmx.pt/" target="_blank">www.apmx.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Feiras</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Feira Internacional de Lisboa – FIL</td>
+                                            <td><a href="http://www.fil.pt/" target="_blank">www.fil.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Feira Internacional Porto – Exponor</td>
+                                            <td><a href="http://www.exponor.pt/" target="_blank">www.exponor.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Expolider</td>
+                                            <td><a href="http://www.expolider.pt/" target="_blank">www.expolider.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Exposalão</td>
+                                            <td><a href="http://www.exposalao.pt/" target="_blank">www.exposalao.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>AICEP Portugal Global</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Agência para o Investimento e o Comércio Externo EPE</td>
+                                            <td><a href="http://www.portugalglobal.pt/" target="_blank">www.portugalglobal.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Comprar em Portugal</td>
+                                            <td><a href="http://a.icep.pt/empresas/empresas_exp.asp">a.icep.pt/empresas/empresas_exp.asp</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Investir em Portugal</td>
+                                            <td><a href="http://www.investinportugal.pt/MCMSAPI_vPT/HomePage" target="_blank">http://www.investinportugal.pt/MCMSAPI_vPT/HomePage</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Informações</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carreiras Intrernacionais</td>
+                                            <td><a href="http://www.carreirasinternacionais.eu/" target="_blank">www.carreirasinternacionais.eu/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Abertura de Empresas</td>
+                                            <td><a href="http://www.cfe.iapmei.pt/" target="_blank">www.cfe.iapmei.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cidade Virtual Telepac</td>
+                                            <td><a href="http://www.cidadevirtual.pt/" target="_blank">www.cidadevirtual.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Código Postal dos Correios</td>
+                                            <td><a href="http://www.ctt.pt/CodigoPostal/CodigoPostal.jsp" target="_blank">www.ctt.pt/CodigoPostal/CodigoPostal.jsp</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Europa Home Page</td>
+                                            <td><a href="http://www.europa.eu.int/" target="_blank">www.europa.eu.int</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Gertrudes</td>
+                                            <td><a href="http://www.gertrudes.com/" target="_blank">www.gertrudes.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Informações sobre Portugal</td>
+                                            <td><a href="http://www.portugalnet.pt/" target="_blank">www.portugalnet.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IAPMEI – Instituto de Apoio às Pequenas e Médias Empresas e ao Investimento</td>
+                                            <td><a href="http://www.iapmei.pt/" target="_blank">www.iapmei.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Jurisprudência</td>
+                                            <td><a href="http://www.dgsi.pt/" target="_blank">www.dgsi.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Lista de sites portugueses</td>
+                                            <td><a href="http://www.clicknet.telepac.pt/" target="_blank">www.clicknet.telepac.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Listas telefónicas</td>
+                                            <td><a href="http://www.118.pt/" target="_blank">www.118.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Listas telefónicas / fax</td>
+                                            <td><a href="http://www.telecom.pt/" target="_blank">www.telecom.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Luso Planet</td>
+                                            <td><a href="http://www.lusoplanet.com/" target="_blank">www.lusoplanet.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oportunidades de negócios</td>
+                                            <td><a href="http://www.icep.pt/" target="_blank">www.icep.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Páginas Amarelas</td>
+                                            <td><a href="http://www.paginasamarelas.pt/" target="_blank">www.paginasamarelas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pesquisa Marcas e Produtos</td>
+                                            <td><a href="http://www.mweb.pt/" target="_blank">www.mweb.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pesquisa Empresas – GuiaNet</td>
+                                            <td><a href="http://www.guianet.pt/" target="_blank">www.guianet.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal em Linha- Lusofonia</td>
+                                            <td><a href="http://www.portugal-linha.pt/" target="_blank">www.portugal-linha.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal in Business (Oportunidades de Negócios)</td>
+                                            <td><a href="http://www.portugalinbusiness.com/" target="_blank">www.portugalinbusiness.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Visit Portugal (Turismo)</td>
+                                            <td><a href="http://www.portugalinsite.pt/" target="_blank">www.visitportugal.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal News (Noticias)</td>
+                                            <td><a href="http://www.portugalnews.pt/" target="_blank">www.portugalnews.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal Offer (500 melhores)</td>
+                                            <td><a href="http://www.portugaloffer.pt/" target="_blank">www.portugaloffer.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Centro de Informação Europeia Jacques Delors</td>
+                                            <td><a href="http://www.cijdelors.pt/" target="_blank">www.cijdelors.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Museus</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aquário Vasco da Gama</td>
+                                            <td><a href="http://www.aquariovgama.pt/" target="_blank">www.aquariovgama.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Centro Nacional de Cultura</td>
+                                            <td><a href="http://www.cnc.pt/" target="_blank">www.cnc.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Casa do Fado e da Guitarra Portuguesa</td>
+                                            <td><a href="http://www.ebahl.pt/casadofado" target="_blank">www.ebahl.pt/casadofado</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fundação Engº António de Almeida</td>
+                                            <td><a href="http://www.feaa.pt/" target="_blank">www.feaa.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fundação Ricardo Espirito Santo Silva</td>
+                                            <td><a href="http://www.fess.pt/" target="_blank">www.fess.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fundação Calouste Gulbenkian</td>
+                                            <td><a href="http://www.gulbenkian.pt/" target="_blank">www.gulbenkian.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fundação Mário Soares</td>
+                                            <td><a href="http://www.fundacao-mario-soares.pt/" target="_blank">www.fundacao-mario-soares.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IPM – Inst.Português Museus</td>
+                                            <td><a href="http://www.ipmuseus.pt/" target="_blank">www.ipmuseus.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Museu do Ar</td>
+                                            <td><a href="http://www.emfa.pt/museu/pag1a.asp" target="_blank">www.emfa.pt/museu/pag1a.asp</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Museu da Marinha</td>
+                                            <td><a href="http://www.museumarinha.pt/" target="_blank">www.museumarinha.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Museu Nacional de Arte Antiga</td>
+                                            <td><a href="http://www.mnarteantiga-ipmuseus.pt/" target="_blank">www.mnarteantiga-ipmuseus.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Museu Nacional dos Coches</td>
+                                            <td><a href="http://www.museudoscoches-ipmuseus.pt/" target="_blank">www.museudoscoches-ipmuseus.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Torre do Tombo</td>
+                                            <td><a href="http://www.iantt.pt/" target="_blank">www.iantt.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Universidades</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade Técnica de Lisboa</td>
+                                            <td><a href="http://www.utl.pt/" target="_blank">www.utl.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade de Aveiro</td>
+                                            <td><a href="http://www.ua.pt/" target="_blank">www.ua.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade de Coimbra</td>
+                                            <td><a target="_blank">www.uc.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade de Évora</td>
+                                            <td><a href="http://www.uevora.pt/" target="_blank">www.uevora.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade de Lisboa</td>
+                                            <td><a href="http://www.ul.pt/" target="_blank">www.ul.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade do Minho</td>
+                                            <td><a href="http://www.uminho.pt/" target="_blank">www.uminho.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade do Porto</td>
+                                            <td><a href="http://www.up.pt/" target="_blank">www.up.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade Lusíada</td>
+                                            <td><a href="http://www.ulusiada.pt/" target="_blank">www.ulusiada.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade Nova de Lisboa</td>
+                                            <td><a href="http://www.unl.pt/" target="_blank">www.unl.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Universidade de Trás-os-Montes e Alto Douro</td>
+                                            <td><a href="http://www.utad.pt/pt/index.asp" target="_blank">www.utad.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Ordens Profissionais</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Advogados</td>
+                                            <td><a href="http://www.oa.pt/" target="_blank">www.oa.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Engenheiros</td>
+                                            <td><a href="http://www.ordeng.pt/" target="_blank">www.ordeng.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Médicos</td>
+                                            <td><a href="http://www.ordemdosmedicos.pt/" target="_blank">www.ordemdosmedicos.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Economistas</td>
+                                            <td><a href="http://www.ordemeconomistas.pt/" target="_blank">www.ordemeconomistas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Médicos Dentistas</td>
+                                            <td><a href="http://www.ordemedicosdentistas.pt/" target="_blank">www.ordemedicosdentistas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Enfermeiros</td>
+                                            <td><a href="http://www.ordemenfermeiros.pt/" target="_blank">www.ordemenfermeiros.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Médicos Veterinários</td>
+                                            <td><a href="http://www.omveterinarios.pt/" target="_blank">www.omveterinarios.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Farmacêuticos</td>
+                                            <td><a href="http://www.ordemfarmaceuticos.pt/" target="_blank">www.ordemfarmaceuticos.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ordem dos Arquitectos</td>
+                                            <td><a href="http://www.ordemdosarquitectos.pt/" target="_blank">www.ordemdosarquitectos.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Orgãos de Soberania</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Presidência da República</td>
+                                            <td><a href="http://www.presidenciarepublica.pt/" target="_blank">www.presidenciarepublica.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Assembleia da República</td>
+                                            <td><a href="http://www.parlamento.pt/" target="_blank">www.parlamento.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tribunal Constitucional</td>
+                                            <td><a href="http://www.tribunalconstitucional.pt/" target="_blank">www.tribunalconstitucional.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Supremo Tribunal de Justiça</td>
+                                            <td><a href="http://www.stj.pt/" target="_blank">www.stj.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Procuradoria Geral República</td>
+                                            <td><a href="http://www.pgr.pt/" target="_blank">www.pgr.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Presidência do Conselho de Ministros</td>
+                                            <td><a href="http://www.portugal.gov.pt/" target="_blank">www.portugal.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Administração Interna</td>
+                                            <td><a href="http://www.mai.gov.pt/" target="_blank">www.mai.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Agricultura, Desenvolvimento Rural e das Pescas</td>
+                                            <td><a href="http://www.min-agricultura.pt/" target="_blank">www.min-agricultura.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério do Ambiente, do Ordenamento do Território e do Desenvolvimento Regional</td>
+                                            <td><a href="http://www.maotdr.gov.pt/" target="_blank">www.maotdr.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Ciência, Tecnologia e Ensino Superior</td>
+                                            <td><a href="http://www.mctes.pt/" target="_blank">http://www.mctes.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Cultura</td>
+                                            <td><a href="http://www.min-cultura.pt/" target="_blank">www.min-cultura.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Defesa Nacional</td>
+                                            <td><a href="http://www.mdn.gov.pt/" target="_blank">www.mdn.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Economia e da Inovação</td>
+                                            <td><a href="http://www.min-economia.pt/" target="_blank">www.min-economia.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Educação</td>
+                                            <td><a href="http://www.min-edu.pt/" target="_blank">www.min-edu.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Justiça</td>
+                                            <td><a href="http://www.mj.gov.pt/" target="_blank">www.mj.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério da Saúde</td>
+                                            <td><a href="http://www.min-saude.pt/" target="_blank">www.min-saude.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério do Trabalho e da Solidariedade Social</td>
+                                            <td><a href="http://www.mtss.gov.pt/" target="_blank">www.mtss.gov.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério das Finanças e da Administração Pública</td>
+                                            <td><a href="http://www.min-financas.pt/" target="_blank">www.min-financas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério das Obras Públicas, Transportes e Habitação</td>
+                                            <td><a href="http://www.moptc.pt/" target="_blank">http://www.moptc.pt/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ministério dos Negócios Estrangeiros</td>
+                                            <td><a href="http://www.min-nestrangeiros.pt/" target="_blank">www.min-nestrangeiros.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Secretaria de Estado das Comunidades Portuguesas</td>
+                                            <td><a target="_blank">www.secomunidades.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direcção Geral das Alfândegas</td>
+                                            <td><a href="http://www.dgaiec.min-financas.pt/" target="_blank">www.dgaiec.min-financas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direcção Geral da Energia</td>
+                                            <td><a href="http://www.dge.pt/" target="_blank">www.dge.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direcção Geral de Estudos e Previsão</td>
+                                            <td><a href="http://www.dgep.pt/" target="_blank">www.dgep.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direcção Geral dos Impostos</td>
+                                            <td><a href="http://www.dgci.min-financas.pt/" target="_blank">www.dgci.min-financas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Direcção Geral de Viação</td>
+                                            <td><a href="http://www.dgv.pt/" target="_blank">www.dgv.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Agência Portuguesa para o Investimento</td>
+                                            <td><a href="http://www.investinportugal.pt/" target="_blank">www.investinportugal.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Autoridade Nacional de Comunicações (ANACOM)</td>
+                                            <td><a href="http://www.icp.pt/" target="_blank">www.icp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IAPMEI – Apoio às Pequenas e Médias Empresas e ao Investimento</td>
+                                            <td><a href="http://www.iapmei.pt/" target="_blank">www.iapmei.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IC – Instituto Camões</td>
+                                            <td><a href="http://www.iapmei.pt/" target="_blank">www.instituto-camoes.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ICN – Instituto da Conservação da Natureza</td>
+                                            <td><a href="http://www.icn.pt/" target="_blank">www.icn.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Instituto de Desenvolvimento Rural e Hidráulica</td>
+                                            <td><a href="http://www.idrha.min-agricultura.pt/" target="_blank">http://www.idrha.min-agricultura.pt/</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Imprensa Nacional Casa Moeda</td>
+                                            <td><a href="http://www.incm.pt/" target="_blank">www.incm.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Instituto do Consumidor</td>
+                                            <td><a href="http://www.ic.pt/" target="_blank">www.ic.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>INE – Instituto Nacional Estatística</td>
+                                            <td><a href="http://www.ine.pt/" target="_blank">www.ine.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>INPI – Instituto Nacional da Propriedade Industrial</td>
+                                            <td><a href="http://www.inpi.pt/" target="_blank">www.inpi.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IPQ – Instituto Português da Qualidade</td>
+                                            <td><a href="http://www.ipq.pt/" target="_blank">www.ipq.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>IVP – Instituto do Vinho do Porto</td>
+                                            <td><a href="http://www.ivp.pt/" target="_blank">www.ivp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>LNEC – Laboratório Nacional de Engenharia Civil</td>
+                                            <td><a href="http://www.lnec.pt/" target="_blank">www.lnec.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Marinha Portuguesa</td>
+                                            <td><a href="http://www.marinha.pt/" target="_blank">www.marinha.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Meteo – Instituto de Meteorologia</td>
+                                            <td><a target="_blank">www.meteo.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>ACIME - Alto Comissariado para a Emigração e Minorias Étnicas</td>
+                                            <td><a href="http://www.acime.gov.pt/" target="_blank">www.acime.gov.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Rádio</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rádio Comercial</td>
+                                            <td><a href="http://www.radiocomercial.pt/" target="_blank">www.radiocomercial.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rádio Difusão Portuguesa RDP</td>
+                                            <td><a href="http://www.rdp.pt/" target="_blank">www.rdp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rádio Notícias – TSF</td>
+                                            <td><a href="http://www.tsf.pt%20/" target="_blank">www.tsf.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rádio Renascença</td>
+                                            <td><a href="http://www.rr.pt/" target="_blank">www.rr.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Televisão</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>RTP</td>
+                                            <td><a href="http://www.rtp.pt/" target="_blank">www.rtp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>SIC</td>
+                                            <td><a href="http://www.sic.pt/" target="_blank">www.sic.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TVI</td>
+                                            <td><a target="_blank">www.tvi.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                                <li>
+                                    <table>
+                                        <tbody>
+                                        <tr>
+                                            <td colspan="2"><strong>Turismo</strong></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Açores</td>
+                                            <td><a href="http://www.drtacores.pt/" target="_blank">www.drtacores.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Aeroportos de Portugal (Horários)</td>
+                                            <td><a href="http://www.ana-aeroportos.pt/" target="_blank">www.ana-aeroportos.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Área metropolitana de Lisboa</td>
+                                            <td><a href="http://www.aml.pt/" target="_blank">www.aml.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Área metropolitana do Porto</td>
+                                            <td><a href="http://www.amp.pt/" target="_blank">www.amp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Caminhos de Ferro Portugueses</td>
+                                            <td><a href="http://www.cp.pt/" target="_blank">www.cp.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Casino do Estoril</td>
+                                            <td><a href="http://www.casino-estoril.pt/" target="_blank">www.casino-estoril.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Casino de Espinho</td>
+                                            <td><a href="http://www.maisturismo.pt/casespin" target="_blank">www.maisturismo.pt/casespin</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Solverde</td>
+                                            <td><a href="http://www.solverde.pt/" target="_blank">www.solverde.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Chaves - Forte de São Francisco</td>
+                                            <td><a href="http://www.forte-s-francisco-hoteis.pt/" target="_blank">www.forte-s-francisco-hoteis.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fado de Coimbra</td>
+                                            <td><a href="http://www.velhaguarda.com/" target="_blank">www.velhaguarda.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fátima - Região de Turismo</td>
+                                            <td><a href="http://www.rt-leiriafatima.pt/" target="_blank">www.rt-leiriafatima.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Golfe</td>
+                                            <td><a href="http://www.portugalgolf.pt/" target="_blank">www.portugalgolf.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inatel</td>
+                                            <td><a href="http://www.inatel.pt/" target="_blank">www.inatel.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Images of Portugal</td>
+                                            <td><a href="http://www.imagesofportugal.com/" target="_blank">www.imagesofportugal.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Turismo de Lisboa</td>
+                                            <td><a href="http://www.atl-turismolisboa.pt/" target="_blank">www.atl-turismolisboa.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Madeira</td>
+                                            <td><a href="http://www.madeiratourism.org/" target="_blank">www.madeiratourism.org</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Praias de Portugal</td>
+                                            <td><a href="http://www.beachcam.pt/" target="_blank">www.beachcam.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal Turismo</td>
+                                            <td><a href="http://www.portugal.org/" target="_blank">www.portugal.org</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal Hotel Guide</td>
+                                            <td><a href="http://www.maisturismo.pt/" target="_blank">www.maisturismo.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugal In Site (Turismo)</td>
+                                            <td><a href="http://www.portugalinsite.pt/" target="_blank">www.portugalinsite.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Portugália (Linha aérea)</td>
+                                            <td><a href="http://www.pga.pt/" target="_blank">www.pga.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Pousadas de Portugal – Enatur</td>
+                                            <td><a href="http://www.pousadas.pt/" target="_blank">www.pousadas.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Rede Nacional Expressos - RE</td>
+                                            <td><a href="http://www.rede-expressos.pt/" target="_blank">www.rede-expressos.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Serra da Estrela</td>
+                                            <td><a href="http://www.serradaestrela.com/" target="_blank">www.serradaestrela.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>TAP Air Portugal</td>
+                                            <td><a href="http://www.tap.pt/" target="_blank">www.tap.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Terminal Rodoviário Eva</td>
+                                            <td><a href="http://www.eva-transportes.pt/" target="_blank">www.eva-transportes.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tesouros de Portugal - Hotéis</td>
+                                            <td><a href="http://www.portugaltreasures.com/" target="_blank">www.portugaltreasures.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Turismo no Algarve</td>
+                                            <td><a href="http://www.rtalgarve.pt/" target="_blank">www.rtalgarve.pt</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="30">Webletter Estoril Live</td>
+                                            <td><a href="http://www.estorilive.com/">www.estorilive.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Turismo em Lisboa</td>
+                                            <td><a href="http://lisboainside.lpm.com.pt/">www.lisboainside.lpm.com.pt</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+                <!-- CONTACTOS -->
+                <nav id="contacts">
+                    <ul>
+                        <li><a href="#contacts-localidade">localidade</a></li>
+                        <li><a href="#contacts-contacto">contactar a embaixada</a></li>
+                        <li><a href="#contacts-pedidos">pedidos oficiais</a></li>
+                    </ul>
+                </nav>
+                <div class="articles">
+                    <!-- localização -->
+                    <article id="contacts-localidade" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#contacts" title="Contactos"></a>
+                        <div class="article wrapper" id="localidade-article">
+                            <h1>Endereço Postal</h1>
+                            <p>Setor Embaixadas Sul<br>
+                                Avenida das Nações - Quadra 801 - Lote 2<br>
+                                CEP 70 402 - 900<br>
+                                Brasilia - Distrito Federal<br>
+                                Brasil</p>
+                            <h1>Contactos</h1>
+                            <p>Telefone :(0xx61) 3032 9600<br>
+                                Fax : (0xx61) 3032 9642<br>
+                                E-mail: <a href="mailto:embaixadadeportugal@embaixadadeportugal.org.br" onfocus="if(this.blur)this.blur()">embaixadadeportugal@embaixadadeportugal.org.br</a></p>
+                            <h1>Horário de funcionamento da Embaixada</h1>
+                            <p>2ª a 5ª das   9:00 às 13:00 e das 14:30 às 17:30 horas <br>
+                                6ª feira - das 8:00 às 13:00 horas e das 14:00 às 16:00<br>
+                                Horário  de atendimento presencial: de 2ª a 6ª feira, das 8:30 às 13:00 horas
+                            </p>
+
+                        </div>
+                    </article>
+                    <!-- contactar a embaixada -->
+                    <article id="contacts-contacto" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#contacts" title="Contactos"></a>
+                        <div class="article wrapper">
+                            <h1>Contactar a Embaixada</h1>
+                            <form id="contact-form" action="#" method="post" onsubmit="alert('Mensagem enviada com sucesso.'); return false;">
+                                <fieldset>
+                                    <legend>Todos os campos com um * são obrigatórios.</legend>
+                                    <div>
+                                        <label id="form_contact_name-lbl" for="form_contact_name" title="">Nome<span class="star">&nbsp;*</span></label>
+                                        <input type="text" name="form[contact_name]" id="form_contact_name" value="" size="30" required aria-required="true" placeholder="O seu nome" aria-invalid="false">
+                                    </div>
+                                    <div>
+                                        <label id="form_contact_email-lbl" for="form_contact_email" title="">Email<span class="star">&nbsp;*</span></label>
+                                        <input type="email" name="form[contact_email]" id="form_contact_email" value="" size="30" required aria-required="true" placeholder="O endereço de correio electrónico" >
+                                    </div>
+                                    <div>
+                                        <label id="form_contact_emailmsg-lbl" for="form_contact_emailmsg" title="&lt;strong&gt;Assunto&lt;/strong&gt;&lt;br /&gt;Enter the subject of your message here ." aria-invalid="false">Assunto<span class="star">&nbsp;*</span></label>
+                                        <input placeholder="O assunto da mensagem" type="text" name="form[contact_subject]" id="form_contact_emailmsg" value="" size="60" required="" aria-required="true" class="" aria-invalid="false">
+                                    </div>
+                                    <div>
+                                        <label id="jform_contact_message-lbl" for="jform_contact_message" title="&lt;strong&gt;Mensagem&lt;/strong&gt;&lt;br /&gt;Enter your message here." aria-invalid="false">Mensagem<span class="star">&nbsp;*</span></label>
+                                        <textarea placeholder="Escreva a sua mensagem aqui." name="jform[contact_message]" id="jform_contact_message" cols="50" rows="10" required="" aria-required="true" style="margin: 0px; width: 220px; height: 180px;" class="" aria-invalid="false"></textarea>
+                                    </div>
+                                    <!-- Anexo -->
+                                    <div>
+                                        <label id="attachement-label" for="attachement" title="Anexo">Anexar PDF</label>
+                                        <input type="file" accept="pdf" placeholder="Junte um documento." name="form[attachment]" id="attachement">
+                                    </div>
+                                    <div>
+                                        <label id="jform_contact_email_copy-lbl" for="jform_contact_email_copy" class="hasTooltip" title="" data-original-title="&lt;strong&gt;Enviar-me uma cópia&lt;/strong&gt;&lt;br /&gt;Envia uma cópia da mensagem para o endereço que forneçeu.">Enviar-me uma cópia</label>
+                                        <input type="checkbox" name="jform[contact_email_copy]" id="jform_contact_email_copy" value="1">
+                                    </div>
+                                    <div class="form-submit">
+                                        <button style="padding: 4px 9px;cursor: pointer" type="submit" >Enviar Email</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </article>
+                    <!-- Pedidos Oficiais -->
+                    <article id="contacts-pedidos" class="selected">
+                        <a class="icon icon-place" title="Mapa do Sítio" href="#footer" ></a>
+                        <a class="icon icon-up" href="#top" title="Topo"></a>
+                        <a class="icon icon-left" href="#contacts" title="Contactos"></a>
+                        <div class="article wrapper">
+                            <h1>Pedidos Oficiais</h1>
+                            <form id="document-form" action="#" method="post" onsubmit="alert('Mensagem enviada com sucesso.'); return false;">
+                                <fieldset>
+                                    <legend>Todos os campos com um * são obrigatórios.</legend>
+                                    <!-- Nome -->
+                                    <div>
+                                        <label for="request_name" title="">Nome <span class="star">*</span></label>
+                                        <input type="text" name="form[request_name]" id="request_name" value="" size="30" required aria-required="true" placeholder="O seu nome" aria-invalid="false">
+                                    </div>
+                                    <!-- Identificação -->
+                                    <div>
+                                        <label for="request_id" title="">Identificação <span class="star">*</span></label>
+                                        <select>
+                                            <option value="id">B.I. / C.C.</option>
+                                            <option value="passport">Passaporte</option>
+                                        </select>
+                                        <input style="width: 110px; display: inline-block" type="text" name="request_id" id="request_id" placeholder="Número" value="" required>
+                                    </div>
+                                    <!-- Idade -->
+                                    <div>
+                                        <label for="age" title="">Idade</label>
+                                        <input placeholder="6-100" style="width: inherit" id="age" name="age" type="number" min="6" max="100" value="">
+                                    </div>
+                                    <!-- Sexo -->
+                                    <div id="sexo">
+                                        <label title="Género" style="vertical-align: middle">Sexo</label>
+                                        <input id="male" type="radio" name="sex" value="male" style="vertical-align: middle"><label style="width: inherit; vertical-align: middle; margin: 0; padding: 0" for="male">Masculino &nbsp; </label>
+                                        <input id="female" type="radio" name="sex" value="female" style="vertical-align: middle"><label style="width: inherit; vertical-align: middle; margin: 0; padding: 0" for="female">Feminino</label>
+                                    </div>
+                                    <!-- Morada -->
+                                    <div>
+                                        <label for="address" title="">Morada <span class="star">*</span></label>
+                                        <input type="text" name="form[address]" id="address" value="" size="30" required aria-required="true" placeholder="O seu endereço postal" >
+                                    </div>
+                                    <!-- Assunto -->
+                                    <div>
+                                        <label id="subject-label" for="subject" title="">Assunto</label>
+                                        <select id="subject" onchange="if(this.value==5) this.setAttribute('class','outro'); else this.setAttribute('class','')" >
+                                            <option value = "1">Economia</option>
+                                            <option value = "2">Educação</option>
+                                            <option value = "3">Apoio Jurídico</option>
+                                            <option value = "4">Reclamação</option>
+                                            <option value = "5">Outro</option>
+                                        </select>
+                                        <input value="" placeholder="Escreva o assunto do pedido aqui.">
+                                    </div>
+                                    <!-- Descrição -->
+                                    <div>
+                                        <label id="description-label" for="description" title="Descrição" aria-invalid="false">Descrição</label>
+                                        <textarea placeholder="Descreva o seu pedido aqui." name="form[description]" id="description" cols="50" rows="10" required="" aria-required="true" style="margin: 0px; width: 220px; height: 180px;" class="" aria-invalid="false"></textarea>
+                                    </div>
+                                    <div class="form-submit">
+                                        <button style="padding: 4px 9px;cursor: pointer" type="submit" >Enviar Pedido</button>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </article>
+                </div>
+            </section>
+            <aside></aside>
+            <footer id="footer">
+                <ul class="menu">
+                    <li>
+                        <ul class="lista-vertical">
+                            <a href="#">MAPA DO SÍTIO</a>
+                            <li><a href="#embassy-bem-vindo">Nota de Boas Vindas</a></li>
+                            <li><a href="#embassy-residencia">A Residência da Embaixada</a></li>
+                            <li><a href="#embassy-rede_consular">A Rede Consular</a></li>
+                            <li><a href="#embassy-pessoal">O Pessoal</a></li>
+                            <li><a href="#consular-vistos">Vistos</a></li>
+                            <li><a href="#consular-cartao_do_cidadao">Cartão do Cidadão</a></li>
+                            <li><a href="#consular-documentos">Documentação</a></li>
+                            <li><a href="#turism-portugal">Turismo em Portugal</a></li>
+                            <li><a href="#turism-brasil">Turismo no Brasil</a></li>
+                            <li><a href="#info-trabalhar_no_brasil">Trabalhar no Brasil</a></li>
+                            <li><a href="#info-atalhos">Endereços Úteis</a></li>
+                            <li><a href="#info-conselhos_a_viajantes">Conselhos a Viajantes</a></li>
+                            <li><a href="#contacts-localidade">Localização</a></li>
+                            <li><a href="#contacts-contacto">Contacto</a></li>
+                            <li><a href="#contacts-pedidos">Pedidos Oficiais</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul id="consulados-lista" class="lista-vertical">
+                            <a href="#consulados">REDE CONSULAR NO BRASIL</a>
+                            <li><a href="#consulado-1">Consulado em Belo Horizonte</a></li>
+                            <li><a href="#consulado-2">Secção Consular da Embaixada em Brasília</a></li>
+                            <li><a href="#consulado-3">Vice-Consulado em Curitiba</a></li>
+                            <li><a href="#consulado-4">Vice-Consulado em Porto Alegre</a></li>
+                            <li><a href="#consulado-5">Vice-Consulado em Recife</a></li>
+                            <li><a href="#consulado-6">Vice-Consulado em Fortaleza</a></li>
+                            <li><a href="#consulado-7">Consulado Geral no Rio de Janeiro</a></li>
+                            <li><a href="#consulado-8">Consulado Geral em São Paulo</a></li>
+                            <li><a href="#consulado-9">Consulado Geral em Salvador</a></li>
+                            <li><a href="#consulado-10">Consulado Honorário em São Luíz do Maranhão</a></li>
+                            <li><a href="#consulado-11">Consulado Honorário em Manaus </a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul id="governo" class="lista-vertical">
+                            <a href="#">GOVERNO DE PORTUGAL</a>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/a-constituicao-da-republica/a-constituicao-da-republica.aspx" >A Constituição da República</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-voto/o-voto.aspx">O voto</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-presidente-da-republica/o-presidente-da-republica.aspx">O Presidente da República</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/a-assembleia-da-republica/a-assembleia-da-republica.aspx">A Assembleia da República</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-governo/o-governo.aspx">O Governo</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/os-tribunais/os-tribunais.aspx">Os Tribunais</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/as-regioes-autonomas/as-regioes-autonomas.aspx">As Regiões Autónomas</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/o-poder-local/o-poder-local.aspx">O Poder Local</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/os-partidos-politicos/os-partidos-politicos.aspx">Os partidos políticos</a></li>
+                            <li><a href="http://www.portugal.gov.pt/pt/a-democracia-portuguesa/simbolos-nacionais.aspx">Os símbolos nacionais</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="logos">
+                    <li><a href="http://www.turismodeportugal.pt" title="Turismo de Portugal"><img alt="Turismo de Portugal" class="grayscale" src="images/turismo-portugal.jpg"></a></li>
+                    <li><a href="http://http://www.turismo.gov.br" title="Turismo no Brasil"><img alt="Turismo no Brasil" class="grayscale" src="images/brasil-turismo.jpg" height="40"></a></li>
+                    <li><a href="http://www.presidencia.pt" title="Presidência da República"><img alt="Presidência da República" class="grayscale" src="images/presidencia-republica.jpg"></a></li>
+                    <li><a href="http://www.portugal.gov.pt" title="Governo de Portugal"><img alt="Governo de Portugal" class="grayscale" src="images/logo-gov.png" height="50"></a></li>
+                </ul>
+                <a class="icon icon-up" title="Acima" href="#top"></a>
+                <div style="text-align: left; font-size: 90%; margin-top: 20px; margin-bottom: -10px; font-family: 'Open Sans', Helvetica, Arial, sans-serif; font-weight: 400; ">Copyright 2014 Embaixada de Portugal em Brasília, Ministério dos Negócios Estrangeiros de Portugal</div>
+            </footer>
+        </div>
+    </body>
+</html>
