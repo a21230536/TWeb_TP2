@@ -379,7 +379,8 @@
             if(arguments[1] == "error"){
                 // load section #home
                 // if theres isn't any section loaded and failed section is not #home 
-                if(!_this._loaded_section && section != "#home")  _this.section("#home");
+                if(!_this._loaded_section && section != "#home") location.hash = "#home";
+                else location.hash = _this._loaded_section;
             }
             else{
                 if(!location.hash.match(section)) location.hash = section;
