@@ -14,30 +14,20 @@
             <aside></aside>
             <footer></footer>
         </div>
-        <div id="screen" onclick="TP2.el(this).fadeOut('fast')"></div>
+        <div id="screen" onclick="TP2.hide(this)"></div>
         <script src="js/tweb/tweb.min.js"></script>
         <script type="text/javascript">
             window.TP2 = new TWeb;
-
             // conteúdos
             TP2.header("content/header.html");
             TP2.footer("content/footer.html");
             TP2.nav("content/nav.html");
-            TP2.aside("content/aside.html");
-
-            // optional: always start with this section
-            //TP2.section("#home");
-
-            // TP2 info banner e botão Fork me!
-            TP2.screen('tp2.html');
-            TP2.append("github.html");
+            //TP2.aside("content/aside.html");
+            //TP2.section("#home");// opcional
         </script>
         <noscript>
             <iframe src="noscript.html"></iframe>
-            <style type="text/css">
-                html { overflow:hidden; background-color:rgb(191,197,194); }
-                iframe{ position:absolute; margin:0; padding:0; height:100%; width:100%; }
-            </style>
+            <link rel="stylesheet" type="text/css" href="css/noscript.css">
         </noscript>
     </body>
 </html>

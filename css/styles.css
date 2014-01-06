@@ -12,11 +12,7 @@ article p a{
 }
 html {
     overflow-x: hidden;
-    /*
-    background-color: rgb(191,197,194);
-*/
 }
-
 body{
     margin: 0;
     padding: 0;
@@ -28,12 +24,6 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	font-weight: 400;
     width: 100%;
-    /*
-    position: absolute;
-    bottom: 0;
-    top: 0;
-    max-height: 5000px;
-    */
     min-height: 1024px;
     font-size: 14px;
     line-height: 22px;
@@ -235,26 +225,23 @@ pre{
 /*----------------------
     Sombras da Página
  *---------------------*/
-#body > nav, #body{
+#body > nav, 
+#body{
     position:relative;
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 100px rgba(0, 0, 0, 0.1) inset;
 }
-#body > nav:before, #body > nav:after, 
-#body:before,#body:after{
-    content:"";
-    position:absolute;
-    z-index:-1;
-    box-shadow:0 0 20px rgba(0,0,0,0.8);
-    top:0;
-    bottom:0;
-    left:10px;
-    right:10px;
-    border-radius:100px / 10px;
-}
-#body > nav:after, #body:after{
-    right:10px;
-    left:auto;
-    transform:skew(8deg) rotate(3deg);
+
+#body:before,
+#body:after{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    right: 10px;
+    border-radius: 100px / 10px;
 }
 
 /*-----------
@@ -475,6 +462,14 @@ ul.slideshow li{
     -webkit-animation: ciclo 24s infinite;
     animation: ciclo 24s infinite; /* 24s <= 6x 4s */
     opacity: 0;
+}
+ul.slideshow li span{
+    position: relative;
+    top: -40px;
+    padding: 5px 12px;
+    border-radius: 5px;
+    color: silver;
+    background-color: rgba(0,0,0,.7);
 }
 ul.slideshow li:nth-child(1){
     animation-delay: 0s;/* 0s <= 0x 4s */
