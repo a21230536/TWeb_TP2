@@ -1,0 +1,11 @@
+html { 
+	overflow:hidden; 
+	background-color:rgb(191,197,194); 
+}
+noscript iframe{ 
+	position:absolute; 
+	margin:0; 
+	padding:0; 
+	height:100%; 
+	width:100%; 
+}
