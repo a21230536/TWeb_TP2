@@ -83,13 +83,13 @@
         return this;
     },
     header: function(url){
-        return this._load("header", url);
+        return this._loadHTML("header", url);
     },
     footer: function(url){
-        return this._load("footer", url);
+        return this._loadHTML("footer", url);
     },
     nav: function(url){
-        return this._load("nav", url);
+        return this._loadHTML("nav", url);
     },
     aside: function(url){
         return this._load("aside", url, function(){
@@ -193,7 +193,6 @@
         $article.select = function(){
             var hash = "#" + $("#body > section").attr('id') + "/" + article;
             //location.hash = hash;
-
             this.siblings().removeClass('selected');
             $li.addClass("selected").siblings().removeClass("selected");
             this.addClass("selected");
@@ -381,6 +380,46 @@
         var head = document.getElementsByTagName("head");
         head[0].appendChild(script);
     },
+    _loadHTML: function(name, url, callback){
+        callback = callback || function(xmlhttp, status){
+            //console.log("DONE", xmlhttp, status);
+        };
+        var el = document.getElementsByTagName(name)[0];
+        this._loadXMLDoc(url, el, callback);
+        return el;
+    },
+    _loadXMLDoc: function(url, el, callback){
+        var xmlhttp;
+        // IE7+, Firefox, Chrome, Opera, Safari
+        if(window.XMLHttpRequest) xmlhttp = new XMLHttpRequest();
+        else xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");// IE6, IE5
+        xmlhttp.onreadystatechange = function(){
+            var message = "";
+            if(xmlhttp.readyState == 4){
+                switch(xmlhttp.status){
+                    case 200:// ok
+                        el.innerHTML = xmlhttp.responseText;
+                        var arr = el.getElementsByTagName('script');
+                        for (var n = 0; n < arr.length; n++) {
+                            var script = arr[n].innerHTML;
+                            //TOFIX delay to wait for loading HTML before evaluating javascript
+                            setTimeout(function(){
+                                eval(script);
+                                //console.log(script);
+                            }, 100);
+                        }
+                        message = "success";
+                        break;
+                    case 404:// not found
+                    default:
+                        message = "error";
+                }
+                if(typeof callback == "function") callback(xmlhttp, message);
+            }
+        }
+        xmlhttp.open("GET", url, true);
+        xmlhttp.send();
+    },
     /* HELPERS */
     _match: function(section){
         return section.match(/^(#[\w\-\_]+)\/([\w\-\_]+)$/i);
@@ -445,7 +484,6 @@
         $menuItem.addClass('selected').siblings().removeClass('selected');
     },
     _load: function(el, url, callback){
-
         //*/ not ready, put it on the 'when ready' stack
         var _this = this;
         if(!TWeb._ready){
