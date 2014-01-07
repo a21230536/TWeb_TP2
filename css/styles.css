@@ -264,7 +264,8 @@ figcaption {
 /*-----------
     ul menu
  *----------*/
-ul.links, ul.menu > li{
+ul.links, 
+ul.menu > li{
     display: inline-block;
     vertical-align: top;
     padding: 10px;
@@ -316,7 +317,7 @@ ul.lista-vertical > li a{
     transition: all 1.5s;
     box-shadow: 0 0 10px rgba(255,255,255,.75);
     opacity: .65;
-    background-image: url('../images/icons/sprite.png');
+   /* background-image: url('../images/icons/sprite.png');*/
 }
 .icon:hover{
     background-color: rgba(128,158,128,.7);
@@ -327,7 +328,9 @@ ul.lista-vertical > li a{
     opacity: 1;
 }
 .icon-up{
-    background-position: -96px -24px;
+    /*
+    background-position: -96px -24px;*/
+    background-image: url('../images/icons/up-dark.png');
 }
 
 .icon-music{
@@ -340,13 +343,18 @@ ul.lista-vertical > li a{
 }
 
 .icon-place{
-    background-position: -48px -24px;
+    /*
+    background-position: -48px -24px;*/
+    background-image: url('../images/icons/place-dark.png');
 }
 .icon-star{
-    background-position: -72px -25px;
+    /*background-position: -72px -25px;*/
+    background-image: url('../images/icons/star-dark.png');
 }
 .icon-flag{
-    background-position: 0 -24px;
+    /*
+    background-position: 0 -24px;*/
+    background-image: url('../images/icons/flag-dark.png');
 }
 .icon-music.selected{
     /*background-position: -25px 0;*/
